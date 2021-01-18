@@ -15,6 +15,19 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
 
+mix.webpackConfig({
+    devtool: 'source-map', // 開発ツールにscss行番号を表示させる
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                enforce: 'pre', // 'pre'がついていないローダーより早く処理が実行される
+                loader: 'import-glob-loader' // scssでglob使用
+            }
+        ]
+    }
+});
+
 // 自動リロード
 mix.browserSync({
     proxy: {

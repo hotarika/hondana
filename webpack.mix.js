@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -25,7 +26,15 @@ mix.webpackConfig({
                 loader: 'import-glob-loader' // scssでglob使用
             }
         ]
-    }
+    },
+    plugins: [
+        // stylelintの適用
+        new StylelintPlugin({
+            configFile: path.resolve(__dirname, '.stylelintrc.js'),
+            syntax: 'scss',
+            fix: true
+        })
+    ]
 });
 
 // 自動リロード

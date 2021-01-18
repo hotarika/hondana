@@ -18,7 +18,13 @@ module.exports = {
     },
     extends: [
         'stylelint-config-standard', // 基本的な設定
-        'stylelint-config-recess-order',
-        'stylelint-prettier/recommended' // prettier + stylelintのフォーマットを無効
+        'stylelint-config-recess-order', // 並び替え
+        'stylelint-prettier/recommended' // prettier+stylelintのフォーマットを無効（競合防止）
+    ],
+    ignoreFiles: [
+        '**/node_modules/**',
+        '**/public/**',
+        '**/vendor/**',
+        '**/_reset.scss'
     ]
 };

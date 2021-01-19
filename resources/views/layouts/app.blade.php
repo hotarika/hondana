@@ -58,9 +58,17 @@
             </div>
         </header>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="l-main">
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
+
+        <footer class="l-footer">
+            <img class="l-footer__logoIcon" src="{{asset('icon/logo/logoIcon.svg')}}" alt="ロゴアイコン">
+            <img class="l-footer__logo" src="{{asset('icon/logo/logo.svg')}}"
+                alt="ロゴ">
+        </footer>
     </div>
 </body>
 

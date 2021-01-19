@@ -10839,6 +10839,36 @@ a.text-dark:focus {
   }
 }
 
+.l-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background-color: #6c5146;
+}
+
+.l-footer__logoIcon {
+  width: 20px;
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .l-footer__logoIcon {
+    width: 20px;
+    margin-right: 4px;
+  }
+}
+
+.l-footer__logo {
+  width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .l-footer__logo {
+    width: 110px;
+  }
+}
+
 .l-header {
   z-index: 2;
   height: 60px;
@@ -10854,6 +10884,17 @@ a.text-dark:focus {
 
 .l-header > .container {
   height: 100%;
+}
+
+.l-main {
+  min-height: calc(100vh - 120px);
+  padding: 50px 0;
+}
+
+@media screen and (min-width: 414px) {
+  .l-main {
+    min-height: calc(100vh - 120px);
+  }
 }
 
 .p-header {

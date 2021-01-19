@@ -21,6 +21,15 @@ mix.webpackConfig({
     module: {
         rules: [
             {
+                test: /\.(js|vue)$/,
+                enforce: 'pre', // ES5に変換する前にコード検証を行う
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options: {
+                    fix: true // 一部のエラーを自動修正する
+                }
+            },
+            {
                 test: /\.scss$/,
                 enforce: 'pre', // 'pre'がついていないローダーより早く処理が実行される
                 loader: 'import-glob-loader' // scssでglob使用

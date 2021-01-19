@@ -5,60 +5,58 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <header class="l-header">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="p-header">
+                    {{-- logo --}}
+                    <div class="p-header__logoWrap">
+                        <a @guest href="/"
+                            @else href="{{route('home')}}"
+                            @endguest>
+                            <img class="p-header__logoIcon" src="{{asset('icon/logo/logoIcon.svg')}}" alt="ロゴアイコン">
+                            <img class="p-header__logo" src="{{asset('icon/logo/logo.svg')}}"
+                                alt="ロゴ">
+                        </a>
+                    </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    @guest {{-- ゲストユーザーの場合 --}}
 
-                    </ul>
+                    <nav class="p-header__nav">
+                        <ul class="p-header__navLists">
+                            <li class="p-header__navList -login">
+                                <a href="{{route('login')}}">ログイン</a>
+                            </li>
+                            <li class="p-header__navList -register">
+                                <a href="{{route('register')}}">会員登録</a>
+                            </li>
+                        </ul>
+                    </nav>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    @else {{-- ログインユーザーの場合 --}}
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                    {{-- navigation --}}
+                    <nav class="p-header__nav js-nav">
+                        <i class="far fa-times-circle p-header__menuClose js-closeIcon"></i>
+                        <ul class="p-header__navLists">
+                            <li class="p-header__navList -name">ここに名前が入ります</li>
+                            <li class="p-header__navList -myShelf">
+                                <a href=""><i class="fas fa-smile"></i>わたしの本棚</a>
+                            </li>
+                            <li class="p-header__navList -bookRegister">
+                                <a href=""><i class="fas fa-book"></i>本棚に登録</a>
+                            </li>
+                            <li class="p-header__navList -logout">
+                                <a href=""><i class="fas fa-sign-out-alt"></i>ログアウト</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <img class="p-header__menuOpen js-openIcon" src="{{asset('icon/bars-solid.svg')}}"
+                        alt="ハンバーガーメニュー" />
+                    @endguest
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
                 </div>
             </div>
-        </nav>
+        </header>
 
         <main class="py-4">
             @yield('content')

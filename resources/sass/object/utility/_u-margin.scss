@@ -5,6 +5,7 @@
 .u-m0 {
     margin: 0;
 }
+
 @for $value from 1 through 10 {
     .u-m#{$value} {
         margin: $value + px;

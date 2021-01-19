@@ -1,0 +1,125 @@
+.p-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    // logo
+    &__logoWrap {
+        white-space: nowrap;
+        @include mq('md') {
+            width: 50%;
+        }
+    }
+    &__logoIcon {
+        width: 20px;
+        margin-right: 2px;
+        @include mq('md') {
+            width: 25px;
+        }
+    }
+    &__logo {
+        width: 100px;
+        @include mq('md') {
+            width: 130px;
+        }
+    }
+
+    // navigation
+    &__nav {
+        position: fixed;
+        top: 0;
+        right: -70vw;
+        bottom: 0;
+        z-index: 3;
+        align-items: center;
+        justify-content: flex-end;
+        width: 70vw;
+        padding: 80px 0 0 50px;
+        background-color: rgba($color: #3e1616, $alpha: 0.8);
+        transition: 0.2s;
+        &.is-active {
+            transform: translateX(-70vw);
+        }
+        @include mq('md') {
+            position: static;
+            display: flex;
+            width: 50%;
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+    &__navForm {
+        @include border-radius('all');
+        display: none;
+        width: 100%;
+        height: 30px;
+        margin-right: 20px;
+        border: 1px solid $gray-200;
+        @include mq('md') {
+            display: flex;
+        }
+        & > input {
+            width: 100%;
+            padding: 0 10px;
+            font-size: 14px;
+            border: none;
+        }
+        & > button {
+            width: 40px;
+            border: none;
+        }
+    }
+    &__navLists {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        @include mq('md') {
+            display: flex;
+        }
+    }
+
+    &__navList {
+        margin-bottom: 15px;
+        font-size: 15px;
+        color: #fff8f8;
+        white-space: nowrap;
+        & > a {
+            color: #fff8f8;
+            & > i {
+                margin-right: 4px;
+            }
+        }
+        @include mq('md') {
+            margin: 0;
+            margin-right: 15px;
+            font-size: 13px;
+        }
+        &.-name {
+            @include ellipsis;
+            max-width: 90px;
+        }
+        &.-myShelf {
+            @include mq('md') {
+                // display: none;
+            }
+        }
+    }
+
+    &__menuOpen {
+        width: 25px;
+        @include mq('md') {
+            display: none;
+        }
+    }
+    &__menuClose {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+        color: $secondary;
+        @include mq('md') {
+            display: none;
+        }
+    }
+}

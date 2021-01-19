@@ -1,3 +1,6 @@
+$primary: #6c5146;
+$secondary: #fff8f8;
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -20,7 +23,7 @@
 // Object > Component
 @import 'object/component/*.scss';
 // Object > Project
-// @import 'object/project/*.scss';
+@import 'object/project/*.scss';
 // @import 'object/project/auth/*.scss';
 // Object > Utility
 @import 'object/utility/*.scss';

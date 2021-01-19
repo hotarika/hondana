@@ -1932,6 +1932,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37554,6 +37579,33 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("img", {
+    staticClass: "p-header__menuOpen js-openIcon",
+    attrs: { src: "icon/bars-solid.svg", alt: "ハンバーガーメニュー" }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49720,14 +49772,20 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/modules/sp-navigation */ "./resources/js/modules/sp-navigation.js");
+/* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -49742,6 +49800,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('toggle-navigation', __webpack_require__(/*! ./components/toggleNavigation.vue */ "./resources/js/components/toggleNavigation.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49868,6 +49927,123 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/toggleNavigation.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/toggleNavigation.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleNavigation.vue?vue&type=template&id=4e2362d3& */ "./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3&");
+/* harmony import */ var _toggleNavigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggleNavigation.vue?vue&type=script&lang=js& */ "./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _toggleNavigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/toggleNavigation.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_toggleNavigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./toggleNavigation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/toggleNavigation.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_toggleNavigation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./toggleNavigation.vue?vue&type=template&id=4e2362d3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/toggleNavigation.vue?vue&type=template&id=4e2362d3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_toggleNavigation_vue_vue_type_template_id_4e2362d3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/modules/sp-navigation.js":
+/*!***********************************************!*\
+  !*** ./resources/js/modules/sp-navigation.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// *************************************************
+// スマホ用ナビメニューの開閉
+//（Vueでは、「メニュー以外を押すと閉じる」機能が実装できないため、通常のjsで対応）
+// *************************************************
+window.addEventListener('DOMContentLoaded', function () {
+  var open = document.querySelector('.js-openIcon');
+  var close = document.querySelector('.js-closeIcon');
+  var target = document.querySelector('.js-nav');
+
+  if (open || close || target) {
+    // ①アイコンクリックでメニューバーを開く
+    open.addEventListener('click', function (e) {
+      // ③番目のコードでdocument.addEventListenerを指定しているため、イベントが伝播してしまう。そのため、stopPropagation()で伝播を停止させている
+      e.stopPropagation();
+      console.log('open'); // .js-navにclassのis-activeがなければ追加する
+
+      if (!target.classList.contains('is-active')) {
+        target.classList.add('is-active');
+      }
+    }); // ②アイコンクリックでメニューバーを閉じる
+
+    close.addEventListener('click', function (e) {
+      e.stopPropagation();
+      console.log('close'); // .js-navにcalssのis-activeがあれば削除する
+
+      if (target.classList.contains('is-active')) {
+        target.classList.remove('is-active');
+      }
+    }); // ③ メニューバーの外側をクリックした場合に閉じる（Vueでの実装ができない部分）
+
+    document.addEventListener('click', function (e) {
+      // 外側をクリックした場合 && classにis-activeの文字列がない場合
+      if (!e.target.closest('.js-nav') && target.classList.contains('is-active')) {
+        target.classList.remove('is-active');
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49886,8 +50062,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tatata/code/book/dev/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/tatata/code/book/dev/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tatata/code/book/book_dev/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tatata/code/book/book_dev/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

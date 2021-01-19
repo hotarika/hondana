@@ -17,14 +17,14 @@ $site-width-lg: 992px !default; // PC（デフォルト）
 $site-width-xl: 1200px !default; // PC
 
 $breakpoints: (
-    '3xs': 'screen and (max-width: #{$site-width-3xs})',
-    '2xs': 'screen and (max-width: #{$site-width-2xs})',
-    'xs': 'screen and (max-width: #{$site-width-xs})',
-    'sm': 'screen and (max-width: #{$site-width-sm})',
-    'md': 'screen and (max-width: #{$site-width-md})',
-    'lg-md': 'screen and (max-width: #{$site-width-lg-md})',
-    'lg': 'screen and (max-width: #{$site-width-lg})',
-    'xl': 'screen and (max-width: #{$site-width-xl})'
+    '3xs': 'screen and (min-width: #{$site-width-3xs})',
+    '2xs': 'screen and (min-width: #{$site-width-2xs})',
+    'xs': 'screen and (min-width: #{$site-width-xs})',
+    'sm': 'screen and (min-width: #{$site-width-sm})',
+    'md': 'screen and (min-width: #{$site-width-md})',
+    'lg-md': 'screen and (min-width: #{$site-width-lg-md})',
+    'lg': 'screen and (min-width: #{$site-width-lg})',
+    'xl': 'screen and (min-width: #{$site-width-xl})'
 ) !default;
 
 @mixin mq($breakpoint: lg) {
@@ -37,6 +37,7 @@ $breakpoints: (
 @mixin responsive-br($site-size: 'xs') {
     & > br {
         display: none;
+
         @include mq($site-size) {
             display: block;
         }
@@ -68,6 +69,7 @@ $breakpoints: (
 // 使用用途：footerの固定など
 @mixin main-height {
     min-height: calc(100vh - #{$header-height + $footer-height});
+
     @include mq(xs) {
         // スマートフォン用
         min-height: calc(100vh - #{$header-height-sp + $footer-height-sp});

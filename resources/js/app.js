@@ -26,8 +26,12 @@ Vue.component(
     require('./components/ExampleComponent.vue').default
 );
 Vue.component(
-    'toggle-navigation',
-    require('./components/toggleNavigation.vue').default
+    'register-books-component',
+    require('./components/RegisterBooksComponent.vue').default
+);
+Vue.component(
+    'bookshelf-index-component',
+    require('./components/BookshelfIndexComponent.vue').default
 );
 
 /**

@@ -17,7 +17,7 @@ class CreateBookshelfTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('book_id');
-            $table->integer('star')->nullable();
+            $table->integer('star')->default(0);
             $table->timestamp('read_at')->nullable();
             $table->string('memo', 3000)->nullable();
             $table->timestamps();

@@ -1930,6 +1930,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -1938,18 +1955,41 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: '',
+      star: 0,
+      latestDate: 0,
       books: []
     };
   },
-  methods: {//
+  methods: {
+    sortBooks: function sortBooks() {
+      // 並び替え
+      if (this.latestDate == 0) {
+        this.books = this.books.slice().sort(function (a, b) {
+          if (a.updated_at < b.updated_at) return -1;
+          if (a.updated_at > b.updated_at) return 1;
+          return 0;
+        });
+      } else {
+        this.books = this.books.slice().sort(function (a, b) {
+          if (a.updated_at > b.updated_at) return -1;
+          if (a.updated_at < b.updated_at) return 1;
+          return 0;
+        });
+      }
+    }
   },
   computed: {
     showBooks: function showBooks() {
       var regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
-      // 取得
 
-      return this.books.filter(function (el) {
+      var that = this; // フィルター
+
+      return this.books.slice().reverse().filter(function (el) {
         if (!el.title.match(regexp) && !el.authors.match(regexp) && !el.description.match(regexp)) {
+          return;
+        }
+
+        if (el.star < Number(that.star)) {
           return;
         }
 
@@ -37760,7 +37800,88 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.star,
+              expression: "star"
+            }
+          ],
+          attrs: { name: "star", id: "" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.star = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "0" } }, [_vm._v("★の数で選択")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "1" } }, [_vm._v("★１以上")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("★２以上")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("★３以上")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "4" } }, [_vm._v("★４以上")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "5" } }, [_vm._v("★５以上")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.latestDate,
+              expression: "latestDate"
+            }
+          ],
+          attrs: { name: "latest_date", id: "" },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.latestDate = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.sortBooks
+            ]
+          }
+        },
+        [
+          _c("option", { attrs: { value: "0" } }, [_vm._v("新しい順")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "1" } }, [_vm._v("古い順")])
+        ]
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-registerBooks__cards" }, [

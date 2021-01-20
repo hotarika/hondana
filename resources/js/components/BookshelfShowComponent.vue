@@ -2,7 +2,7 @@
     <div class="p-registerBooks">
         <h1 class="c-h1__head">私の本棚</h1>
 
-        <star-rating v-model="rating" :read-only="true"></star-rating>
+        <star-rating v-model="rating"></star-rating>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
         return {
             search: '',
             books: [],
-            rating: 5
+            rating: this.book.star
         };
     },
     methods: {

@@ -1910,6 +1910,14 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1948,7 +1956,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default.a
+  },
   props: {
     publicPath: String
   },
@@ -2044,7 +2056,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       search: '',
       books: [],
-      rating: 5
+      rating: this.book.star
     };
   },
   methods: {//
@@ -37890,7 +37902,20 @@ var render = function() {
         { staticClass: "p-registerBooks__card" },
         [
           _vm._l(_vm.showBooks, function(book) {
-            return [_c("div", { key: book.id }, [_vm._v(_vm._s(book))])]
+            return [
+              _c(
+                "div",
+                { key: book.id },
+                [
+                  _c("div", [_vm._v(_vm._s(book))]),
+                  _vm._v(" "),
+                  _c("star-rating", {
+                    attrs: { rating: book.star, "read-only": true }
+                  })
+                ],
+                1
+              )
+            ]
           })
         ],
         2
@@ -37936,7 +37961,6 @@ var render = function() {
       _c("h1", { staticClass: "c-h1__head" }, [_vm._v("私の本棚")]),
       _vm._v(" "),
       _c("star-rating", {
-        attrs: { "read-only": true },
         model: {
           value: _vm.rating,
           callback: function($$v) {

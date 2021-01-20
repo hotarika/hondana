@@ -28,7 +28,13 @@
         <div class="p-registerBooks__cards">
             <div class="p-registerBooks__card">
                 <template v-for="book of showBooks">
-                    <div :key="book.id">{{ book }}</div>
+                    <div :key="book.id">
+                        <div>{{ book }}</div>
+                        <star-rating
+                            :rating="book.star"
+                            :read-only="true"
+                        ></star-rating>
+                    </div>
                 </template>
             </div>
         </div>
@@ -37,8 +43,12 @@
 
 <script>
 import axios from 'axios';
+import StarRating from 'vue-star-rating';
 
 export default {
+    components: {
+        StarRating
+    },
     props: {
         publicPath: String
     },

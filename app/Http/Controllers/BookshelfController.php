@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookshelfController extends Controller
 {
@@ -13,7 +14,7 @@ class BookshelfController extends Controller
      */
     public function index()
     {
-        return view('bookshelf/index');
+        return view('bookshelf.index');
     }
 
     /**
@@ -45,7 +46,11 @@ class BookshelfController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = DB::table('bookshelf')
+            ->where('id', $id)
+            ->get();
+
+        return view('bookshelf.show', compact('book'));
     }
 
     /**

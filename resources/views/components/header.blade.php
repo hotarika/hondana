@@ -39,7 +39,13 @@
                         <a href=""><i class="fas fa-book"></i>本棚に登録</a>
                     </li>
                     <li class="p-header__navList -logout">
-                        <a href=""><i class="fas fa-sign-out-alt"></i>ログアウト</a>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i
+                                class="fas fa-sign-out-alt"></i>ログアウト</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </nav>

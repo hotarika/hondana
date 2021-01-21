@@ -10839,6 +10839,18 @@ a.text-dark:focus {
   }
 }
 
+.container {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
 .l-footer {
   display: flex;
   align-items: center;
@@ -10888,7 +10900,7 @@ a.text-dark:focus {
 
 .l-main {
   min-height: calc(100vh - 120px);
-  padding: 50px 0;
+  padding: 15px 0;
 }
 
 @media screen and (min-width: 414px) {
@@ -10897,11 +10909,19 @@ a.text-dark:focus {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .l-main {
+    padding: 50px 0;
+  }
+}
+
 .c-form__search {
   border-radius: 0 0 3px 3px;
+  display: flex;
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin-right: 20px;
+  margin-bottom: 15px;
   background-color: #e9ecef;
 }
 
@@ -10915,12 +10935,18 @@ a.text-dark:focus {
 
 .c-form__search > input {
   border-radius: 3px 0 0 3px;
-  width: 50%;
+  width: 100%;
   height: 35px;
   padding: 0 15px;
   font-size: 14px;
   border: none;
   outline: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .c-form__search > input {
+    width: 50%;
+  }
 }
 
 .c-form__search > button {
@@ -10939,9 +10965,15 @@ a.text-dark:focus {
   border-radius: 3px 3px 0 0;
   padding: 15px 0;
   margin: 0;
-  font-size: 22px;
+  font-size: 17px;
   text-align: center;
   background-color: #e6d4ce;
+}
+
+@media screen and (min-width: 768px) {
+  .c-h1__head {
+    font-size: 22px;
+  }
 }
 
 .c-h1__head > i {
@@ -11088,6 +11120,7 @@ a.text-dark:focus {
   font-size: 11px;
   color: #495057;
   letter-spacing: 0.5px;
+  white-space: nowrap;
   background: #ccb1b1;
   border-radius: 3px;
 }
@@ -11100,9 +11133,16 @@ a.text-dark:focus {
 
 .p-registerBooks__card {
   border-radius: 3px;
-  width: 49%;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 15px;
   border: 1px solid #e9ecef;
+}
+
+@media screen and (min-width: 768px) {
+  .p-registerBooks__card {
+    width: 49%;
+    margin-bottom: 20px;
+  }
 }
 
 .p-registerBooks__upper {
@@ -11110,18 +11150,31 @@ a.text-dark:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 20%;
-  padding: 5px 17px;
+  padding: 5px 10px;
   background-color: #dee2e6;
 }
 
+@media screen and (min-width: 992px) {
+  .p-registerBooks__upper {
+    min-height: 20%;
+    padding: 5px 17px;
+  }
+}
+
 .p-registerBooks__bookTitle {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   padding: 5px 10px 5px 5px;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__bookTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+  }
 }
 
 .p-registerBooks__toolTip {
@@ -11151,19 +11204,46 @@ a.text-dark:focus {
 
 .p-registerBooks__lower {
   display: flex;
-  padding: 15px 20px;
+  padding: 10px 10px;
   overflow: hidden;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__lower {
+    padding: 15px 20px;
+  }
+}
+
+.p-registerBooks__bookImageWrap {
+  width: 100px;
+  margin-right: 12px;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__bookImageWrap {
+    margin-right: 20px;
+  }
+}
+
+.p-registerBooks__bookImageWrap.-noImage {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 140px;
+  background-color: #ccc;
 }
 
 .p-registerBooks__bookImage {
   width: 100px;
-  margin-right: 20px;
-  border: 1px solid #e9ecef;
   object-fit: contain;
 }
 
-.p-registerBooks__bookInfoWrap {
+.p-registerBooks__bookImage.-noImage {
   width: 100%;
+}
+
+.p-registerBooks__bookInfoWrap {
+  width: calc(96% - 100px);
 }
 
 .p-registerBooks__authorWrap {
@@ -11173,8 +11253,17 @@ a.text-dark:focus {
 }
 
 .p-registerBooks__authorName {
-  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
   letter-spacing: 0.3px;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__authorName {
+    font-size: 13px;
+  }
 }
 
 .p-registerBooks__descHead {
@@ -11185,10 +11274,27 @@ a.text-dark:focus {
 .p-registerBooks__descText {
   display: -webkit-box;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.3px;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__descText {
+    font-size: 12px;
+    -webkit-line-clamp: 5;
+  }
+}
+
+.u-sp-none {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .u-sp-none {
+    display: inline;
+  }
 }
 
 .u-m0 {

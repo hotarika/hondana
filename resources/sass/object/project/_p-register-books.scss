@@ -4,6 +4,7 @@
     font-size: 11px;
     color: $gray-700;
     letter-spacing: 0.5px;
+    white-space: nowrap;
     background: #ccb1b1;
     border-radius: 3px;
 }
@@ -16,9 +17,14 @@
     }
     &__card {
         @include border-radius;
-        width: 49%;
-        margin-bottom: 20px;
+        width: 100%;
+        margin-bottom: 15px;
         border: 1px solid $gray-200;
+
+        @include mq('md') {
+            width: 49%;
+            margin-bottom: 20px;
+        }
     }
     // カード上部
     &__upper {
@@ -26,15 +32,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 20%;
-        padding: 5px 17px;
+        padding: 5px 10px;
         background-color: $gray-300;
+        @include mq('lg') {
+            min-height: 20%;
+            padding: 5px 17px;
+        }
     }
     &__bookTitle {
-        @include ellipsis;
         padding: 5px 10px 5px 5px;
+        font-size: 13px;
         font-weight: bold;
         letter-spacing: 1px;
+        @include mq('lg') {
+            @include ellipsis;
+            font-size: 16px;
+        }
     }
     &__toolTip {
         @include border-radius;
@@ -63,21 +76,40 @@
     // カード下部
     &__lower {
         display: flex;
-        padding: 15px 20px;
+        padding: 10px 10px;
         overflow: hidden;
+        @include mq('lg') {
+            max-height: 80%;
+            padding: 15px 20px;
+        }
     }
     &__bookImageWrap {
-        //
-    }
-    &__bookImage {
         width: 100px;
-        margin-right: 20px;
-        border: 1px solid $gray-200;
-        object-fit: contain;
+        margin-right: 12px;
+        @include mq('lg') {
+            margin-right: 20px;
+        }
+        &.-noImage {
+            display: flex;
+            align-items: center;
+            width: 100px;
+            height: 140px;
+            background-color: #ccc;
+        }
     }
-
+    $bookWidth: 100px; // 書籍画像の幅
+    &__bookImage {
+        width: $bookWidth;
+        object-fit: contain;
+        &.-noImage {
+            width: 100%;
+        }
+        @include mq('lg') {
+            max-height: 100%;
+        }
+    }
     &__bookInfoWrap {
-        width: 100%;
+        width: calc(96% - #{$bookWidth});
     }
     &__authorWrap {
         display: flex;
@@ -88,8 +120,12 @@
         @extend %cardInfoTag;
     }
     &__authorName {
-        font-size: 13px;
+        @include ellipsis;
+        font-size: 12px;
         letter-spacing: 0.3px;
+        @include mq('lg') {
+            font-size: 13px;
+        }
     }
     &__descWrap {
         //
@@ -102,9 +138,13 @@
     &__descText {
         display: -webkit-box;
         overflow: hidden;
-        font-size: 12px;
+        font-size: 11px;
         letter-spacing: 0.3px;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 5;
+        -webkit-line-clamp: 6;
+        @include mq('lg') {
+            font-size: 12px;
+            -webkit-line-clamp: 5;
+        }
     }
 }

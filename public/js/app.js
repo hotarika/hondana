@@ -2213,8 +2213,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    publicPath: String
+  },
   data: function data() {
     return {
       search: '',
@@ -38200,29 +38210,39 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._v(
-                      "\n                        本棚に追加\n                    "
-                    )
+                    _c("span", { staticClass: "u-sp-none" }, [
+                      _vm._v("本棚に")
+                    ]),
+                    _vm._v("追加\n                    ")
                   ]
                 )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "p-registerBooks__lower" }, [
-                book.volumeInfo.imageLinks
-                  ? _c(
-                      "div",
-                      { staticClass: "p-registerBooks__bookImageWrap" },
-                      [
-                        _c("img", {
+                _c(
+                  "div",
+                  {
+                    staticClass: "p-registerBooks__bookImageWrap",
+                    class: { "-noImage": !book.volumeInfo.imageLinks }
+                  },
+                  [
+                    book.volumeInfo.imageLinks
+                      ? _c("img", {
                           staticClass: "p-registerBooks__bookImage",
                           attrs: {
                             src: book.volumeInfo.imageLinks.thumbnail,
                             alt: ""
                           }
                         })
-                      ]
-                    )
-                  : _vm._e(),
+                      : _c("img", {
+                          staticClass: "p-registerBooks__bookImage -noImage",
+                          attrs: {
+                            src: _vm.publicPath + "image/no-image.png",
+                            alt: "no"
+                          }
+                        })
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
                   _c("div", { staticClass: "p-registerBooks__authorWrap" }, [

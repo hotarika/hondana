@@ -33,7 +33,7 @@
                             class="p-registerBooks__registerButton"
                             @click.prevent="registerBook"
                         >
-                            本棚に追加
+                            <span class="u-sp-none">本棚に</span>追加
                         </button>
                     </div>
 
@@ -41,12 +41,19 @@
                     <div class="p-registerBooks__lower">
                         <div
                             class="p-registerBooks__bookImageWrap"
-                            v-if="book.volumeInfo.imageLinks"
+                            :class="{ '-noImage': !book.volumeInfo.imageLinks }"
                         >
                             <img
+                                v-if="book.volumeInfo.imageLinks"
                                 class="p-registerBooks__bookImage"
                                 :src="book.volumeInfo.imageLinks.thumbnail"
                                 alt=""
+                            />
+                            <img
+                                v-else
+                                class="p-registerBooks__bookImage -noImage"
+                                :src="publicPath + 'image/no-image.png'"
+                                alt="no"
                             />
                         </div>
                         <div class="p-registerBooks__bookInfoWrap">
@@ -81,6 +88,9 @@
 import axios from 'axios';
 
 export default {
+    props: {
+        publicPath: String
+    },
     data() {
         return {
             search: '',

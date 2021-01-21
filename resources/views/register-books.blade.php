@@ -2,5 +2,5 @@
 @section('title', '本棚に登録')
 
 @section('content')
-<register-books-component></register-books-component>
+<register-books-component :public-path="{{ json_encode(asset('')) }}"></register-books-component>
 @endsection

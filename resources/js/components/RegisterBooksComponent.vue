@@ -31,7 +31,7 @@
                         <button
                             type="submit"
                             class="p-registerBooks__registerButton"
-                            @click.prevent="registerBook"
+                            @click.prevent="registerBook(book)"
                         >
                             <span class="u-sp-none">本棚に</span>追加
                         </button>
@@ -89,7 +89,8 @@ import axios from 'axios';
 
 export default {
     props: {
-        publicPath: String
+        publicPath: String,
+        myShelf: Array
     },
     data() {
         return {
@@ -102,21 +103,41 @@ export default {
             // inputの空欄削除
             this.search = this.search.trim();
 
-            // 取得
+            // Google Books API 取得
             axios
                 .get(
                     `https://www.googleapis.com/books/v1/volumes?q=${this.search}`
                 )
                 .then(res => {
-                    console.log(res);
-                    this.books = res.data.items;
+                    const newData = [];
+
+                    res.data.items.forEach(googleBook => {
+                        // forEachは最後まで回すのに対し、someはreturnが返れば次のループへ行く
+                        this.myShelf.some(myBook => {
+                            if (googleBook.id === myBook.book_id) {
+                                return (googleBook['registration'] = true);
+                            }
+                        });
+                        return newData.push(googleBook);
+                    });
+
+                    console.log(newData);
+                    this.books = newData;
                 })
                 .catch(err => {
                     console.log(err);
                 });
         },
-        registerBook() {
-            console.log('a');
+        registerBook(book) {
+            console.log(book);
+            // DBへ保存
+            axios
+                .post(this.publicPath + 'bookshelf', {
+                    book_id: book.id
+                })
+                .then(res => {
+                    console.log(res);
+                });
         },
         hoverText(i) {
             console.log(i);

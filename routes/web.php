@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/bookshelf', 'BookshelfController');
-Route::get('/register-books', 'RegisterBooksController')->name('register-books');
 
 // Async
 Route::get('/async/bookshelf', 'AsynchronousController@getBookshelf')->name('async');

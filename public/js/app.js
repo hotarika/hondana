@@ -2223,7 +2223,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    publicPath: String
+    publicPath: String,
+    myShelf: Array
   },
   data: function data() {
     return {
@@ -2236,17 +2237,34 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // inputの空欄削除
-      this.search = this.search.trim(); // 取得
+      this.search = this.search.trim(); // Google Books API 取得
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.googleapis.com/books/v1/volumes?q=".concat(this.search)).then(function (res) {
-        console.log(res);
-        _this.books = res.data.items;
+        var newData = [];
+        res.data.items.forEach(function (googleBook) {
+          // forEachは最後まで回すのに対し、someはreturnが返れば次のループへ行く
+          _this.myShelf.some(function (myBook) {
+            if (googleBook.id === myBook.book_id) {
+              return googleBook['registration'] = true;
+            }
+          });
+
+          return newData.push(googleBook);
+        });
+        console.log(newData);
+        _this.books = newData;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    registerBook: function registerBook() {
-      console.log('a');
+    registerBook: function registerBook(book) {
+      console.log(book); // DBへ保存
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.publicPath + 'bookshelf', {
+        book_id: book.id
+      }).then(function (res) {
+        console.log(res);
+      });
     },
     hoverText: function hoverText(i) {
       console.log(i);
@@ -38205,7 +38223,7 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.registerBook($event)
+                        return _vm.registerBook(book)
                       }
                     }
                   },

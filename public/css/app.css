@@ -11210,6 +11210,7 @@ a.text-dark:focus {
 
 @media screen and (min-width: 992px) {
   .p-registerBooks__lower {
+    max-height: 80%;
     padding: 15px 20px;
   }
 }
@@ -11240,6 +11241,12 @@ a.text-dark:focus {
 
 .p-registerBooks__bookImage.-noImage {
   width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__bookImage {
+    max-height: 100%;
+  }
 }
 
 .p-registerBooks__bookInfoWrap {

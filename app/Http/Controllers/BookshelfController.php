@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Bookshelf;
 
 class BookshelfController extends Controller
 {
@@ -24,7 +25,11 @@ class BookshelfController extends Controller
      */
     public function create()
     {
-        //
+        $myShelf = DB::table('bookshelf')
+            ->where('user_id', 1)
+            ->get();
+
+        return view('bookshelf.create', compact('myShelf'));
     }
 
     /**
@@ -35,7 +40,18 @@ class BookshelfController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $myShelf = DB::table('bookshelf')
+            ->where('user_id', 1)
+            ->where('book_id', $request->book_id)
+            ->first();
+
+        if ($myShelf === null) {
+            $bookshelf = new Bookshelf;
+            $bookshelf->fill([
+                'user_id' => Auth::id(),
+                'book_id' => $request->book_id
+            ])->save();
+        }
     }
 
     /**

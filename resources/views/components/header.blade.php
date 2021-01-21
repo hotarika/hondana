@@ -4,7 +4,7 @@
             {{-- logo --}}
             <div class="p-header__logoWrap">
                 <a @guest href="/"
-                    @else href="{{route('home')}}"
+                    @else href="{{route('bookshelf.index')}}"
                     @endguest>
                     <img class="p-header__logoIcon" src="{{asset('icon/logo/logoIcon.svg')}}" alt="ロゴアイコン">
                     <img class="p-header__logo" src="{{asset('icon/logo/logo.svg')}}"
@@ -31,12 +31,13 @@
             <nav class="p-header__nav js-nav">
                 <i class="far fa-times-circle p-header__menuClose js-closeIcon"></i>
                 <ul class="p-header__navLists">
-                    <li class="p-header__navList -name">{{Auth::user()->name}}</li>
                     <li class="p-header__navList -myShelf">
-                        <a href=""><i class="fas fa-smile"></i>わたしの本棚</a>
+                        <a href="{{route('bookshelf.index')}}"><i
+                                class="fas fa-smile"></i><span
+                                class="p-header__username">{{Auth::user()->name}}</span>の本棚</a>
                     </li>
                     <li class="p-header__navList -bookRegister">
-                        <a href=""><i class="fas fa-book"></i>本棚に登録</a>
+                        <a href="{{route('bookshelf.create')}}"><i class="fas fa-book"></i>本棚に登録</a>
                     </li>
                     <li class="p-header__navList -logout">
                         <a href="{{ route('logout') }}"

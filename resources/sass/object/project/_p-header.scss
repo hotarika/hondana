@@ -35,7 +35,7 @@
         align-items: center;
         justify-content: flex-end;
         width: 70vw;
-        padding: 80px 0 0 50px;
+        padding: 80px 0 0 40px;
         background-color: rgba($color: #3e1616, $alpha: 0.8);
         transition: 0.2s;
         &.is-active {
@@ -69,23 +69,29 @@
             & > i {
                 margin-right: 4px;
             }
-        }
-        @include mq('md') {
-            margin: 0;
-            margin-right: 15px;
-            font-size: 13px;
-        }
-        &.-name {
-            @include ellipsis;
-            max-width: 90px;
+            &:hover {
+                padding-bottom: 1px;
+                text-decoration: none;
+                border-bottom: 1px solid $secondary;
+            }
         }
         &.-myShelf {
             @include mq('md') {
                 // display: none;
             }
         }
+        @include mq('md') {
+            margin: 0;
+            margin-right: 15px;
+            font-size: 13px;
+        }
     }
-
+    &__username {
+        @include ellipsis;
+        display: inline-block;
+        max-width: 70px;
+        line-height: 0.8;
+    }
     &__menuOpen {
         width: 25px;
         @include mq('md') {

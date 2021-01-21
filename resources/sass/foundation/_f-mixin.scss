@@ -81,7 +81,7 @@ $breakpoints: (
 // ================================
 // $target - どこの角を丸めたいか（all,top,right,bottom,leftから第1匹数を指定）
 // $radius - どれくらい丸めたいのか
-@mixin border-radius($target: 'all', $radius: 2px) {
+@mixin border-radius($target: 'all', $radius: 3px) {
     @if $target == 'all' {
         border-radius: $radius;
     } @else if $target == 'top' {

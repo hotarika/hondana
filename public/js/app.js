@@ -2154,43 +2154,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       search: '',
-      books: '',
-      sample: []
+      books: ''
     };
   },
   methods: {
     searchBooks: function searchBooks() {
       var _this = this;
 
-      // 取得
+      // inputの空欄削除
+      this.search = this.search.trim(); // 取得
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.googleapis.com/books/v1/volumes?q=".concat(this.search)).then(function (res) {
         console.log(res);
         _this.books = res.data.items;
       })["catch"](function (err) {
         console.log(err);
       });
-    }
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    var _loop = function _loop(step) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.googleapis.com/books/v1/volumes?q=isbn:9784033213002").then(function (res) {
-        console.log(step);
-        console.log(res);
-        _this2.sample[step] = res.data.items[0];
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    };
-
-    for (var step = 0; step < 5; step++) {
-      _loop(step);
+    },
+    registerBook: function registerBook() {
+      console.log('a');
+    },
+    hoverText: function hoverText(i) {
+      console.log(i);
+      var toolTipTag = document.getElementById("js-toolTip".concat(i));
+      toolTipTag.style.opacity = '1';
+      toolTipTag.style.visibility = 'visible';
+      toolTipTag.style.transitionDelay = '0.5s';
+    },
+    leaveText: function leaveText(i) {
+      var toolTipTag = document.getElementById("js-toolTip".concat(i));
+      toolTipTag.style.opacity = '0';
+      toolTipTag.style.visibility = 'hidden';
+      toolTipTag.style.transitionDelay = '0s';
     }
   }
 });
@@ -38043,9 +38102,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-registerBooks" }, [
-    _c("h1", { staticClass: "c-h1__head" }, [_vm._v("こんにちは")]),
+    _vm._m(0),
     _vm._v(" "),
-    _c("form", { staticClass: "c-form__search", attrs: { action: "" } }, [
+    _c("form", { staticClass: "c-form__search" }, [
       _c("input", {
         directives: [
           {
@@ -38055,7 +38114,7 @@ var render = function() {
             expression: "search"
           }
         ],
-        attrs: { type: "text" },
+        attrs: { type: "text", placeholder: "書籍を検索する" },
         domProps: { value: _vm.search },
         on: {
           input: function($event) {
@@ -38082,21 +38141,148 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-registerBooks__cards" }, [
-      _c(
-        "div",
-        { staticClass: "p-registerBooks__card" },
-        [
-          _vm._l(_vm.books, function(book) {
-            return [_c("div", { key: book.id }, [_vm._v(_vm._s(book))])]
-          })
-        ],
-        2
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "p-registerBooks__cards" },
+      [
+        _vm._l(_vm.books, function(book, i) {
+          return [
+            _c("div", { key: book.id, staticClass: "p-registerBooks__card" }, [
+              _c("div", { staticClass: "p-registerBooks__upper" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "p-registerBooks__bookTitle",
+                    attrs: { id: "js-showAllText" },
+                    on: {
+                      mouseover: function($event) {
+                        return _vm.hoverText(i)
+                      },
+                      mouseleave: function($event) {
+                        return _vm.leaveText(i)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(book.volumeInfo.title) +
+                        "\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "p-registerBooks__toolTip",
+                    attrs: { id: "js-toolTip" + i }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(book.volumeInfo.title) +
+                        "\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "p-registerBooks__registerButton",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.registerBook($event)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        本棚に追加\n                    "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-registerBooks__lower" }, [
+                book.volumeInfo.imageLinks
+                  ? _c(
+                      "div",
+                      { staticClass: "p-registerBooks__bookImageWrap" },
+                      [
+                        _c("img", {
+                          staticClass: "p-registerBooks__bookImage",
+                          attrs: {
+                            src: book.volumeInfo.imageLinks.thumbnail,
+                            alt: ""
+                          }
+                        })
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
+                  _c("div", { staticClass: "p-registerBooks__authorWrap" }, [
+                    _c("div", { staticClass: "p-registerBooks__authorHead" }, [
+                      _vm._v(
+                        "\n                                著者\n                            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    book.volumeInfo.authors
+                      ? _c(
+                          "div",
+                          { staticClass: "p-registerBooks__authorName" },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(book.volumeInfo.authors[0]) +
+                                "\n                            "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "p-registerBooks__descWrap" }, [
+                    _c("div", { staticClass: "p-registerBooks__descHead" }, [
+                      _vm._v(
+                        "\n                                概要\n                            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "p-registerBooks__descText" }, [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(book.volumeInfo.description) +
+                          "\n                            "
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        })
+      ],
+      2
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "c-h1__head" }, [
+      _c("i", { staticClass: "fas fa-bookmark" }),
+      _vm._v("本棚に登録")
+    ])
+  }
+]
 render._withStripped = true
 
 

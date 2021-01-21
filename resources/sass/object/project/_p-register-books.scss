@@ -1,0 +1,110 @@
+%cardInfoTag {
+    padding: 1px 5px;
+    margin-right: 10px;
+    font-size: 11px;
+    color: $gray-700;
+    letter-spacing: 0.5px;
+    background: #ccb1b1;
+    border-radius: 3px;
+}
+
+.p-registerBooks {
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__card {
+        @include border-radius;
+        width: 49%;
+        margin-bottom: 20px;
+        border: 1px solid $gray-200;
+    }
+    // カード上部
+    &__upper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 20%;
+        padding: 5px 17px;
+        background-color: $gray-300;
+    }
+    &__bookTitle {
+        @include ellipsis;
+        padding: 5px 10px 5px 5px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    &__toolTip {
+        @include border-radius;
+        position: absolute;
+        top: -14px;
+        left: 26px;
+        padding: 3px 8px;
+        font-size: 11px;
+        color: $white;
+        visibility: hidden;
+        background-color: rgba(#000, 0.5);
+        opacity: 0;
+        transition: all 0.2s ease-out;
+    }
+    &__registerButton {
+        @include border-radius;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: $white;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        background-color: $primary;
+        border: none;
+    }
+
+    // カード下部
+    &__lower {
+        display: flex;
+        padding: 15px 20px;
+        overflow: hidden;
+    }
+    &__bookImageWrap {
+        //
+    }
+    &__bookImage {
+        width: 100px;
+        margin-right: 20px;
+        border: 1px solid $gray-200;
+        object-fit: contain;
+    }
+
+    &__bookInfoWrap {
+        width: 100%;
+    }
+    &__authorWrap {
+        display: flex;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $gray-400;
+    }
+    &__authorHead {
+        @extend %cardInfoTag;
+    }
+    &__authorName {
+        font-size: 13px;
+        letter-spacing: 0.3px;
+    }
+    &__descWrap {
+        //
+    }
+    &__descHead {
+        @extend %cardInfoTag;
+        display: inline-block;
+        margin-bottom: 3px;
+    }
+    &__descText {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 12px;
+        letter-spacing: 0.3px;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+    }
+}

@@ -1,0 +1,14 @@
+.c-h1 {
+    &__head {
+        @include border-radius('top');
+        padding: 15px 0;
+        margin: 0;
+        font-size: 22px;
+        text-align: center;
+        background-color: #e6d4ce;
+        & > i {
+            margin-right: 5px;
+            color: $primary;
+        }
+    }
+}

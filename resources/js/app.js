@@ -30,6 +30,10 @@ Vue.component(
     require('./components/RegisterBooksComponent.vue').default
 );
 Vue.component(
+    'register-book-card-component',
+    require('./components/RegisterBookCardComponent.vue').default
+);
+Vue.component(
     'bookshelf-index-component',
     require('./components/BookshelfIndexComponent.vue').default
 );

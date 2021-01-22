@@ -11211,6 +11211,23 @@ a.text-dark:focus {
   border: none;
 }
 
+.p-registerBooks__registerButton:focus {
+  outline: none;
+}
+
+.p-registerBooks__registerButton.is-active {
+  color: #000;
+  background-color: #ababab;
+}
+
+.p-registerBooks__buttonDone {
+  display: none;
+}
+
+.p-registerBooks__buttonDone.is-active {
+  display: inline;
+}
+
 .p-registerBooks__lower {
   display: flex;
   padding: 10px 10px;
@@ -11318,16 +11335,6 @@ a.text-dark:focus {
   top: -31px;
   right: 3px;
   width: 60px;
-}
-
-.u-sp-none {
-  display: none;
-}
-
-@media screen and (min-width: 992px) {
-  .u-sp-none {
-    display: inline;
-  }
 }
 
 .u-m0 {

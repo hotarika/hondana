@@ -10963,6 +10963,7 @@ a.text-dark:focus {
 
 .c-h1__head {
   border-radius: 3px 3px 0 0;
+  position: relative;
   padding: 15px 0;
   margin: 0;
   font-size: 17px;
@@ -11224,8 +11225,13 @@ a.text-dark:focus {
 }
 
 .p-registerBooks__bookImageWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100px;
   margin-right: 12px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 992px) {
@@ -11235,9 +11241,7 @@ a.text-dark:focus {
 }
 
 .p-registerBooks__bookImageWrap.-noImage {
-  display: flex;
-  align-items: center;
-  width: 100px;
+  justify-content: center;
   height: 140px;
   background-color: #ccc;
 }
@@ -11255,6 +11259,13 @@ a.text-dark:focus {
   .p-registerBooks__bookImage {
     max-height: 100%;
   }
+}
+
+.p-registerBooks__googlePreviewLogo {
+  position: absolute;
+  right: -10px;
+  bottom: -6px;
+  width: 60px;
 }
 
 .p-registerBooks__bookInfoWrap {
@@ -11300,6 +11311,13 @@ a.text-dark:focus {
     font-size: 12px;
     -webkit-line-clamp: 5;
   }
+}
+
+.p-registerBooks__googlePoweredbyLogo {
+  position: absolute;
+  top: -22px;
+  right: 3px;
+  width: 60px;
 }
 
 .u-sp-none {

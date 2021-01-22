@@ -1,6 +1,7 @@
 .c-h1 {
     &__head {
         @include border-radius('top');
+        position: relative;
         padding: 15px 0;
         margin: 0;
         font-size: 17px;

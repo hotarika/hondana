@@ -20,7 +20,6 @@
         width: 100%;
         margin-bottom: 15px;
         border: 1px solid $gray-200;
-
         @include mq('md') {
             width: 49%;
             margin-bottom: 20px;
@@ -84,15 +83,18 @@
         }
     }
     &__bookImageWrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100px;
         margin-right: 12px;
+        cursor: pointer;
         @include mq('lg') {
             margin-right: 20px;
         }
         &.-noImage {
-            display: flex;
-            align-items: center;
-            width: 100px;
+            justify-content: center;
             height: 140px;
             background-color: #ccc;
         }
@@ -107,6 +109,12 @@
         @include mq('lg') {
             max-height: 100%;
         }
+    }
+    &__googlePreviewLogo {
+        position: absolute;
+        right: -10px;
+        bottom: -6px;
+        width: 60px;
     }
     &__bookInfoWrap {
         width: calc(96% - #{$bookWidth});
@@ -146,5 +154,11 @@
             font-size: 12px;
             -webkit-line-clamp: 5;
         }
+    }
+    &__googlePoweredbyLogo {
+        position: absolute;
+        top: -22px;
+        right: 3px;
+        width: 60px;
     }
 }

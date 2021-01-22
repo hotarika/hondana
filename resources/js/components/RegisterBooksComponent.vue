@@ -1,6 +1,15 @@
 <template>
     <div class="p-registerBooks">
-        <h1 class="c-h1__head"><i class="fas fa-bookmark"></i>本棚に登録</h1>
+        <h1 class="c-h1__head">
+            <i class="fas fa-bookmark"></i>本棚に登録
+            <a href="https://books.google.co.jp/">
+                <img
+                    class="p-registerBooks__googlePoweredbyLogo"
+                    :src="publicPath + 'image/poweredby.png'"
+                    alt=""
+                />
+            </a>
+        </h1>
         <form class="c-form__search">
             <input type="text" v-model="search" placeholder="書籍を検索する" />
             <button type="submit" @click.prevent="searchBooks">
@@ -42,6 +51,9 @@
                         <div
                             class="p-registerBooks__bookImageWrap"
                             :class="{ '-noImage': !book.volumeInfo.imageLinks }"
+                            @click.prevent="
+                                googlePreview(book.volumeInfo.previewLink)
+                            "
                         >
                             <img
                                 v-if="book.volumeInfo.imageLinks"
@@ -54,6 +66,11 @@
                                 class="p-registerBooks__bookImage -noImage"
                                 :src="publicPath + 'image/no-image.png'"
                                 alt="no"
+                            />
+                            <img
+                                class="p-registerBooks__googlePreviewLogo"
+                                :src="publicPath + 'image/gbs_preview.gif'"
+                                alt=""
                             />
                         </div>
                         <div class="p-registerBooks__bookInfoWrap">
@@ -151,6 +168,10 @@ export default {
             toolTipTag.style.opacity = '0';
             toolTipTag.style.visibility = 'hidden';
             toolTipTag.style.transitionDelay = '0s';
+        },
+        googlePreview(url) {
+            this.search = '';
+            window.location.href = url;
         }
     }
 };

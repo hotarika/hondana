@@ -150,7 +150,28 @@ export default {
             // DBへ保存
             axios
                 .post(this.publicPath + 'bookshelf', {
-                    book_id: book.id
+                    book_id: book.id,
+                    title: book.volumeInfo.title,
+                    author:
+                        book.volumeInfo.authors === undefined
+                            ? null
+                            : book.volumeInfo.authors[0],
+                    published_date:
+                        book.volumeInfo.publishedDate === undefined
+                            ? null
+                            : book.volumeInfo.publishedDate,
+                    description:
+                        book.volumeInfo.description === undefined
+                            ? null
+                            : book.volumeInfo.description,
+                    image:
+                        book.volumeInfo.imageLinks === undefined
+                            ? null
+                            : book.volumeInfo.imageLinks.thumbnail,
+                    preview_link:
+                        book.volumeInfo.previewLink === undefined
+                            ? null
+                            : book.volumeInfo.previewLink
                 })
                 .then(res => {
                     console.log(res);

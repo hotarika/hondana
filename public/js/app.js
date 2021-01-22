@@ -2278,7 +2278,13 @@ __webpack_require__.r(__webpack_exports__);
       console.log(book); // DBへ保存
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.publicPath + 'bookshelf', {
-        book_id: book.id
+        book_id: book.id,
+        title: book.volumeInfo.title,
+        author: book.volumeInfo.authors === undefined ? null : book.volumeInfo.authors[0],
+        published_date: book.volumeInfo.publishedDate === undefined ? null : book.volumeInfo.publishedDate,
+        description: book.volumeInfo.description === undefined ? null : book.volumeInfo.description,
+        image: book.volumeInfo.imageLinks === undefined ? null : book.volumeInfo.imageLinks.thumbnail,
+        preview_link: book.volumeInfo.previewLink === undefined ? null : book.volumeInfo.previewLink
       }).then(function (res) {
         console.log(res);
       });

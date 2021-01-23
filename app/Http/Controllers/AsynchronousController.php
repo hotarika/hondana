@@ -11,7 +11,7 @@ class AsynchronousController extends Controller
     public function getBookshelf()
     {
         $books = DB::table('bookshelf as s')
-            ->select('s.id', 's.user_id', 's.book_id', 'b.title', 'b.authors', 'b.published_date', 'b.description', 's.star', 's.read_at', 's.memo', 's.updated_at')
+            ->select('s.id', 's.user_id', 's.book_id', 'b.title', 'b.author', 'b.published_date', 'b.description', 'b.image', 'b.preview_link', 's.star', 's.read_at', 's.memo', 's.updated_at')
             ->leftJoin('books as b', 's.book_id', '=', 'b.id')
             ->get();
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="p-registerBooks">
+    <div class="p-myBooks">
         <h1 class="c-h1__head">私の本棚</h1>
         <div class="c-form__search">
             <input type="text" v-model="search" />
@@ -25,30 +25,22 @@
             </select>
         </div>
 
-        <div class="p-registerBooks__cards">
-            <div class="p-registerBooks__card">
-                <template v-for="book of showBooks">
-                    <div :key="book.id">
-                        <div>{{ book }}</div>
-                        <star-rating
-                            :rating="book.star"
-                            :read-only="true"
-                        ></star-rating>
-                    </div>
-                </template>
-            </div>
+        <div class="p-myBooks__cards">
+            <template v-for="book of books">
+                <a href="" class="p-myBooks__cardLink" :key="book.id">
+                    <bookshelf-book-card-component
+                        :book="book"
+                    ></bookshelf-book-card-component>
+                </a>
+            </template>
         </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import StarRating from 'vue-star-rating';
 
 export default {
-    components: {
-        StarRating
-    },
     props: {
         publicPath: String
     },

@@ -57,7 +57,16 @@ export default {
     computed: {
         readDate() {
             return function(date) {
-                return date === null ? '-' : date;
+                if (date === null) {
+                    return '-';
+                } else {
+                    const today = new Date();
+                    const year = today.getFullYear();
+                    const month = today.getMonth() + 1;
+                    const date = today.getDate();
+                    console.log(year + '/' + month + '/' + date);
+                    return year + '-' + month + '-' + date;
+                }
             };
         }
     }

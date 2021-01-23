@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Bookshelf;
 use Illuminate\Support\Facades\Auth;
 use App\Book;
+use Carbon\Carbon;
 
 class BookshelfController extends Controller
 {
@@ -66,7 +67,8 @@ class BookshelfController extends Controller
             $bookshelf = new Bookshelf;
             $bookshelf->fill([
                 'user_id' => Auth::id(),
-                'book_id' => $request->book_id
+                'book_id' => $request->book_id,
+                'read_at' => Carbon::now()
             ])->save();
         }
     }

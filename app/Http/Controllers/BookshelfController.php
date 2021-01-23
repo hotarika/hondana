@@ -68,7 +68,6 @@ class BookshelfController extends Controller
             $bookshelf->fill([
                 'user_id' => Auth::id(),
                 'book_id' => $request->book_id,
-                'read_at' => Carbon::now()
             ])->save();
         }
     }

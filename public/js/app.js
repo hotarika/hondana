@@ -1968,16 +1968,14 @@ __webpack_require__.r(__webpack_exports__);
     readDate: function readDate() {
       return function (date) {
         if (date === null) {
-          return '-';
+          return '読書中';
         } else {
-          var today = new Date();
-          var year = today.getFullYear();
-          var month = today.getMonth() + 1;
-
-          var _date = today.getDate();
-
-          console.log(year + '/' + month + '/' + _date);
-          return year + '-' + month + '-' + _date;
+          var readDate = new Date(date);
+          var y = readDate.getFullYear();
+          var m = readDate.getMonth() + 1;
+          var d = readDate.getDate();
+          console.log(y + '/' + m + '/' + d);
+          return y + '-' + m + '-' + d;
         }
       };
     }

@@ -58,14 +58,15 @@ export default {
         readDate() {
             return function(date) {
                 if (date === null) {
-                    return '-';
+                    return '読書中';
                 } else {
-                    const today = new Date();
-                    const year = today.getFullYear();
-                    const month = today.getMonth() + 1;
-                    const date = today.getDate();
-                    console.log(year + '/' + month + '/' + date);
-                    return year + '-' + month + '-' + date;
+                    const readDate = new Date(date);
+                    const y = readDate.getFullYear();
+                    const m = readDate.getMonth() + 1;
+                    const d = readDate.getDate();
+                    console.log(y + '/' + m + '/' + d);
+
+                    return y + '-' + m + '-' + d;
                 }
             };
         }

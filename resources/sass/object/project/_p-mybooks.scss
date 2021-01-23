@@ -10,6 +10,21 @@
 }
 
 .p-myBooks {
+    &__selectStar {
+        padding: 5px 6px;
+        font-size: 14px;
+        border: 1px solid $gray-400;
+    }
+    &__selectLatestDate {
+        padding: 5px 6px;
+        margin: 0 10px;
+        font-size: 14px;
+        border: 1px solid $gray-400;
+    }
+
+    // ***********************************
+    // カードコンポーネント
+    // ***********************************
     &__cards {
         display: flex;
         flex-wrap: wrap;

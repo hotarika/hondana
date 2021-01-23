@@ -1967,7 +1967,16 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     readDate: function readDate() {
       return function (date) {
-        return date === null ? '-' : date;
+        if (date === null) {
+          return '読書中';
+        } else {
+          var readDate = new Date(date);
+          var y = readDate.getFullYear();
+          var m = readDate.getMonth() + 1;
+          var d = readDate.getDate();
+          console.log(y + '/' + m + '/' + d);
+          return y + '-' + m + '-' + d;
+        }
       };
     }
   }
@@ -2025,6 +2034,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2041,17 +2062,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sortBooks: function sortBooks() {
       // 並び替え
-      if (this.latestDate == 0) {
+      if (this.latestDate == 2) {
         this.books = this.books.slice().sort(function (a, b) {
-          if (a.updated_at < b.updated_at) return -1;
-          if (a.updated_at > b.updated_at) return 1;
-          return 0;
+          if (a.read_at > b.read_at) return -1;
+          if (a.read_at < b.read_at) return 1;
         });
       } else {
         this.books = this.books.slice().sort(function (a, b) {
-          if (a.updated_at > b.updated_at) return -1;
-          if (a.updated_at < b.updated_at) return 1;
-          return 0;
+          if (a.read_at < b.read_at) return -1;
+          if (a.read_at > b.read_at) return 1;
         });
       }
     }
@@ -2063,7 +2082,11 @@ __webpack_require__.r(__webpack_exports__);
       var that = this; // フィルター
 
       return this.books.slice().reverse().filter(function (el) {
-        if (!el.title.match(regexp) && !el.authors.match(regexp) && !el.description.match(regexp)) {
+        if (el.description === null) {
+          el.description = '';
+        }
+
+        if (!el.title.match(regexp) && !el.author.match(regexp) && !el.description.match(regexp)) {
           return;
         }
 
@@ -38114,32 +38137,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-myBooks" }, [
-    _c("h1", { staticClass: "c-h1__head" }, [_vm._v("私の本棚")]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "c-form__search" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.search,
-            expression: "search"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.search },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.search = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
       _c(
         "select",
         {
@@ -38151,6 +38151,7 @@ var render = function() {
               expression: "star"
             }
           ],
+          staticClass: "p-myBooks__selectStar",
           attrs: { name: "star", id: "" },
           on: {
             change: function($event) {
@@ -38194,6 +38195,7 @@ var render = function() {
               expression: "latestDate"
             }
           ],
+          staticClass: "p-myBooks__selectLatestDate",
           attrs: { name: "latest_date", id: "" },
           on: {
             change: [
@@ -38215,18 +38217,43 @@ var render = function() {
           }
         },
         [
-          _c("option", { attrs: { value: "0" } }, [_vm._v("新しい順")]),
+          _c("option", { attrs: { value: "0" } }, [_vm._v("読了日順で選択")]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("古い順")])
+          _c("option", { attrs: { value: "1" } }, [_vm._v("新しい順")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")])
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }
+        ],
+        attrs: { type: "text" },
+        domProps: { value: _vm.search },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.search = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(1)
     ]),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "p-myBooks__cards" },
       [
-        _vm._l(_vm.books, function(book) {
+        _vm._l(_vm.showBooks, function(book) {
           return [
             _c(
               "a",
@@ -38246,6 +38273,15 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "c-h1__head" }, [
+      _c("i", { staticClass: "fas fa-bookmark" }),
+      _vm._v("私の本棚")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

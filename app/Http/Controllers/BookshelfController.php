@@ -118,6 +118,6 @@ class BookshelfController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('bookshelf')->where('id', $id)->delete();
     }
 }

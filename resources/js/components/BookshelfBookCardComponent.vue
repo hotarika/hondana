@@ -35,7 +35,7 @@
                     <a href="">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="">
+                    <a href="" @click.prevent="deleteBook">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </div>
@@ -52,7 +52,14 @@ export default {
         StarRating
     },
     props: {
-        book: Object
+        book: Object,
+        publicPath: String
+    },
+    methods: {
+        deleteBook() {
+            confirm('削除してもよろしいですか？');
+            this.$emit('delete-book', this.book);
+        }
     },
     computed: {
         readDate() {
@@ -73,8 +80,3 @@ export default {
     }
 };
 </script>
-
-<!--   <star-rating
-                            :rating="book.star"
-                            :read-only="true"
-                        ></star-rating> -->

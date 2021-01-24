@@ -42,6 +42,8 @@
                 <a href="" class="p-myBooks__cardLink" :key="book.id">
                     <bookshelf-book-card-component
                         :book="book"
+                        :public-path="publicPath"
+                        @delete-book="deleteBook"
                     ></bookshelf-book-card-component>
                 </a>
             </template>
@@ -78,6 +80,18 @@ export default {
                     if (a.read_at > b.read_at) return 1;
                 });
             }
+        },
+        deleteBook(emit) {
+            axios
+                .delete(this.publicPath + 'bookshelf/' + emit.id)
+                .then(res => {
+                    const index = this.books.indexOf(emit);
+                    this.books.splice(index, 1);
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     },
     computed: {
@@ -107,22 +121,6 @@ export default {
 
                     return el;
                 });
-        }
-    },
-    methods: {
-        sortBooks() {
-            // 並び替え
-            if (this.latestDate == 2) {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at > b.read_at) return -1;
-                    if (a.read_at < b.read_at) return 1;
-                });
-            } else {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at < b.read_at) return -1;
-                    if (a.read_at > b.read_at) return 1;
-                });
-            }
         }
     },
     mounted() {

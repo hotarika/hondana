@@ -2054,7 +2054,14 @@ __webpack_require__.r(__webpack_exports__);
     StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   props: {
-    book: Object
+    book: Object,
+    publicPath: String
+  },
+  methods: {
+    deleteBook: function deleteBook() {
+      confirm('削除してもよろしいですか？');
+      this.$emit('delete-book', this.book);
+    }
   },
   computed: {
     readDate: function readDate() {
@@ -2087,10 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-var _props$data$methods$c;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
 //
 //
 //
@@ -2143,7 +2148,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = (_props$data$methods$c = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     publicPath: String
   },
@@ -2169,6 +2174,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (a.read_at > b.read_at) return 1;
         });
       }
+    },
+    deleteBook: function deleteBook(emit) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](this.publicPath + 'bookshelf/' + emit.id).then(function (res) {
+        var index = _this.books.indexOf(emit);
+
+        _this.books.splice(index, 1);
+
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   },
   computed: {
@@ -2193,33 +2211,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return el;
       });
     }
-  }
-}, _defineProperty(_props$data$methods$c, "methods", {
-  sortBooks: function sortBooks() {
-    // 並び替え
-    if (this.latestDate == 2) {
-      this.books = this.books.slice().sort(function (a, b) {
-        if (a.read_at > b.read_at) return -1;
-        if (a.read_at < b.read_at) return 1;
-      });
-    } else {
-      this.books = this.books.slice().sort(function (a, b) {
-        if (a.read_at < b.read_at) return -1;
-        if (a.read_at > b.read_at) return 1;
-      });
-    }
-  }
-}), _defineProperty(_props$data$methods$c, "mounted", function mounted() {
-  var _this = this;
+  },
+  mounted: function mounted() {
+    var _this2 = this;
 
-  // 書籍の一覧表示
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.publicPath + 'async/bookshelf').then(function (res) {
-    // console.log(res);
-    _this.books = res.data;
-  })["catch"](function (err) {
-    console.log(err);
-  });
-}), _props$data$methods$c);
+    // 書籍の一覧表示
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.publicPath + 'async/bookshelf').then(function (res) {
+      // console.log(res);
+      _this2.books = res.data;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }
+});
 
 /***/ }),
 
@@ -77048,7 +77052,23 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "p-myBooks__functionIconsWrap" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              attrs: { href: "" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.deleteBook($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fas fa-trash-alt" })]
+          )
+        ])
       ])
     ])
   ])
@@ -77058,14 +77078,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-myBooks__functionIconsWrap" }, [
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fas fa-edit" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fas fa-trash-alt" })
-      ])
+    return _c("a", { attrs: { href: "" } }, [
+      _c("i", { staticClass: "fas fa-edit" })
     ])
   }
 ]
@@ -77216,7 +77230,12 @@ var render = function() {
                 staticClass: "p-myBooks__cardLink",
                 attrs: { href: "" }
               },
-              [_c("bookshelf-book-card-component", { attrs: { book: book } })],
+              [
+                _c("bookshelf-book-card-component", {
+                  attrs: { book: book, "public-path": _vm.publicPath },
+                  on: { "delete-book": _vm.deleteBook }
+                })
+              ],
               1
             )
           ]

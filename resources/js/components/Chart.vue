@@ -1,13 +1,14 @@
 <script>
 import { Bar } from 'vue-chartjs';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
     extends: Bar,
     name: 'chart',
     props: {
         labels: Array,
-        publicPath: String
+        publicPath: String,
+        graphData: Array
     },
     data() {
         return {
@@ -60,7 +61,7 @@ export default {
                         {
                             ticks: {
                                 beginAtZero: true,
-                                stepSize: 3
+                                stepSize: 2
                             }
                         }
                     ]
@@ -68,31 +69,17 @@ export default {
             }
         };
     },
-    mounted() {
-        // 読書数
-        axios
-            .get(this.publicPath + 'async/booksnum')
-            .then(res => {
-                const chartLabels = this.labels;
-                const chartData = res.data;
-                const insertData = [];
-                chartLabels.forEach((label, i) => {
-                    insertData[i] = 0;
-                    chartData.some(data => {
-                        if (label == data.read_at) {
-                            insertData[i] = data.count;
-                            return true;
-                        }
-                    });
-                });
-                // データ挿入
-                this.data.datasets[0].data = insertData;
-                // render
-                this.renderChart(this.data, this.options);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    watch: {
+        graphData: function() {
+            this.data.datasets[0].data = this.graphData;
+            this.renderChart(this.data, this.options);
+        }
     }
 };
 </script>
+
+<style scoped>
+.chartjs-render-monitor {
+    height: 60vh !important;
+}
+</style>

@@ -45,6 +45,10 @@ Vue.component(
     'bookshelf-show-component',
     require('./components/BookshelfShowComponent.vue').default
 );
+Vue.component(
+    'books-graph-component',
+    require('./components/BooksGraphComponent.vue').default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

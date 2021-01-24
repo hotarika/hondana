@@ -1,5 +1,8 @@
 <template>
     <div class="p-myBooks">
+        <div class="canvas-container">
+            <chart :labels="chartLabels" :public-path="publicPath"></chart>
+        </div>
         <h1 class="c-h1__head"><i class="fas fa-bookmark"></i>私の本棚</h1>
         <div class="c-form__search">
             <!-- 評価順 -->
@@ -51,8 +54,12 @@
 
 <script>
 import axios from 'axios';
+import Chart from './Chart';
 
 export default {
+    components: {
+        Chart
+    },
     props: {
         publicPath: String
     },
@@ -64,22 +71,7 @@ export default {
             books: []
         };
     },
-    methods: {
-        sortBooks() {
-            // 並び替え
-            if (this.latestDate == 2) {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at > b.read_at) return -1;
-                    if (a.read_at < b.read_at) return 1;
-                });
-            } else {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at < b.read_at) return -1;
-                    if (a.read_at > b.read_at) return 1;
-                });
-            }
-        }
-    },
+
     computed: {
         showBooks() {
             const regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
@@ -107,9 +99,50 @@ export default {
 
                     return el;
                 });
+        },
+        chartLabels() {
+            // チャートラベルは、先にデータを取得してChart.vueに渡しているため、子ではなく親コンポーネントであるここに記述している
+            const labels = [];
+            const dt = new Date(); // 今日の日付
+            const interval = -1; // 月の表示する間隔
+            const max = 6; // 繰り返し（表示）回数
+
+            // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
+
+            dt.setMonth(dt.getMonth() + 1); // 今月を含める
+
+            for (let i = 1; i <= max; i++) {
+                const m = (
+                    '0' +
+                    (dt.getMonth(dt.setMonth(dt.getMonth() + interval)) + 1)
+                ).slice(-2);
+                const y = dt.getFullYear();
+                labels.unshift(y + '/' + m);
+                console.log(y + '/' + m);
+                console.log(dt);
+            }
+            console.log(labels);
+            return labels;
+        }
+    },
+    methods: {
+        sortBooks() {
+            // 並び替え
+            if (this.latestDate == 2) {
+                this.books = this.books.slice().sort((a, b) => {
+                    if (a.read_at > b.read_at) return -1;
+                    if (a.read_at < b.read_at) return 1;
+                });
+            } else {
+                this.books = this.books.slice().sort((a, b) => {
+                    if (a.read_at < b.read_at) return -1;
+                    if (a.read_at > b.read_at) return 1;
+                });
+            }
         }
     },
     mounted() {
+        // 書籍の一覧表示
         axios
             .get(this.publicPath + 'async/bookshelf')
             .then(res => {

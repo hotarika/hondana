@@ -17,4 +17,16 @@ class AsynchronousController extends Controller
 
         return $books->toJson();
     }
+
+    // 月毎の書籍数
+    public function getBooksNum()
+    {
+        $books = DB::table('bookshelf as s')
+            ->select(DB::raw('DATE_FORMAT(read_at, "%Y/%m") as read_at, COUNT(*) as count'))
+            ->whereNotNull('read_at',)
+            ->groupBy(DB::raw('DATE_FORMAT(read_at, "%Y/%m")'))
+            ->get();
+
+        return $books->toJson();
+    }
 }

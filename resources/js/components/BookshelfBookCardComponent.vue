@@ -64,7 +64,7 @@ export default {
                     const y = readDate.getFullYear();
                     const m = readDate.getMonth() + 1;
                     const d = readDate.getDate();
-                    console.log(y + '/' + m + '/' + d);
+                    // console.log(y + '/' + m + '/' + d);
 
                     return y + '-' + m + '-' + d;
                 }

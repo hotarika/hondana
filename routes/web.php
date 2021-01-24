@@ -25,3 +25,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 // Async
 Route::get('/async/bookshelf', 'AsynchronousController@getBookshelf');
+Route::get('/async/booksnum', 'AsynchronousController@getBooksNum');

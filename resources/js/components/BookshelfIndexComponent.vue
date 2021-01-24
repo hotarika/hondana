@@ -109,7 +109,24 @@ export default {
                 });
         }
     },
+    methods: {
+        sortBooks() {
+            // 並び替え
+            if (this.latestDate == 2) {
+                this.books = this.books.slice().sort((a, b) => {
+                    if (a.read_at > b.read_at) return -1;
+                    if (a.read_at < b.read_at) return 1;
+                });
+            } else {
+                this.books = this.books.slice().sort((a, b) => {
+                    if (a.read_at < b.read_at) return -1;
+                    if (a.read_at > b.read_at) return 1;
+                });
+            }
+        }
+    },
     mounted() {
+        // 書籍の一覧表示
         axios
             .get(this.publicPath + 'async/bookshelf')
             .then(res => {

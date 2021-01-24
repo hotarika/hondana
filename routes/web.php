@@ -20,8 +20,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     // Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/bookshelf', 'BookshelfController');
+    Route::get('/books-graph', 'BooksGraphController')->name('books-graph');
 });
-
 
 // Async
 Route::get('/async/bookshelf', 'AsynchronousController@getBookshelf');
+Route::get('/async/booksnum', 'AsynchronousController@getBooksNum');

@@ -37,6 +37,9 @@
                                 class="p-header__username">{{Auth::user()->name}}</span>の本棚</a>
                     </li>
                     <li class="p-header__navList -bookRegister">
+                        <a href="{{route('books-graph')}}"><i class="fas fa-chart-bar"></i>読書グラフ</a>
+                    </li>
+                    <li class="p-header__navList -bookRegister">
                         <a href="{{route('bookshelf.create')}}"><i class="fas fa-book"></i>本棚に登録</a>
                     </li>
                     <li class="p-header__navList -logout">

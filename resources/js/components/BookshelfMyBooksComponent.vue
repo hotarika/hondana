@@ -108,14 +108,10 @@ export default {
                 .slice()
                 .reverse()
                 .filter(el => {
-                    if (el.description === null) {
-                        el.description = '';
+                    if (el.author === null) {
+                        el.author = '';
                     }
-                    if (
-                        !el.title.match(regexp) &&
-                        !el.author.match(regexp) &&
-                        !el.description.match(regexp)
-                    ) {
+                    if (!el.title.match(regexp) && !el.author.match(regexp)) {
                         return;
                     }
 

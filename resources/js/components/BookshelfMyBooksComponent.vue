@@ -39,7 +39,11 @@
 
         <div class="p-myBooks__cards">
             <template v-for="book of showBooks">
-                <a href="" class="p-myBooks__cardLink" :key="book.id">
+                <a
+                    :href="publicPath + 'bookshelf/' + book.id"
+                    class="p-myBooks__cardLink"
+                    :key="book.id"
+                >
                     <bookshelf-book-card-component
                         :book="book"
                         :public-path="publicPath"

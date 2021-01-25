@@ -2,12 +2,13 @@
     &__head {
         @include border-radius('top');
         position: relative;
-        padding: 15px 0;
+        padding: 15px 10px;
         margin: 0;
         font-size: 17px;
         text-align: center;
         background-color: #e6d4ce;
         @include mq('md') {
+            padding: 15px;
             font-size: 22px;
         }
         & > i {

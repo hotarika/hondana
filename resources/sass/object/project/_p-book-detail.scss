@@ -1,0 +1,155 @@
+%cardInfoTag {
+    display: inline-block;
+    padding: 1px 5px;
+    margin-right: 10px;
+    font-size: 11px;
+    color: $gray-700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    background: #ccb1b1;
+    border-radius: 3px;
+}
+
+.p-bookDetail {
+    margin: 0 auto;
+    @include mq('lg') {
+        width: 75%;
+    }
+    @include mq('xl') {
+        width: 70%;
+    }
+    &__buttonWrap {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        @include mq('md') {
+            margin-top: -20px;
+        }
+    }
+    &__button {
+        @include border-radius;
+        padding: 3px 15px;
+        margin-right: 5px;
+        font-size: 13px;
+        color: $white;
+        background-color: $primary;
+        border: none;
+    }
+    &__bookAllInfoWrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+
+        // @include mq('xl') {
+        //     flex-direction: row;
+        // }
+    }
+
+    // 画像
+    &__bookImageWrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        margin-right: 12px;
+        cursor: pointer;
+        @include mq('lg') {
+            margin-right: 15px;
+        }
+        &.-noImage {
+            justify-content: center;
+            height: 140px;
+            background-color: #ccc;
+        }
+    }
+    $bookWidth: 70px; // 書籍画像の幅
+    &__bookImage {
+        width: $bookWidth;
+        object-fit: contain;
+        &.-noImage {
+            width: 100%;
+        }
+        @include mq('lg') {
+            max-height: 100%;
+        }
+    }
+
+    // 書籍情報
+    &__bookInfoWrap {
+        padding-top: 10px;
+    }
+    &__starRating {
+        //
+    }
+    &__nameWrap {
+        display: flex;
+        margin-bottom: 7px;
+    }
+    &__nameHead {
+        @extend %cardInfoTag;
+    }
+    &__name {
+        font-size: 13px;
+    }
+    &__readDateWrap {
+        display: flex;
+        margin-bottom: 5px;
+    }
+    &__readDateHead {
+        @extend %cardInfoTag;
+    }
+    &__readDate {
+        font-size: 13px;
+    }
+    &__overviewWrap {
+        padding: 10px 25px;
+        margin-top: -1px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+        @include mq('lg') {
+            padding: 10px 50px;
+        }
+    }
+    &__overviewHead {
+        @extend %cardInfoTag;
+    }
+    &__overview {
+        font-size: 13px;
+    }
+
+    // ******************************
+    // memo
+    // ******************************
+
+    &__memoWrap {
+        position: relative;
+        margin-top: 50px;
+        font-size: 12px;
+    }
+    &__updateDateWrap {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        display: flex;
+    }
+    &__updateHead {
+        @extend %cardInfoTag;
+    }
+    &__memoHead {
+        margin-bottom: 5px;
+        margin-left: 5px;
+        font-size: 16px;
+    }
+    &__memo {
+        @include border-radius;
+        min-height: 300px;
+        padding: 20px;
+        font-size: 14px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+    }
+}

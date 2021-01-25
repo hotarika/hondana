@@ -10839,6 +10839,10 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #fff8f8;
+}
+
 .container {
   padding-right: 10px;
   padding-left: 10px;
@@ -10964,7 +10968,7 @@ a.text-dark:focus {
 .c-h1__head {
   border-radius: 3px 3px 0 0;
   position: relative;
-  padding: 15px 0;
+  padding: 15px 10px;
   margin: 0;
   font-size: 17px;
   text-align: center;
@@ -10973,6 +10977,7 @@ a.text-dark:focus {
 
 @media screen and (min-width: 768px) {
   .c-h1__head {
+    padding: 15px;
     font-size: 22px;
   }
 }
@@ -10980,6 +10985,176 @@ a.text-dark:focus {
 .c-h1__head > i {
   margin-right: 5px;
   color: #6c5146;
+}
+
+.p-registerBooks__descHead,
+.p-registerBooks__authorHead,
+.p-myBooks__readDateHead,
+.p-myBooks__authorHead,
+.p-bookDetail__updateHead,
+.p-bookDetail__overviewHead,
+.p-bookDetail__readDateHead,
+.p-bookDetail__nameHead {
+  display: inline-block;
+  padding: 1px 5px;
+  margin-right: 10px;
+  font-size: 11px;
+  color: #495057;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  background: #ccb1b1;
+  border-radius: 3px;
+}
+
+.p-bookDetail {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 992px) {
+  .p-bookDetail {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .p-bookDetail {
+    width: 70%;
+  }
+}
+
+.p-bookDetail__buttonWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-bookDetail__buttonWrap {
+    margin-top: -20px;
+  }
+}
+
+.p-bookDetail__button {
+  border-radius: 3px;
+  padding: 3px 15px;
+  margin-right: 5px;
+  font-size: 13px;
+  color: #fff;
+  background-color: #6c5146;
+  border: none;
+}
+
+.p-bookDetail__bookAllInfoWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+}
+
+.p-bookDetail__bookImageWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+  .p-bookDetail__bookImageWrap {
+    margin-right: 15px;
+  }
+}
+
+.p-bookDetail__bookImageWrap.-noImage {
+  justify-content: center;
+  height: 140px;
+  background-color: #ccc;
+}
+
+.p-bookDetail__bookImage {
+  width: 70px;
+  object-fit: contain;
+}
+
+.p-bookDetail__bookImage.-noImage {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .p-bookDetail__bookImage {
+    max-height: 100%;
+  }
+}
+
+.p-bookDetail__bookInfoWrap {
+  padding-top: 10px;
+}
+
+.p-bookDetail__nameWrap {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.p-bookDetail__name {
+  font-size: 13px;
+}
+
+.p-bookDetail__readDateWrap {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.p-bookDetail__readDate {
+  font-size: 13px;
+}
+
+.p-bookDetail__overviewWrap {
+  padding: 10px 25px;
+  margin-top: -1px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+}
+
+@media screen and (min-width: 992px) {
+  .p-bookDetail__overviewWrap {
+    padding: 10px 50px;
+  }
+}
+
+.p-bookDetail__overview {
+  font-size: 13px;
+}
+
+.p-bookDetail__memoWrap {
+  position: relative;
+  margin-top: 50px;
+  font-size: 12px;
+}
+
+.p-bookDetail__updateDateWrap {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: flex;
+}
+
+.p-bookDetail__memoHead {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.p-bookDetail__memo {
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
 }
 
 .p-header {
@@ -11125,7 +11300,11 @@ a.text-dark:focus {
 .p-registerBooks__descHead,
 .p-registerBooks__authorHead,
 .p-myBooks__readDateHead,
-.p-myBooks__authorHead {
+.p-myBooks__authorHead,
+.p-bookDetail__nameHead,
+.p-bookDetail__readDateHead,
+.p-bookDetail__overviewHead,
+.p-bookDetail__updateHead {
   padding: 1px 5px;
   margin-right: 10px;
   font-size: 11px;
@@ -11311,6 +11490,10 @@ a.text-dark:focus {
 
 .p-registerBooks__descHead,
 .p-registerBooks__authorHead,
+.p-bookDetail__nameHead,
+.p-bookDetail__readDateHead,
+.p-bookDetail__overviewHead,
+.p-bookDetail__updateHead,
 .p-myBooks__authorHead,
 .p-myBooks__readDateHead {
   padding: 1px 5px;

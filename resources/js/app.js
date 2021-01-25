@@ -34,16 +34,16 @@ Vue.component(
     require('./components/RegisterBookCardComponent.vue').default
 );
 Vue.component(
-    'bookshelf-index-component',
-    require('./components/BookshelfIndexComponent.vue').default
+    'bookshelf-mybooks-component',
+    require('./components/BookshelfMyBooksComponent.vue').default
 );
 Vue.component(
     'bookshelf-book-card-component',
     require('./components/BookshelfBookCardComponent.vue').default
 );
 Vue.component(
-    'bookshelf-show-component',
-    require('./components/BookshelfShowComponent.vue').default
+    'bookshelf-detail-component',
+    require('./components/BookshelfDetailComponent.vue').default
 );
 Vue.component(
     'books-graph-component',

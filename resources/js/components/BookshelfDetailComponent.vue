@@ -14,10 +14,10 @@
             <i class="fas fa-bookmark"></i>書籍のタイトルが入ります
         </h1>
         <div class="p-bookDetail__bookAllInfoWrap">
-            <div class="p-bookDetail__bookImageWrap">
+            <div class="c-bookImageWrap p-bookDetail__bookImageWrap">
                 <img
                     v-if="true"
-                    class="p-bookDetail__bookImage"
+                    class="c-bookImage p-bookDetail__bookImage"
                     src="http://books.google.com/books/content?id=rtffDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
                     alt=""
                 />

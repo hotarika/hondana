@@ -50,32 +50,10 @@
 
     // 画像
     &__bookImageWrap {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100px;
-        margin-right: 12px;
-        cursor: pointer;
-        @include mq('lg') {
-            margin-right: 15px;
-        }
-        &.-noImage {
-            justify-content: center;
-            height: 140px;
-            background-color: #ccc;
-        }
+        width: 70px;
     }
-    $bookWidth: 70px; // 書籍画像の幅
     &__bookImage {
-        width: $bookWidth;
-        object-fit: contain;
-        &.-noImage {
-            width: 100%;
-        }
-        @include mq('lg') {
-            max-height: 100%;
-        }
+        //
     }
 
     // 書籍情報

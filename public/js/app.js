@@ -2048,6 +2048,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -77039,12 +77053,24 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-myBooks__lower" }, [
-      _c("div", { staticClass: "p-myBooks__bookImageWrap" }, [
-        _c("img", {
-          staticClass: "p-myBooks__bookImage",
-          attrs: { src: _vm.book.image, alt: "" }
-        })
-      ]),
+      _c(
+        "div",
+        {
+          staticClass: "c-bookImageWrap p-myBooks__bookImageWrap",
+          class: { "-noImage": !_vm.book.image }
+        },
+        [
+          _vm.book.image
+            ? _c("img", {
+                staticClass: "c-bookImage p-myBooks__bookImage",
+                attrs: { src: _vm.book.image, alt: "" }
+              })
+            : _c("img", {
+                staticClass: "c-bookImage -noImage",
+                attrs: { src: _vm.publicPath + "image/no-image.png", alt: "no" }
+              })
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "p-myBooks__bookInfoWrap" }, [
         _c("div", { staticClass: "p-myBooks__authorWrap" }, [
@@ -77144,23 +77170,27 @@ var render = function() {
     _vm._m(1),
     _vm._v(" "),
     _c("div", { staticClass: "p-bookDetail__bookAllInfoWrap" }, [
-      _c("div", { staticClass: "p-bookDetail__bookImageWrap" }, [
-        true
-          ? _c("img", {
-              staticClass: "p-bookDetail__bookImage",
-              attrs: {
-                src:
-                  "http://books.google.com/books/content?id=rtffDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-                alt: ""
-              }
-            })
-          : undefined,
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "p-registerBooks__googlePreviewLogo",
-          attrs: { src: _vm.publicPath + "image/gbs_preview.gif", alt: "" }
-        })
-      ]),
+      _c(
+        "div",
+        { staticClass: "c-bookImageWrap p-bookDetail__bookImageWrap" },
+        [
+          true
+            ? _c("img", {
+                staticClass: "c-bookImage p-bookDetail__bookImage",
+                attrs: {
+                  src:
+                    "http://books.google.com/books/content?id=rtffDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                  alt: ""
+                }
+              })
+            : undefined,
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "p-registerBooks__googlePreviewLogo",
+            attrs: { src: _vm.publicPath + "image/gbs_preview.gif", alt: "" }
+          })
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "p-bookDetail__bookInfoWrap" }, [
         _vm._m(2),
@@ -77554,7 +77584,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "p-registerBooks__bookImageWrap",
+          staticClass: "c-bookImageWrap p-registerBooks__bookImageWrap",
           class: { "-noImage": !_vm.book.volumeInfo.imageLinks },
           on: {
             click: function($event) {
@@ -77566,14 +77596,14 @@ var render = function() {
         [
           _vm.book.volumeInfo.imageLinks
             ? _c("img", {
-                staticClass: "p-registerBooks__bookImage",
+                staticClass: "c-bookImage p-registerBooks__bookImage",
                 attrs: {
                   src: _vm.book.volumeInfo.imageLinks.thumbnail,
                   alt: ""
                 }
               })
             : _c("img", {
-                staticClass: "p-registerBooks__bookImage -noImage",
+                staticClass: "c-bookImage p-registerBooks__bookImage -noImage",
                 attrs: { src: _vm.publicPath + "image/no-image.png", alt: "no" }
               }),
           _vm._v(" "),

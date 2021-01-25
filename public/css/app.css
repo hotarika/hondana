@@ -10970,6 +10970,30 @@ body {
   color: #fff;
 }
 
+.c-bookImageWrap {
+  position: relative;
+  height: 100%;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+  .c-bookImageWrap {
+    margin-right: 15px;
+  }
+}
+
+.c-bookImageWrap.-noImage {
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+}
+
+.c-bookImage {
+  object-fit: contain;
+  width: 100%;
+}
+
 .c-h1__head {
   border-radius: 3px 3px 0 0;
   position: relative;
@@ -11059,40 +11083,7 @@ body {
 }
 
 .p-bookDetail__bookImageWrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  margin-right: 12px;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 992px) {
-  .p-bookDetail__bookImageWrap {
-    margin-right: 15px;
-  }
-}
-
-.p-bookDetail__bookImageWrap.-noImage {
-  justify-content: center;
-  height: 140px;
-  background-color: #ccc;
-}
-
-.p-bookDetail__bookImage {
   width: 70px;
-  object-fit: contain;
-}
-
-.p-bookDetail__bookImage.-noImage {
-  width: 100%;
-}
-
-@media screen and (min-width: 992px) {
-  .p-bookDetail__bookImage {
-    max-height: 100%;
-  }
 }
 
 .p-bookDetail__bookInfoWrap {
@@ -11415,7 +11406,9 @@ body {
 
 .p-myBooks__card {
   border-radius: 3px;
-  height: 100%;
+  position: relative;
+  min-height: 100%;
+  background-color: #fff;
   border: 1px solid #dee2e6;
 }
 
@@ -11430,7 +11423,7 @@ body {
 
 @media screen and (min-width: 992px) {
   .p-myBooks__upper {
-    min-height: 20%;
+    height: 20%;
     padding: 5px 12px;
   }
 }
@@ -11444,51 +11437,21 @@ body {
 }
 
 .p-myBooks__lower {
-  position: relative;
   display: flex;
-  min-height: 80%;
+  height: 80%;
   padding: 10px;
 }
 
 .p-myBooks__bookImageWrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  margin-right: 12px;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 992px) {
-  .p-myBooks__bookImageWrap {
-    margin-right: 15px;
-  }
+  width: 25%;
 }
 
 .p-myBooks__bookImageWrap.-noImage {
-  justify-content: center;
-  height: 140px;
-  background-color: #ccc;
-}
-
-.p-myBooks__bookImage {
-  width: 70px;
-  object-fit: contain;
-}
-
-.p-myBooks__bookImage.-noImage {
-  width: 100%;
-}
-
-@media screen and (min-width: 992px) {
-  .p-myBooks__bookImage {
-    max-height: 100%;
-  }
+  height: 110px;
 }
 
 .p-myBooks__bookInfoWrap {
-  width: 100%;
+  width: 75%;
   padding-top: 5px;
 }
 
@@ -11553,6 +11516,7 @@ body {
   border-radius: 3px;
   width: 100%;
   margin-bottom: 15px;
+  background-color: #fff;
   border: 1px solid #e9ecef;
 }
 
@@ -11645,19 +11609,12 @@ body {
 
 @media screen and (min-width: 992px) {
   .p-registerBooks__lower {
-    max-height: 80%;
     padding: 15px 20px;
   }
 }
 
 .p-registerBooks__bookImageWrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  margin-right: 12px;
-  cursor: pointer;
+  width: 17%;
 }
 
 @media screen and (min-width: 992px) {
@@ -11667,24 +11624,8 @@ body {
 }
 
 .p-registerBooks__bookImageWrap.-noImage {
-  justify-content: center;
-  height: 140px;
-  background-color: #ccc;
-}
-
-.p-registerBooks__bookImage {
-  width: 100px;
-  object-fit: contain;
-}
-
-.p-registerBooks__bookImage.-noImage {
-  width: 100%;
-}
-
-@media screen and (min-width: 992px) {
-  .p-registerBooks__bookImage {
-    max-height: 100%;
-  }
+  width: 85px;
+  height: 115px;
 }
 
 .p-registerBooks__googlePreviewLogo {
@@ -11695,7 +11636,7 @@ body {
 }
 
 .p-registerBooks__bookInfoWrap {
-  width: calc(96% - 100px);
+  width: 83%;
 }
 
 .p-registerBooks__authorWrap {
@@ -11735,7 +11676,7 @@ body {
 @media screen and (min-width: 992px) {
   .p-registerBooks__descText {
     font-size: 12px;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
   }
 }
 

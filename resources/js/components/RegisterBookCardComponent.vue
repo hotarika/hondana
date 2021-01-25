@@ -35,19 +35,19 @@
         <!-- カード下部 -->
         <div class="p-registerBooks__lower">
             <div
-                class="p-registerBooks__bookImageWrap"
+                class="c-bookImageWrap p-registerBooks__bookImageWrap"
                 :class="{ '-noImage': !book.volumeInfo.imageLinks }"
                 @click.prevent="googlePreview(book.volumeInfo.previewLink)"
             >
                 <img
                     v-if="book.volumeInfo.imageLinks"
-                    class="p-registerBooks__bookImage"
+                    class="c-bookImage p-registerBooks__bookImage"
                     :src="book.volumeInfo.imageLinks.thumbnail"
                     alt=""
                 />
                 <img
                     v-else
-                    class="p-registerBooks__bookImage -noImage"
+                    class="c-bookImage p-registerBooks__bookImage -noImage"
                     :src="publicPath + 'image/no-image.png'"
                     alt="no"
                 />

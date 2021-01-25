@@ -6,8 +6,22 @@
         </div>
         <!-- 下部 -->
         <div class="p-myBooks__lower">
-            <div class="p-myBooks__bookImageWrap">
-                <img class="p-myBooks__bookImage" :src="book.image" alt="" />
+            <div
+                class="c-bookImageWrap p-myBooks__bookImageWrap"
+                :class="{ '-noImage': !book.image }"
+            >
+                <img
+                    v-if="book.image"
+                    class="c-bookImage p-myBooks__bookImage"
+                    :src="book.image"
+                    alt=""
+                />
+                <img
+                    v-else
+                    class="c-bookImage -noImage"
+                    :src="publicPath + 'image/no-image.png'"
+                    alt="no"
+                />
             </div>
             <div class="p-myBooks__bookInfoWrap">
                 <div class="p-myBooks__authorWrap">

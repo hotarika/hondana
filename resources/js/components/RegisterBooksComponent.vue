@@ -10,11 +10,22 @@
                 />
             </a>
         </h1>
-        <form class="c-form__search">
-            <input type="text" v-model="search" placeholder="書籍を検索する" />
-            <button type="submit" @click.prevent="searchBooks">
-                <i class="fas fa-search"></i>
-            </button>
+        <form class="c-form__searchSection">
+            <div class="c-form__searchBoxWrap">
+                <input
+                    class="c-form__searchInput"
+                    type="text"
+                    v-model="search"
+                    placeholder="書籍を検索する"
+                />
+                <button
+                    class="c-form__searchBtn"
+                    type="submit"
+                    @click.prevent="searchBooks"
+                >
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </form>
 
         <div class="p-registerBooks__cards">

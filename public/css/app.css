@@ -10924,9 +10924,10 @@ body {
   background-color: #fff;
 }
 
-.c-form__search {
+.c-form__searchSection {
   border-radius: 0 0 3px 3px;
   display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 10px;
   margin-right: 20px;
@@ -10935,17 +10936,42 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .c-form__search {
-    display: flex;
+  .c-form__searchSection {
+    flex-direction: row;
     justify-content: center;
+    padding: 10px 20px;
     margin-bottom: 20px;
   }
 }
 
-.c-form__search > input {
+.c-form__searchBoxWrap {
+  display: flex;
+  height: 31px;
+  border: 1px solid #dee2e6;
+}
+
+@media screen and (min-width: 768px) {
+  .c-form__searchBoxWrap {
+    width: 55%;
+    height: 35px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .c-form__searchBoxWrap {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .c-form__searchBoxWrap {
+    width: 45%;
+  }
+}
+
+.c-form__searchInput {
   border-radius: 3px 0 0 3px;
   width: 100%;
-  height: 35px;
   padding: 0 15px;
   font-size: 14px;
   border: none;
@@ -10953,12 +10979,12 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .c-form__search > input {
-    width: 50%;
+  .c-form__searchInput {
+    width: 100%;
   }
 }
 
-.c-form__search > button {
+.c-form__searchBtn {
   border-radius: 0 3px 3px 0;
   width: 40px;
   background-color: #6c5146;
@@ -10966,7 +10992,7 @@ body {
   outline: 0;
 }
 
-.c-form__search > button > i {
+.c-form__searchBtn > i {
   color: #fff;
 }
 
@@ -11204,7 +11230,7 @@ body {
   align-items: center;
   width: 70vw;
   padding: 80px 0 0 40px;
-  background-color: rgba(62, 22, 22, 0.8);
+  background-color: rgba(62, 22, 22, 0.9);
   transition: 0.2s;
 }
 
@@ -11344,16 +11370,50 @@ body {
 }
 
 .p-myBooks__selectStar {
+  width: 50%;
   padding: 5px 6px;
   font-size: 14px;
-  border: 1px solid #ced4da;
+  border: 1px solid #dee2e6;
 }
 
 .p-myBooks__selectLatestDate {
+  border-radius: 3px;
+  width: 50%;
   padding: 5px 6px;
-  margin: 0 10px;
+  margin-left: 10px;
   font-size: 14px;
-  border: 1px solid #ced4da;
+  border: 1px solid #dee2e6;
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__selectLatestDate {
+    margin: 0 10px;
+  }
+}
+
+.p-myBooks__selectBoxWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__selectBoxWrap {
+    width: 45%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .p-myBooks__selectBoxWrap {
+    width: 35%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .p-myBooks__selectBoxWrap {
+    width: 30%;
+  }
 }
 
 .p-myBooks__cards {
@@ -11446,13 +11506,43 @@ body {
   width: 25%;
 }
 
+@media screen and (min-width: 414px) {
+  .p-myBooks__bookImageWrap {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__bookImageWrap {
+    width: 25%;
+  }
+}
+
 .p-myBooks__bookImageWrap.-noImage {
-  height: 110px;
+  height: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__bookImageWrap.-noImage {
+    height: 110px;
+  }
 }
 
 .p-myBooks__bookInfoWrap {
   width: 75%;
   padding-top: 5px;
+}
+
+@media screen and (min-width: 414px) {
+  .p-myBooks__bookInfoWrap {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__bookInfoWrap {
+    width: 75%;
+  }
 }
 
 .p-myBooks__authorWrap {

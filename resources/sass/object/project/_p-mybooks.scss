@@ -11,15 +11,36 @@
 
 .p-myBooks {
     &__selectStar {
+        width: 50%;
         padding: 5px 6px;
         font-size: 14px;
-        border: 1px solid $gray-400;
+        border: 1px solid $gray-300;
     }
     &__selectLatestDate {
+        @include border-radius;
+        width: 50%;
         padding: 5px 6px;
-        margin: 0 10px;
+        margin-left: 10px;
         font-size: 14px;
-        border: 1px solid $gray-400;
+        border: 1px solid $gray-300;
+        @include mq('md') {
+            margin: 0 10px;
+        }
+    }
+    &__selectBoxWrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        @include mq('md') {
+            width: 45%;
+            margin-bottom: 0;
+        }
+        @include mq('lg') {
+            width: 35%;
+        }
+        @include mq('xl') {
+            width: 30%;
+        }
     }
 
     // ***********************************
@@ -91,8 +112,17 @@
     }
     &__bookImageWrap {
         width: 25%;
+        @include mq('xs') {
+            width: 20%;
+        }
+        @include mq('md') {
+            width: 25%;
+        }
         &.-noImage {
-            height: 110px;
+            height: 90px;
+            @include mq('md') {
+                height: 110px;
+            }
         }
     }
     &__bookImage {
@@ -102,6 +132,12 @@
     &__bookInfoWrap {
         width: 75%;
         padding-top: 5px;
+        @include mq('xs') {
+            width: 80%;
+        }
+        @include mq('md') {
+            width: 75%;
+        }
     }
     &__authorWrap {
         display: flex;

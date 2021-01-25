@@ -1,40 +1,49 @@
 <template>
     <div class="p-myBooks">
         <h1 class="c-h1__head"><i class="fas fa-bookmark"></i>私の本棚</h1>
-        <div class="c-form__search">
-            <!-- 評価順 -->
-            <select
-                name="star"
-                id=""
-                v-model="star"
-                class="p-myBooks__selectStar"
-            >
-                <option value="0">★の数で選択</option>
-                <option value="1">★１以上</option>
-                <option value="2">★２以上</option>
-                <option value="3">★３以上</option>
-                <option value="4">★４以上</option>
-                <option value="5">★５以上</option>
-            </select>
+        <div class="c-form__searchSection">
+            <div class="p-myBooks__selectBoxWrap">
+                <!-- 評価順 -->
+                <select
+                    name="star"
+                    id=""
+                    v-model="star"
+                    class="p-myBooks__selectStar"
+                >
+                    <option value="0">★の数で選択</option>
+                    <option value="1">★１以上</option>
+                    <option value="2">★２以上</option>
+                    <option value="3">★３以上</option>
+                    <option value="4">★４以上</option>
+                    <option value="5">★５以上</option>
+                </select>
 
-            <!-- 読了日順 -->
-            <select
-                name="latest_date"
-                id=""
-                class="p-myBooks__selectLatestDate"
-                v-model="latestDate"
-                @change="sortBooks"
-            >
-                <option value="0">読了日順で選択</option>
-                <option value="1">新しい順</option>
-                <option value="2">古い順</option>
-            </select>
+                <!-- 読了日順 -->
+                <select
+                    name="latest_date"
+                    id=""
+                    class="p-myBooks__selectLatestDate"
+                    v-model="latestDate"
+                    @change="sortBooks"
+                >
+                    <option value="0">読了日順で選択</option>
+                    <option value="1">新しい順</option>
+                    <option value="2">古い順</option>
+                </select>
+            </div>
 
             <!-- 検索ボックス -->
-            <input type="text" v-model="search" />
-            <button type="">
-                <i class="fas fa-search"></i>
-            </button>
+            <div class="c-form__searchBoxWrap">
+                <input
+                    class="c-form__searchInput"
+                    type="text"
+                    v-model="search"
+                    placeholder="書籍を絞り込む（タイトル・著者）"
+                />
+                <button class="c-form__searchBtn" type="">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
 
         <div class="p-myBooks__cards">

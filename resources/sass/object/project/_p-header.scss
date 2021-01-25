@@ -37,7 +37,7 @@
             align-items: center;
             width: 70vw;
             padding: 80px 0 0 40px;
-            background-color: rgba($color: #3e1616, $alpha: 0.8);
+            background-color: rgba($color: #3e1616, $alpha: 0.9);
             transition: 0.2s;
             &.is-active {
                 transform: translateX(-70vw);

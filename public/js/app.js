@@ -2295,6 +2295,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2593,6 +2602,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -77335,67 +77355,23 @@ var render = function() {
   return _c("div", { staticClass: "p-myBooks" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "c-form__search" }, [
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.star,
-              expression: "star"
-            }
-          ],
-          staticClass: "p-myBooks__selectStar",
-          attrs: { name: "star", id: "" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.star = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
-        [
-          _c("option", { attrs: { value: "0" } }, [_vm._v("★の数で選択")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("★１以上")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("★２以上")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "3" } }, [_vm._v("★３以上")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "4" } }, [_vm._v("★４以上")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "5" } }, [_vm._v("★５以上")])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.latestDate,
-              expression: "latestDate"
-            }
-          ],
-          staticClass: "p-myBooks__selectLatestDate",
-          attrs: { name: "latest_date", id: "" },
-          on: {
-            change: [
-              function($event) {
+    _c("div", { staticClass: "c-form__searchSection" }, [
+      _c("div", { staticClass: "p-myBooks__selectBoxWrap" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.star,
+                expression: "star"
+              }
+            ],
+            staticClass: "p-myBooks__selectStar",
+            attrs: { name: "star", id: "" },
+            on: {
+              change: function($event) {
                 var $$selectedVal = Array.prototype.filter
                   .call($event.target.options, function(o) {
                     return o.selected
@@ -77404,45 +77380,97 @@ var render = function() {
                     var val = "_value" in o ? o._value : o.value
                     return val
                   })
-                _vm.latestDate = $event.target.multiple
+                _vm.star = $event.target.multiple
                   ? $$selectedVal
                   : $$selectedVal[0]
-              },
-              _vm.sortBooks
-            ]
-          }
-        },
-        [
-          _c("option", { attrs: { value: "0" } }, [_vm._v("読了日順で選択")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("新しい順")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.search,
-            expression: "search"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.search },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+              }
             }
-            _vm.search = $event.target.value
-          }
-        }
-      }),
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v("★の数で選択")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1" } }, [_vm._v("★１以上")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2" } }, [_vm._v("★２以上")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "3" } }, [_vm._v("★３以上")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "4" } }, [_vm._v("★４以上")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "5" } }, [_vm._v("★５以上")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.latestDate,
+                expression: "latestDate"
+              }
+            ],
+            staticClass: "p-myBooks__selectLatestDate",
+            attrs: { name: "latest_date", id: "" },
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.latestDate = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortBooks
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v("読了日順で選択")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1" } }, [_vm._v("新しい順")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")])
+          ]
+        )
+      ]),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "c-form__searchBoxWrap" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search,
+              expression: "search"
+            }
+          ],
+          staticClass: "c-form__searchInput",
+          attrs: {
+            type: "text",
+            placeholder: "書籍を絞り込む（タイトル・著者）"
+          },
+          domProps: { value: _vm.search },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
     ]),
     _vm._v(" "),
     _c(
@@ -77487,9 +77515,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { attrs: { type: "" } }, [
-      _c("i", { staticClass: "fas fa-search" })
-    ])
+    return _c(
+      "button",
+      { staticClass: "c-form__searchBtn", attrs: { type: "" } },
+      [_c("i", { staticClass: "fas fa-search" })]
+    )
   }
 ]
 render._withStripped = true
@@ -77682,41 +77712,45 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("form", { staticClass: "c-form__search" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.search,
-            expression: "search"
-          }
-        ],
-        attrs: { type: "text", placeholder: "書籍を検索する" },
-        domProps: { value: _vm.search },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("form", { staticClass: "c-form__searchSection" }, [
+      _c("div", { staticClass: "c-form__searchBoxWrap" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search,
+              expression: "search"
             }
-            _vm.search = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          attrs: { type: "submit" },
+          ],
+          staticClass: "c-form__searchInput",
+          attrs: { type: "text", placeholder: "書籍を検索する" },
+          domProps: { value: _vm.search },
           on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.searchBooks($event)
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search = $event.target.value
             }
           }
-        },
-        [_c("i", { staticClass: "fas fa-search" })]
-      )
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "c-form__searchBtn",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.searchBooks($event)
+              }
+            }
+          },
+          [_c("i", { staticClass: "fas fa-search" })]
+        )
+      ])
     ]),
     _vm._v(" "),
     _c(

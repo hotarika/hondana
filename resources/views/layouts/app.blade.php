@@ -8,11 +8,7 @@
         {{-- header --}}
         @include('components/header')
 
-        <main class="l-main">
-            <div class="container">
-                @yield('content')
-            </div>
-        </main>
+        @yield('content')
 
         {{-- footer --}}
         @include('components/footer')

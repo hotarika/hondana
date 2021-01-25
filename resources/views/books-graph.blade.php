@@ -2,6 +2,10 @@
 @section('title', '読書グラフ')
 
 @section('content')
-<books-graph-component
-    :public-path="{{ json_encode(asset('')) }}"></books-graph-component>
+<main class="l-main">
+    <div class="container">
+        <books-graph-component
+            :public-path="{{ json_encode(asset('')) }}"></books-graph-component>
+    </div>
+</main>
 @endsection

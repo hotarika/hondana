@@ -14,12 +14,12 @@
 
             @guest {{-- ゲストユーザーの場合 --}}
 
-            <nav class="p-header__nav">
-                <ul class="p-header__navLists">
-                    <li class="p-header__navList -login">
+            <nav class="p-header__nav -guest">
+                <ul class="p-header__navLists -guest">
+                    <li class="p-header__navList -guest">
                         <a href="{{route('login')}}">ログイン</a>
                     </li>
-                    <li class="p-header__navList -register">
+                    <li class="p-header__navList -guest">
                         <a href="{{route('register')}}">会員登録</a>
                     </li>
                 </ul>
@@ -28,7 +28,7 @@
             @else {{-- ログインユーザーの場合 --}}
 
             {{-- navigation --}}
-            <nav class="p-header__nav js-nav">
+            <nav class="p-header__nav -user js-nav">
                 <i class="far fa-times-circle p-header__menuClose js-closeIcon"></i>
                 <ul class="p-header__navLists">
                     <li class="p-header__navList -myShelf">

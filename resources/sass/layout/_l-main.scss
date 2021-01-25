@@ -4,4 +4,9 @@
     @include mq('md') {
         padding: 50px 0;
     }
+
+    &.-welcome {
+        padding: 40px 0;
+        background-color: $white;
+    }
 }

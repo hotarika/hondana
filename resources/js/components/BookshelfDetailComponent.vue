@@ -5,7 +5,10 @@
                 <i class="fas fa-edit"></i>
                 編集
             </button>
-            <button class="p-bookDetail__button -delete">
+            <button
+                class="p-bookDetail__button -delete"
+                @click.prevent="deleteBook(book.id)"
+            >
                 <i class="fas fa-trash-alt"></i>
                 削除
             </button>
@@ -73,7 +76,7 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 import StarRating from 'vue-star-rating';
 
 export default {
@@ -94,6 +97,22 @@ export default {
     methods: {
         googlePreview(url) {
             window.location.href = url;
+        },
+        deleteBook(book_id) {
+            confirm('削除してもよろしいですか？');
+
+            axios
+                .delete(this.publicPath + 'bookshelf/' + book_id)
+                .then(res => {
+                    // const index = this.books.indexOf(emit);
+                    // this.books.splice(index, 1);
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
+            window.location.href = this.publicPath + 'bookshelf';
         }
     },
     computed: {

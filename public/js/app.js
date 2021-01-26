@@ -2107,8 +2107,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
-/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2183,11 +2185,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import axios from 'axios';
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default.a
+    StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   props: {
     publicPath: String,
@@ -2203,6 +2208,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     googlePreview: function googlePreview(url) {
       window.location.href = url;
+    },
+    deleteBook: function deleteBook(book_id) {
+      confirm('削除してもよろしいですか？');
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](this.publicPath + 'bookshelf/' + book_id).then(function (res) {
+        // const index = this.books.indexOf(emit);
+        // this.books.splice(index, 1);
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+      window.location.href = this.publicPath + 'bookshelf';
     }
   },
   computed: {// showBooks() {
@@ -77193,7 +77209,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-bookDetail" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "p-bookDetail__buttonWrap" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "p-bookDetail__button -delete",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.deleteBook(_vm.book.id)
+            }
+          }
+        },
+        [
+          _c("i", { staticClass: "fas fa-trash-alt" }),
+          _vm._v("\n            削除\n        ")
+        ]
+      )
+    ]),
     _vm._v(" "),
     _c("h1", { staticClass: "c-h1__head" }, [
       _c("i", { staticClass: "fas fa-bookmark" }),
@@ -77298,16 +77333,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__buttonWrap" }, [
-      _c("button", { staticClass: "p-bookDetail__button -edit" }, [
-        _c("i", { staticClass: "fas fa-edit" }),
-        _vm._v("\n            編集\n        ")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "p-bookDetail__button -delete" }, [
-        _c("i", { staticClass: "fas fa-trash-alt" }),
-        _vm._v("\n            削除\n        ")
-      ])
+    return _c("button", { staticClass: "p-bookDetail__button -edit" }, [
+      _c("i", { staticClass: "fas fa-edit" }),
+      _vm._v("\n            編集\n        ")
     ])
   },
   function() {

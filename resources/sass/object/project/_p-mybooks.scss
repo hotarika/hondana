@@ -106,9 +106,14 @@
     }
     // lower
     &__lower {
+        position: relative;
         display: flex;
         height: 80%;
         padding: 10px;
+    }
+    &__publishedDate {
+        top: 5px;
+        right: 9px;
     }
     &__bookImageWrap {
         width: 25%;
@@ -131,7 +136,7 @@
 
     &__bookInfoWrap {
         width: 75%;
-        padding-top: 5px;
+        margin-top: 15px;
         @include mq('xs') {
             width: 80%;
         }
@@ -141,12 +146,13 @@
     }
     &__authorWrap {
         display: flex;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
     &__authorHead {
         @extend %cardInfoTag;
     }
     &__authorName {
+        @include ellipsis;
         font-size: 12px;
     }
     &__readDateWrap {

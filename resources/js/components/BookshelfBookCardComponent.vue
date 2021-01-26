@@ -7,6 +7,12 @@
         <!-- 下部 -->
         <div class="p-myBooks__lower">
             <div
+                class="c-card__publishedDate p-myBooks__publishedDate"
+                v-if="book.published_date"
+            >
+                出版日：{{ book.published_date }}
+            </div>
+            <div
                 class="c-bookImageWrap p-myBooks__bookImageWrap"
                 :class="{ '-noImage': !book.image }"
             >
@@ -46,15 +52,15 @@
                         :read-only="true"
                     ></star-rating>
                 </div>
-                <div class="p-myBooks__functionIconsWrap">
-                    <a href="">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <a href="" @click.prevent="deleteBook">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                </div>
             </div>
+        </div>
+        <div class="p-myBooks__functionIconsWrap">
+            <a href="">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a href="" @click.prevent="deleteBook">
+                <i class="fas fa-trash-alt"></i>
+            </a>
         </div>
     </div>
 </template>

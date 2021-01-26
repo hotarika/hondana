@@ -10928,6 +10928,12 @@ pre {
   background-color: #fff;
 }
 
+.c-card__publishedDate {
+  position: absolute;
+  font-size: 11px;
+  color: #6c757d;
+}
+
 .c-form__searchSection {
   border-radius: 0 0 3px 3px;
   display: flex;
@@ -11117,6 +11123,11 @@ pre {
   padding: 20px;
   background-color: #fff;
   border: 1px solid #e9ecef;
+}
+
+.p-bookDetail__publishedDate {
+  top: 3px;
+  right: 8px;
 }
 
 .p-bookDetail__bookImageWrap {
@@ -11543,9 +11554,15 @@ pre {
 }
 
 .p-myBooks__lower {
+  position: relative;
   display: flex;
   height: 80%;
   padding: 10px;
+}
+
+.p-myBooks__publishedDate {
+  top: 5px;
+  right: 9px;
 }
 
 .p-myBooks__bookImageWrap {
@@ -11576,7 +11593,7 @@ pre {
 
 .p-myBooks__bookInfoWrap {
   width: 75%;
-  padding-top: 5px;
+  margin-top: 15px;
 }
 
 @media screen and (min-width: 414px) {
@@ -11593,10 +11610,13 @@ pre {
 
 .p-myBooks__authorWrap {
   display: flex;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .p-myBooks__authorName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 12px;
 }
 
@@ -11737,6 +11757,7 @@ pre {
 }
 
 .p-registerBooks__lower {
+  position: relative;
   display: flex;
   padding: 10px 10px;
   overflow: hidden;
@@ -11746,6 +11767,11 @@ pre {
   .p-registerBooks__lower {
     padding: 15px 20px;
   }
+}
+
+.p-registerBooks__publishedDate {
+  top: 3px;
+  right: 8px;
 }
 
 .p-registerBooks__bookImageWrap {

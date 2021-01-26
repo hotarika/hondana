@@ -88,12 +88,17 @@
 
     // カード下部
     &__lower {
+        position: relative;
         display: flex;
         padding: 10px 10px;
         overflow: hidden;
         @include mq('lg') {
             padding: 15px 20px;
         }
+    }
+    &__publishedDate {
+        top: 3px;
+        right: 8px;
     }
 
     // 画像

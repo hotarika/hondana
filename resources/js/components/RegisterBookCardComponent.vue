@@ -35,6 +35,12 @@
         <!-- カード下部 -->
         <div class="p-registerBooks__lower">
             <div
+                class="c-card__publishedDate p-registerBooks__publishedDate"
+                v-if="book.volumeInfo.publishedDate"
+            >
+                出版日：{{ book.volumeInfo.publishedDate }}
+            </div>
+            <div
                 class="c-bookImageWrap p-registerBooks__bookImageWrap"
                 :class="{ '-noImage': !book.volumeInfo.imageLinks }"
                 @click.prevent="googlePreview(book.volumeInfo.previewLink)"
@@ -96,7 +102,6 @@ export default {
             isDone: this.book.registration === undefined ? false : true
         };
     },
-
     methods: {
         registerBook(book) {
             console.log(book);

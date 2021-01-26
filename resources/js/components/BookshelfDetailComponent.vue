@@ -34,6 +34,12 @@
         </h1>
         <div class="p-bookDetail__bookAllInfoWrap">
             <div
+                class="c-card__publishedDate p-bookDetail__publishedDate"
+                v-if="book.published_date"
+            >
+                出版日：{{ book.published_date }}
+            </div>
+            <div
                 class="c-bookImageWrap p-bookDetail__bookImageWrap"
                 @click.prevent="googlePreview(book.preview_link)"
             >

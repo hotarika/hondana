@@ -2063,6 +2063,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2112,6 +2118,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2550,6 +2562,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -77168,6 +77186,20 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-myBooks__lower" }, [
+      _vm.book.published_date
+        ? _c(
+            "div",
+            { staticClass: "c-card__publishedDate p-myBooks__publishedDate" },
+            [
+              _vm._v(
+                "\n            出版日：" +
+                  _vm._s(_vm.book.published_date) +
+                  "\n        "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -77226,26 +77258,26 @@ var render = function() {
             })
           ],
           1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-myBooks__functionIconsWrap" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.deleteBook($event)
-                }
-              }
-            },
-            [_c("i", { staticClass: "fas fa-trash-alt" })]
-          )
-        ])
+        )
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "p-myBooks__functionIconsWrap" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.deleteBook($event)
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-trash-alt" })]
+      )
     ])
   ])
 }
@@ -77345,6 +77377,22 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-bookDetail__bookAllInfoWrap" }, [
+      _vm.book.published_date
+        ? _c(
+            "div",
+            {
+              staticClass: "c-card__publishedDate p-bookDetail__publishedDate"
+            },
+            [
+              _vm._v(
+                "\n            出版日：" +
+                  _vm._s(_vm.book.published_date) +
+                  "\n        "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -77811,6 +77859,23 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-registerBooks__lower" }, [
+      _vm.book.volumeInfo.publishedDate
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "c-card__publishedDate p-registerBooks__publishedDate"
+            },
+            [
+              _vm._v(
+                "\n            出版日：" +
+                  _vm._s(_vm.book.volumeInfo.publishedDate) +
+                  "\n        "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         {

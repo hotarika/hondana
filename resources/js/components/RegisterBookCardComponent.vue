@@ -33,7 +33,10 @@
         </div>
 
         <!-- カード下部 -->
-        <div class="p-registerBooks__lower">
+        <div
+            class="p-registerBooks__lower"
+            :class="{ '-noImage': !book.volumeInfo.imageLinks }"
+        >
             <div
                 class="c-card__publishedDate p-registerBooks__publishedDate"
                 v-if="book.volumeInfo.publishedDate"

@@ -2074,8 +2074,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteBook: function deleteBook() {
-      confirm('削除してもよろしいですか？');
-      this.$emit('delete-book', this.book);
+      if (confirm('削除してもよろしいですか？')) {
+        this.$emit('delete-book', this.book);
+      }
     }
   },
   computed: {
@@ -2272,13 +2273,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteBook: function deleteBook(book_id) {
-      confirm('削除してもよろしいですか？');
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](this.publicPath + 'bookshelf/' + book_id).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-      window.location.href = this.publicPath + 'bookshelf';
+      if (confirm('削除してもよろしいですか？')) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](this.publicPath + 'bookshelf/' + book_id).then(function (res) {
+          console.log(res);
+        })["catch"](function (err) {
+          console.log(err);
+        });
+        window.location.href = this.publicPath + 'bookshelf';
+      }
     }
   },
   computed: {

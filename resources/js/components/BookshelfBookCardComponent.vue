@@ -72,8 +72,9 @@ export default {
     },
     methods: {
         deleteBook() {
-            confirm('削除してもよろしいですか？');
-            this.$emit('delete-book', this.book);
+            if (confirm('削除してもよろしいですか？')) {
+                this.$emit('delete-book', this.book);
+            }
         }
     },
     computed: {

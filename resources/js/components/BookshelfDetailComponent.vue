@@ -164,18 +164,18 @@ export default {
                 });
         },
         deleteBook(book_id) {
-            confirm('削除してもよろしいですか？');
+            if (confirm('削除してもよろしいですか？')) {
+                axios
+                    .delete(this.publicPath + 'bookshelf/' + book_id)
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
 
-            axios
-                .delete(this.publicPath + 'bookshelf/' + book_id)
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-
-            window.location.href = this.publicPath + 'bookshelf';
+                window.location.href = this.publicPath + 'bookshelf';
+            }
         }
     },
     computed: {

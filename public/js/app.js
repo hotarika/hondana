@@ -2234,6 +2234,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2246,10 +2250,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      editMode: true,
+      editMode: false,
       rating: this.book.star,
       memo: this.book.memo,
-      readDate: this.read_at
+      readDate: this.book.read_at
     };
   },
   methods: {
@@ -2257,8 +2261,7 @@ __webpack_require__.r(__webpack_exports__);
       window.location.href = url;
     },
     editDone: function editDone() {
-      this.editMode = false;
-      console.log('a'); // DBへ保存
+      this.editMode = false; // DBへ保存
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.publicPath + 'bookshelf/' + this.book.id, {
         star: this.rating,
@@ -2281,6 +2284,20 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     starReadOnly: function starReadOnly() {
       return this.editMode ? false : true;
+    },
+    dateFormat: function dateFormat() {
+      return function (date) {
+        if (date === null) {
+          return '読書中';
+        } else {
+          var readDate = new Date(date);
+          var y = readDate.getFullYear();
+          var m = readDate.getMonth() + 1;
+          var d = readDate.getDate();
+          console.log(y + '/' + m + '/' + d);
+          return y + '-' + m + '-' + d;
+        }
+      };
     }
   }
 });
@@ -77303,7 +77320,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("h1", { staticClass: "c-h1__head" }, [
+    _c("h1", { staticClass: "c-h1__head -detail" }, [
       _c("i", { staticClass: "fas fa-bookmark" }),
       _vm._v(_vm._s(_vm.book.title) + "\n    ")
     ]),
@@ -77360,13 +77377,13 @@ var render = function() {
             ? _c(
                 "div",
                 {
-                  staticClass: "p-bookDetail__readDate",
+                  staticClass: "p-bookDetail__readDate -view",
                   class: { "-edit": _vm.editMode }
                 },
                 [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(_vm.readDate) +
+                      _vm._s(_vm.dateFormat(_vm.readDate)) +
                       "\n                "
                   )
                 ]
@@ -77383,7 +77400,7 @@ var render = function() {
                     expression: "readDate"
                   }
                 ],
-                staticClass: "p-bookDetail__readDate",
+                staticClass: "p-bookDetail__readDate -edit",
                 attrs: { type: "date", name: "", id: "" },
                 domProps: { value: _vm.readDate },
                 on: {
@@ -77435,7 +77452,15 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "p-bookDetail__memoWrap" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "p-bookDetail__memoHead" }, [
+        _c("i", { staticClass: "fas fa-pen" }),
+        _vm._v("読書メモ"),
+        !_vm.memo && _vm.editMode === false
+          ? _c("span", [
+              _vm._v("（編集ボタンを押すと、読書メモを書き込むことができます）")
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _vm.editMode
         ? _c("textarea", {
@@ -77448,7 +77473,13 @@ var render = function() {
               }
             ],
             staticClass: "p-bookDetail__memo -textarea",
-            attrs: { name: "", id: "", cols: "30", rows: "10" },
+            attrs: {
+              name: "",
+              id: "",
+              cols: "30",
+              rows: "10",
+              placeholder: "読書メモを書きましょう！"
+            },
             domProps: { value: _vm.memo },
             on: {
               input: function($event) {
@@ -77463,23 +77494,13 @@ var render = function() {
       _vm._v(" "),
       !_vm.editMode
         ? _c("pre", { staticClass: "p-bookDetail__memo -pre" }, [
-            _vm._v(_vm._s(_vm.book.memo))
+            _vm._v(_vm._s(_vm.memo))
           ])
         : _vm._e()
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__memoHead" }, [
-      _c("i", { staticClass: "fas fa-pen" }),
-      _vm._v("読書メモ\n        ")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

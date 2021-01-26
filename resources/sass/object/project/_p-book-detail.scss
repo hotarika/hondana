@@ -35,7 +35,7 @@
         background-color: $primary;
         border: none;
         &.-editDone {
-            background-color: lightgreen;
+            background-color: #ce6e00;
         }
     }
     &__bookAllInfoWrap {
@@ -68,7 +68,7 @@
     }
     &__nameWrap {
         display: flex;
-        margin-bottom: 7px;
+        margin-bottom: 10px;
     }
     &__nameHead {
         @extend %cardInfoTag;
@@ -83,14 +83,16 @@
     }
     &__readDateHead {
         @extend %cardInfoTag;
-        &.-edit::before {
-            content: '';
+        &.-edit {
+            line-height: 2;
         }
     }
     &__readDate {
         font-size: 13px;
         &.-edit {
-            background-color: lightgreen;
+            padding: 0 3px;
+            // font-size: 10px;
+            border: 1px solid $gray-300;
         }
     }
     &__overviewWrap {
@@ -125,20 +127,26 @@
         & > i {
             margin-right: 3px;
         }
+        & > span {
+            font-size: 13px;
+            color: $gray-600;
+        }
     }
     &__memo {
         @include border-radius;
+        @include letter-settings;
         min-height: 300px;
-        padding: 20px;
+        padding: 15px 20px;
         font-size: 14px;
         background-color: $white;
         border: 1px solid $gray-200;
         &.-textarea {
             width: 100%;
-            border: 3px dashed lightgreen;
+            border: 3px dashed #ce6e00;
         }
         &.-pre {
-            //
+            word-break: break-all;
+            white-space: pre-wrap;
         }
     }
 }

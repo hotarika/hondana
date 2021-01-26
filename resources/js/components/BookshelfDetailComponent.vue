@@ -28,7 +28,7 @@
                 削除
             </button>
         </div>
-        <h1 class="c-h1__head">
+        <h1 class="c-h1__head -detail">
             <i class="fas fa-bookmark"></i>{{ book.title }}
         </h1>
         <div class="p-bookDetail__bookAllInfoWrap">
@@ -69,13 +69,13 @@
 
                     <div
                         v-if="editMode === false"
-                        class="p-bookDetail__readDate"
+                        class="p-bookDetail__readDate -view"
                         :class="{ '-edit': editMode }"
                     >
-                        {{ readDate }}
+                        {{ dateFormat(readDate) }}
                     </div>
                     <input
-                        class="p-bookDetail__readDate"
+                        class="p-bookDetail__readDate -edit"
                         v-if="editMode === true"
                         v-model="readDate"
                         type="date"
@@ -103,7 +103,10 @@
 
         <div class="p-bookDetail__memoWrap">
             <div class="p-bookDetail__memoHead">
-                <i class="fas fa-pen"></i>読書メモ
+                <i class="fas fa-pen"></i>読書メモ<span
+                    v-if="!memo && editMode === false"
+                    >（編集ボタンを押すと、読書メモを書き込むことができます）</span
+                >
             </div>
             <textarea
                 class="p-bookDetail__memo -textarea"
@@ -113,9 +116,10 @@
                 cols="30"
                 rows="10"
                 v-model="memo"
+                placeholder="読書メモを書きましょう！"
             ></textarea>
             <pre class="p-bookDetail__memo -pre" v-if="!editMode">{{
-                book.memo
+                memo
             }}</pre>
         </div>
     </div>
@@ -135,10 +139,10 @@ export default {
     },
     data() {
         return {
-            editMode: true,
+            editMode: false,
             rating: this.book.star,
             memo: this.book.memo,
-            readDate: this.read_at
+            readDate: this.book.read_at
         };
     },
     methods: {
@@ -147,7 +151,6 @@ export default {
         },
         editDone() {
             this.editMode = false;
-            console.log('a');
 
             // DBへ保存
             axios
@@ -178,6 +181,21 @@ export default {
     computed: {
         starReadOnly() {
             return this.editMode ? false : true;
+        },
+        dateFormat() {
+            return function(date) {
+                if (date === null) {
+                    return '読書中';
+                } else {
+                    const readDate = new Date(date);
+                    const y = readDate.getFullYear();
+                    const m = readDate.getMonth() + 1;
+                    const d = readDate.getDate();
+                    console.log(y + '/' + m + '/' + d);
+
+                    return y + '-' + m + '-' + d;
+                }
+            };
         }
     }
 };

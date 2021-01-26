@@ -2411,6 +2411,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2421,10 +2428,14 @@ __webpack_require__.r(__webpack_exports__);
       search: '',
       star: 0,
       latestDate: 0,
-      books: []
+      books: [],
+      showNum: 33
     };
   },
   methods: {
+    showMore: function showMore() {
+      return this.showNum = this.showNum + this.showNum;
+    },
     sortBooks: function sortBooks() {
       // 並び替え
       if (this.latestDate == 2) {
@@ -77725,7 +77736,7 @@ var render = function() {
       "div",
       { staticClass: "p-myBooks__cards" },
       [
-        _vm._l(_vm.showBooks, function(book) {
+        _vm._l(_vm.showBooks.slice(0, _vm.showNum), function(book) {
           return [
             _c(
               "a",
@@ -77746,7 +77757,23 @@ var render = function() {
         })
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _vm.showBooks.length >= _vm.showNum
+      ? _c(
+          "button",
+          {
+            staticClass: "p-myBooks__showMore",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.showMore($event)
+              }
+            }
+          },
+          [_vm._v("\n        さらに表示\n    ")]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

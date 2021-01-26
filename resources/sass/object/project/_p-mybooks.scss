@@ -80,10 +80,21 @@
             text-decoration: none;
         }
     }
+    &__showMore {
+        @include border-radius;
+        display: block;
+        padding: 4px 20px;
+        margin: 20px auto 0;
+        font-size: 14px;
+        color: $white;
+        background-color: $primary;
+        border: none;
+    }
     &__card {
         @include border-radius('all');
         position: relative;
-        min-height: 100%;
+        height: 100%;
+        min-height: 150px; // 画像なし対策
         background-color: $white;
         border: 1px solid $gray-300;
     }
@@ -92,11 +103,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5px 5px;
+        padding: 6px 5px;
         background-color: $gray-300;
         @include mq('lg') {
-            height: 20%;
-            padding: 5px 12px;
+            height: 32px;
+            padding: 6px 12px;
         }
     }
     &__bookTitle {
@@ -108,7 +119,7 @@
     &__lower {
         position: relative;
         display: flex;
-        height: 80%;
+        height: 75%;
         padding: 10px;
     }
     &__publishedDate {
@@ -118,15 +129,18 @@
     &__bookImageWrap {
         width: 25%;
         @include mq('xs') {
-            width: 20%;
+            // width: 20%;
         }
         @include mq('md') {
-            width: 25%;
+            // width: 25%;
         }
         &.-noImage {
-            height: 90px;
+            min-width: 25%;
+            @include mq('xs') {
+                min-width: 20%;
+            }
             @include mq('md') {
-                height: 110px;
+                min-width: 25%;
             }
         }
     }

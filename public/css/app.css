@@ -11521,10 +11521,22 @@ pre {
   text-decoration: none;
 }
 
+.p-myBooks__showMore {
+  border-radius: 3px;
+  display: block;
+  padding: 4px 20px;
+  margin: 20px auto 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #6c5146;
+  border: none;
+}
+
 .p-myBooks__card {
   border-radius: 3px;
   position: relative;
-  min-height: 100%;
+  height: 100%;
+  min-height: 150px;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -11534,14 +11546,14 @@ pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 5px;
+  padding: 6px 5px;
   background-color: #dee2e6;
 }
 
 @media screen and (min-width: 992px) {
   .p-myBooks__upper {
-    height: 20%;
-    padding: 5px 12px;
+    height: 32px;
+    padding: 6px 12px;
   }
 }
 
@@ -11556,7 +11568,7 @@ pre {
 .p-myBooks__lower {
   position: relative;
   display: flex;
-  height: 80%;
+  height: 75%;
   padding: 10px;
 }
 
@@ -11569,25 +11581,19 @@ pre {
   width: 25%;
 }
 
-@media screen and (min-width: 414px) {
-  .p-myBooks__bookImageWrap {
-    width: 20%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .p-myBooks__bookImageWrap {
-    width: 25%;
-  }
-}
-
 .p-myBooks__bookImageWrap.-noImage {
-  height: 90px;
+  min-width: 25%;
+}
+
+@media screen and (min-width: 414px) {
+  .p-myBooks__bookImageWrap.-noImage {
+    min-width: 20%;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .p-myBooks__bookImageWrap.-noImage {
-    height: 110px;
+    min-width: 25%;
   }
 }
 

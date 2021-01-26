@@ -47,7 +47,7 @@
         </div>
 
         <div class="p-myBooks__cards">
-            <template v-for="book of showBooks">
+            <template v-for="book of showBooks.slice(0, showNum)">
                 <a
                     :href="publicPath + 'bookshelf/' + book.id"
                     class="p-myBooks__cardLink"
@@ -61,6 +61,13 @@
                 </a>
             </template>
         </div>
+        <button
+            class="p-myBooks__showMore"
+            v-if="showBooks.length >= showNum"
+            @click.prevent="showMore"
+        >
+            さらに表示
+        </button>
     </div>
 </template>
 
@@ -76,10 +83,14 @@ export default {
             search: '',
             star: 0,
             latestDate: 0,
-            books: []
+            books: [],
+            showNum: 33
         };
     },
     methods: {
+        showMore() {
+            return (this.showNum = this.showNum + this.showNum);
+        },
         sortBooks() {
             // 並び替え
             if (this.latestDate == 2) {

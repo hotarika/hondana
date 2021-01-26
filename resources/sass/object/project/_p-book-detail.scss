@@ -34,6 +34,9 @@
         color: $white;
         background-color: $primary;
         border: none;
+        &.-editDone {
+            background-color: lightgreen;
+        }
     }
     &__bookAllInfoWrap {
         position: relative;
@@ -74,14 +77,21 @@
         font-size: 13px;
     }
     &__readDateWrap {
+        position: relative;
         display: flex;
         margin-bottom: 5px;
     }
     &__readDateHead {
         @extend %cardInfoTag;
+        &.-edit::before {
+            content: '';
+        }
     }
     &__readDate {
         font-size: 13px;
+        &.-edit {
+            background-color: lightgreen;
+        }
     }
     &__overviewWrap {
         padding: 10px 25px;
@@ -123,5 +133,12 @@
         font-size: 14px;
         background-color: $white;
         border: 1px solid $gray-200;
+        &.-textarea {
+            width: 100%;
+            border: 3px dashed lightgreen;
+        }
+        &.-pre {
+            //
+        }
     }
 }

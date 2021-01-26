@@ -11098,6 +11098,10 @@ body {
   border: none;
 }
 
+.p-bookDetail__button.-editDone {
+  background-color: lightgreen;
+}
+
 .p-bookDetail__bookAllInfoWrap {
   position: relative;
   display: flex;
@@ -11125,12 +11129,21 @@ body {
 }
 
 .p-bookDetail__readDateWrap {
+  position: relative;
   display: flex;
   margin-bottom: 5px;
 }
 
+.p-bookDetail__readDateHead.-edit::before {
+  content: "";
+}
+
 .p-bookDetail__readDate {
   font-size: 13px;
+}
+
+.p-bookDetail__readDate.-edit {
+  background-color: lightgreen;
 }
 
 .p-bookDetail__overviewWrap {
@@ -11173,6 +11186,11 @@ body {
   font-size: 14px;
   background-color: #fff;
   border: 1px solid #e9ecef;
+}
+
+.p-bookDetail__memo.-textarea {
+  width: 100%;
+  border: 3px dashed lightgreen;
 }
 
 .p-header {

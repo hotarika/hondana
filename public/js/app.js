@@ -2188,6 +2188,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2200,20 +2246,31 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      search: '',
-      books: [],
-      rating: this.book.star
+      editMode: true,
+      rating: this.book.star,
+      memo: this.book.memo,
+      readDate: this.read_at
     };
   },
   methods: {
     googlePreview: function googlePreview(url) {
       window.location.href = url;
     },
+    editDone: function editDone() {
+      this.editMode = false;
+      console.log('a'); // DBへ保存
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.publicPath + 'bookshelf/' + this.book.id, {
+        star: this.rating,
+        read_at: this.readDate,
+        memo: this.memo
+      }).then(function (res) {
+        console.log(res);
+      });
+    },
     deleteBook: function deleteBook(book_id) {
       confirm('削除してもよろしいですか？');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](this.publicPath + 'bookshelf/' + book_id).then(function (res) {
-        // const index = this.books.indexOf(emit);
-        // this.books.splice(index, 1);
         console.log(res);
       })["catch"](function (err) {
         console.log(err);
@@ -2221,30 +2278,10 @@ __webpack_require__.r(__webpack_exports__);
       window.location.href = this.publicPath + 'bookshelf';
     }
   },
-  computed: {// showBooks() {
-    // const regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
-    // // 取得
-    // return this.books.filter(el => {
-    //     if (
-    //         !el.title.match(regexp) &&
-    //         !el.authors.match(regexp) &&
-    //         !el.description.match(regexp)
-    //     ) {
-    //         return;
-    //     }
-    //     return el;
-    // });
-    // }
-  },
-  mounted: function mounted() {// axios
-    //     .get(this.publicPath + 'async/bookshelf')
-    //     .then(res => {
-    //         // console.log(res);
-    //         this.books = res.data;
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
+  computed: {
+    starReadOnly: function starReadOnly() {
+      return this.editMode ? false : true;
+    }
   }
 });
 
@@ -77210,7 +77247,43 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-bookDetail" }, [
     _c("div", { staticClass: "p-bookDetail__buttonWrap" }, [
-      _vm._m(0),
+      _vm.editMode === false
+        ? _c(
+            "button",
+            {
+              staticClass: "p-bookDetail__button -edit",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.editMode = true
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fas fa-edit" }),
+              _vm._v("\n            編集\n        ")
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.editMode === true
+        ? _c(
+            "button",
+            {
+              staticClass: "p-bookDetail__button -editDone",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.editDone($event)
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fas fa-edit" }),
+              _vm._v("\n            確定\n        ")
+            ]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "button",
@@ -77274,13 +77347,55 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-bookDetail__readDateWrap" }, [
-          _c("div", { staticClass: "p-bookDetail__readDateHead" }, [
-            _vm._v("読了日")
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "p-bookDetail__readDateHead",
+              class: { "-edit": _vm.editMode }
+            },
+            [_vm._v("\n                    読了日\n                ")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "p-bookDetail__readDate" }, [
-            _vm._v(_vm._s(_vm.book.read_at))
-          ])
+          _vm.editMode === false
+            ? _c(
+                "div",
+                {
+                  staticClass: "p-bookDetail__readDate",
+                  class: { "-edit": _vm.editMode }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.readDate) +
+                      "\n                "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.editMode === true
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.readDate,
+                    expression: "readDate"
+                  }
+                ],
+                staticClass: "p-bookDetail__readDate",
+                attrs: { type: "date", name: "", id: "" },
+                domProps: { value: _vm.readDate },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.readDate = $event.target.value
+                  }
+                }
+              })
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(
@@ -77291,7 +77406,7 @@ var render = function() {
               attrs: {
                 "star-size": 20,
                 "show-rating": false,
-                "read-only": true
+                "read-only": _vm.starReadOnly
               },
               model: {
                 value: _vm.rating,
@@ -77320,24 +77435,41 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "p-bookDetail__memoWrap" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
-      _c("pre", { staticClass: "p-bookDetail__memo" }, [
-        _vm._v(_vm._s(_vm.book.memo))
-      ])
+      _vm.editMode
+        ? _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.memo,
+                expression: "memo"
+              }
+            ],
+            staticClass: "p-bookDetail__memo -textarea",
+            attrs: { name: "", id: "", cols: "30", rows: "10" },
+            domProps: { value: _vm.memo },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.memo = $event.target.value
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.editMode
+        ? _c("pre", { staticClass: "p-bookDetail__memo -pre" }, [
+            _vm._v(_vm._s(_vm.book.memo))
+          ])
+        : _vm._e()
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "p-bookDetail__button -edit" }, [
-      _c("i", { staticClass: "fas fa-edit" }),
-      _vm._v("\n            編集\n        ")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

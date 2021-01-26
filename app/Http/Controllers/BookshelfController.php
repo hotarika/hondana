@@ -109,7 +109,12 @@ class BookshelfController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Bookshelf::find($id);
+        $book->fill([
+            'star' => $request->star,
+            'read_at' => $request->read_at,
+            'memo' => $request->memo,
+        ])->save();
     }
 
     /**

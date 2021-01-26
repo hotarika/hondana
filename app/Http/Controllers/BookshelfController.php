@@ -80,9 +80,11 @@ class BookshelfController extends Controller
      */
     public function show($id)
     {
-        $book = DB::table('bookshelf')
-            ->where('id', $id)
-            ->get();
+        $book = DB::table('bookshelf as s')
+            ->select('s.id', 's.book_id', 'b.title', 'b.author', 'b.published_date', 'b.description', 'b.image', 'b.preview_link', 's.star', 's.read_at', 's.memo')
+            ->leftJoin('books as b', 's.book_id', '=', 'b.id')
+            ->where('s.id', $id)
+            ->first();
 
         return view('bookshelf.show', compact('book'));
     }

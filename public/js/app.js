@@ -2062,6 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2179,6 +2180,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 // import axios from 'axios';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2187,7 +2191,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     publicPath: String,
-    book: Array
+    book: Object
   },
   data: function data() {
     return {
@@ -2196,7 +2200,10 @@ __webpack_require__.r(__webpack_exports__);
       rating: this.book.star
     };
   },
-  methods: {//
+  methods: {
+    googlePreview: function googlePreview(url) {
+      window.location.href = url;
+    }
   },
   computed: {// showBooks() {
     // const regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
@@ -77125,7 +77132,8 @@ var render = function() {
               attrs: {
                 "star-size": 20,
                 "show-rating": false,
-                "active-color": "#FFBA00"
+                "active-color": "#FFBA00",
+                "read-only": true
               }
             })
           ],
@@ -77187,21 +77195,28 @@ var render = function() {
   return _c("div", { staticClass: "p-bookDetail" }, [
     _vm._m(0),
     _vm._v(" "),
-    _vm._m(1),
+    _c("h1", { staticClass: "c-h1__head" }, [
+      _c("i", { staticClass: "fas fa-bookmark" }),
+      _vm._v(_vm._s(_vm.book.title) + "\n    ")
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-bookDetail__bookAllInfoWrap" }, [
       _c(
         "div",
-        { staticClass: "c-bookImageWrap p-bookDetail__bookImageWrap" },
+        {
+          staticClass: "c-bookImageWrap p-bookDetail__bookImageWrap",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.googlePreview(_vm.book.preview_link)
+            }
+          }
+        },
         [
           true
             ? _c("img", {
                 staticClass: "c-bookImage p-bookDetail__bookImage",
-                attrs: {
-                  src:
-                    "http://books.google.com/books/content?id=rtffDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-                  alt: ""
-                }
+                attrs: { src: _vm.book.image, alt: "" }
               })
             : undefined,
           _vm._v(" "),
@@ -77213,16 +77228,36 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "p-bookDetail__bookInfoWrap" }, [
-        _vm._m(2),
+        _c("div", { staticClass: "p-bookDetail__nameWrap" }, [
+          _c("div", { staticClass: "p-bookDetail__nameHead" }, [
+            _vm._v("著者")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-bookDetail__name" }, [
+            _vm._v(_vm._s(_vm.book.author))
+          ])
+        ]),
         _vm._v(" "),
-        _vm._m(3),
+        _c("div", { staticClass: "p-bookDetail__readDateWrap" }, [
+          _c("div", { staticClass: "p-bookDetail__readDateHead" }, [
+            _vm._v("読了日")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-bookDetail__readDate" }, [
+            _vm._v(_vm._s(_vm.book.read_at))
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "p-bookDetail__starRating" },
           [
             _c("star-rating", {
-              attrs: { "star-size": 20, "show-rating": false },
+              attrs: {
+                "star-size": 20,
+                "show-rating": false,
+                "read-only": true
+              },
               model: {
                 value: _vm.rating,
                 callback: function($$v) {
@@ -77237,9 +77272,25 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(4),
+    _vm.book.description !== null
+      ? _c("div", { staticClass: "p-bookDetail__overviewWrap" }, [
+          _c("div", { staticClass: "p-bookDetail__overviewHead" }, [
+            _vm._v("概要")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-bookDetail__overview" }, [
+            _vm._v(_vm._s(_vm.book.description))
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _vm._m(5)
+    _c("div", { staticClass: "p-bookDetail__memoWrap" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("pre", { staticClass: "p-bookDetail__memo" }, [
+        _vm._v(_vm._s(_vm.book.memo))
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -77263,71 +77314,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "c-h1__head" }, [
-      _c("i", { staticClass: "fas fa-bookmark" }),
-      _vm._v("書籍のタイトルが入ります\n    ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__nameWrap" }, [
-      _c("div", { staticClass: "p-bookDetail__nameHead" }, [_vm._v("著者")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-bookDetail__name" }, [_vm._v("山田太郎")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__readDateWrap" }, [
-      _c("div", { staticClass: "p-bookDetail__readDateHead" }, [
-        _vm._v("読了日")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-bookDetail__readDate" }, [
-        _vm._v("2021/01/25")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__overviewWrap" }, [
-      _c("div", { staticClass: "p-bookDetail__overviewHead" }, [
-        _vm._v("概要")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-bookDetail__overview" }, [
-        _vm._v(
-          "\n            十年ぶりに再会した美月は、男の姿をしていた。彼女から、殺人を告白された哲朗は、美月の親友である妻とともに、彼女をかくまうが…。十年という歳月は、かつての仲間たちを、そして自分を、変えてしまったのだろうか。過ぎ去った青春の日々を裏切るまいとする仲間たちを描いた、傑作長篇ミステリー。\n        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-bookDetail__memoWrap" }, [
-      _c("div", { staticClass: "p-bookDetail__updateDateWrap" }, [
-        _c("div", { staticClass: "p-bookDetail__updateHead" }, [
-          _vm._v("更新日")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-bookDetail__updateDate" }, [
-          _vm._v("2021/01/25")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-bookDetail__memoHead" }, [
-        _vm._v("読書メモ")
-      ]),
-      _vm._v(" "),
-      _c("pre", { staticClass: "p-bookDetail__memo" }, [_vm._v("ああああ")])
+    return _c("div", { staticClass: "p-bookDetail__memoHead" }, [
+      _c("i", { staticClass: "fas fa-pen" }),
+      _vm._v("読書メモ\n        ")
     ])
   }
 ]

@@ -105,22 +105,16 @@
 
     &__memoWrap {
         position: relative;
-        margin-top: 50px;
+        margin-top: 40px;
         font-size: 12px;
-    }
-    &__updateDateWrap {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        display: flex;
-    }
-    &__updateHead {
-        @extend %cardInfoTag;
     }
     &__memoHead {
         margin-bottom: 5px;
         margin-left: 5px;
         font-size: 16px;
+        & > i {
+            margin-right: 3px;
+        }
     }
     &__memo {
         @include border-radius;

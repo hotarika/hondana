@@ -5,10 +5,10 @@
             <div class="p-myBooks__selectBoxWrap">
                 <!-- 評価順 -->
                 <select
+                    class="p-myBooks__selectStar"
                     name="star"
                     id=""
                     v-model="star"
-                    class="p-myBooks__selectStar"
                 >
                     <option value="0">★の数で選択</option>
                     <option value="1">★１以上</option>

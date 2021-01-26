@@ -11046,7 +11046,6 @@ body {
 .p-registerBooks__authorHead,
 .p-myBooks__readDateHead,
 .p-myBooks__authorHead,
-.p-bookDetail__updateHead,
 .p-bookDetail__overviewHead,
 .p-bookDetail__readDateHead,
 .p-bookDetail__nameHead {
@@ -11153,21 +11152,18 @@ body {
 
 .p-bookDetail__memoWrap {
   position: relative;
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 12px;
-}
-
-.p-bookDetail__updateDateWrap {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  display: flex;
 }
 
 .p-bookDetail__memoHead {
   margin-bottom: 5px;
   margin-left: 5px;
   font-size: 16px;
+}
+
+.p-bookDetail__memoHead > i {
+  margin-right: 3px;
 }
 
 .p-bookDetail__memo {
@@ -11357,8 +11353,7 @@ body {
 .p-myBooks__authorHead,
 .p-bookDetail__nameHead,
 .p-bookDetail__readDateHead,
-.p-bookDetail__overviewHead,
-.p-bookDetail__updateHead {
+.p-bookDetail__overviewHead {
   padding: 1px 5px;
   margin-right: 10px;
   font-size: 11px;
@@ -11583,7 +11578,6 @@ body {
 .p-bookDetail__nameHead,
 .p-bookDetail__readDateHead,
 .p-bookDetail__overviewHead,
-.p-bookDetail__updateHead,
 .p-myBooks__authorHead,
 .p-myBooks__readDateHead {
   padding: 1px 5px;

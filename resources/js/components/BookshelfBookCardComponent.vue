@@ -43,6 +43,7 @@
                         :star-size="20"
                         :show-rating="false"
                         active-color="#FFBA00"
+                        :read-only="true"
                     ></star-rating>
                 </div>
                 <div class="p-myBooks__functionIconsWrap">

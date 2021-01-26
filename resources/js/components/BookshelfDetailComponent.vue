@@ -11,14 +11,17 @@
             </button>
         </div>
         <h1 class="c-h1__head">
-            <i class="fas fa-bookmark"></i>書籍のタイトルが入ります
+            <i class="fas fa-bookmark"></i>{{ book.title }}
         </h1>
         <div class="p-bookDetail__bookAllInfoWrap">
-            <div class="c-bookImageWrap p-bookDetail__bookImageWrap">
+            <div
+                class="c-bookImageWrap p-bookDetail__bookImageWrap"
+                @click.prevent="googlePreview(book.preview_link)"
+            >
                 <img
                     v-if="true"
                     class="c-bookImage p-bookDetail__bookImage"
-                    src="http://books.google.com/books/content?id=rtffDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                    :src="book.image"
                     alt=""
                 />
                 <img
@@ -36,35 +39,35 @@
             <div class="p-bookDetail__bookInfoWrap">
                 <div class="p-bookDetail__nameWrap">
                     <div class="p-bookDetail__nameHead">著者</div>
-                    <div class="p-bookDetail__name">山田太郎</div>
+                    <div class="p-bookDetail__name">{{ book.author }}</div>
                 </div>
                 <div class="p-bookDetail__readDateWrap">
                     <div class="p-bookDetail__readDateHead">読了日</div>
-                    <div class="p-bookDetail__readDate">2021/01/25</div>
+                    <div class="p-bookDetail__readDate">{{ book.read_at }}</div>
                 </div>
                 <div class="p-bookDetail__starRating">
                     <star-rating
                         v-model="rating"
                         :star-size="20"
                         :show-rating="false"
+                        :read-only="true"
                     ></star-rating>
                 </div>
             </div>
         </div>
-        <div class="p-bookDetail__overviewWrap">
+        <div
+            class="p-bookDetail__overviewWrap"
+            v-if="book.description !== null"
+        >
             <div class="p-bookDetail__overviewHead">概要</div>
-            <div class="p-bookDetail__overview">
-                十年ぶりに再会した美月は、男の姿をしていた。彼女から、殺人を告白された哲朗は、美月の親友である妻とともに、彼女をかくまうが…。十年という歳月は、かつての仲間たちを、そして自分を、変えてしまったのだろうか。過ぎ去った青春の日々を裏切るまいとする仲間たちを描いた、傑作長篇ミステリー。
-            </div>
+            <div class="p-bookDetail__overview">{{ book.description }}</div>
         </div>
 
         <div class="p-bookDetail__memoWrap">
-            <div class="p-bookDetail__updateDateWrap">
-                <div class="p-bookDetail__updateHead">更新日</div>
-                <div class="p-bookDetail__updateDate">2021/01/25</div>
+            <div class="p-bookDetail__memoHead">
+                <i class="fas fa-pen"></i>読書メモ
             </div>
-            <div class="p-bookDetail__memoHead">読書メモ</div>
-            <pre class="p-bookDetail__memo">ああああ</pre>
+            <pre class="p-bookDetail__memo">{{ book.memo }}</pre>
         </div>
     </div>
 </template>
@@ -79,7 +82,7 @@ export default {
     },
     props: {
         publicPath: String,
-        book: Array
+        book: Object
     },
     data() {
         return {
@@ -89,7 +92,9 @@ export default {
         };
     },
     methods: {
-        //
+        googlePreview(url) {
+            window.location.href = url;
+        }
     },
     computed: {
         // showBooks() {

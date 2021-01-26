@@ -6,7 +6,7 @@
     <div class="container">
         <bookshelf-detail-component
             :public-path="{{ json_encode(asset('')) }}"
-            :book="{{$book}}">
+            :book="{{json_encode($book)}}">
         </bookshelf-detail-component>
     </div>
 </main>

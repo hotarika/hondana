@@ -2239,6 +2239,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2254,7 +2262,8 @@ __webpack_require__.r(__webpack_exports__);
       editMode: false,
       rating: this.book.star,
       memo: this.book.memo,
-      readDate: this.book.read_at
+      readDate: this.book.read_at,
+      memoLimitNum: 10000
     };
   },
   methods: {
@@ -2300,6 +2309,13 @@ __webpack_require__.r(__webpack_exports__);
           return y + '-' + m + '-' + d;
         }
       };
+    },
+    memoLength: function memoLength() {
+      if (this.memo) {
+        return this.memo.length;
+      }
+
+      return 0;
     }
   }
 });
@@ -77290,6 +77306,7 @@ var render = function() {
             "button",
             {
               staticClass: "p-bookDetail__button -editDone",
+              attrs: { disabled: _vm.memoLength > _vm.memoLimitNum },
               on: {
                 click: function($event) {
                   $event.preventDefault()
@@ -77475,6 +77492,7 @@ var render = function() {
               }
             ],
             staticClass: "p-bookDetail__memo -textarea",
+            class: { "-limit": _vm.memoLength > _vm.memoLimitNum },
             attrs: {
               name: "",
               id: "",
@@ -77497,6 +77515,16 @@ var render = function() {
       !_vm.editMode
         ? _c("pre", { staticClass: "p-bookDetail__memo -pre" }, [
             _vm._v(_vm._s(_vm.memo))
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.memoLength > _vm.memoLimitNum
+        ? _c("div", { staticClass: "p-bookDetail__limitMessage" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(_vm.memoLimitNum) +
+                "文字を超える文字数は入力できません。\n        "
+            )
           ])
         : _vm._e()
     ])

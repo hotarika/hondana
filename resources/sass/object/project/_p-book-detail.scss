@@ -142,11 +142,21 @@
         border: 1px solid $gray-200;
         &.-textarea {
             width: 100%;
-            border: 3px dashed #ce6e00;
+            border: 3px dashed #987f75;
+            &.-limit {
+                background-color: #ffdbde;
+                border: 3px dashed $red;
+            }
         }
         &.-pre {
             word-break: break-all;
             white-space: pre-wrap;
         }
+    }
+    &__limitMessage {
+        font-size: 15px;
+        font-weight: bold;
+        color: $red;
+        text-align: right;
     }
 }

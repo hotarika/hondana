@@ -11206,12 +11206,24 @@ pre {
 
 .p-bookDetail__memo.-textarea {
   width: 100%;
-  border: 3px dashed #ce6e00;
+  border: 3px dashed #987f75;
+}
+
+.p-bookDetail__memo.-textarea.-limit {
+  background-color: #ffdbde;
+  border: 3px dashed #dc3545;
 }
 
 .p-bookDetail__memo.-pre {
   word-break: break-all;
   white-space: pre-wrap;
+}
+
+.p-bookDetail__limitMessage {
+  font-size: 15px;
+  font-weight: bold;
+  color: #dc3545;
+  text-align: right;
 }
 
 .p-header {

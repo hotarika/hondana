@@ -14,6 +14,7 @@
                 v-if="editMode === true"
                 class="p-bookDetail__button -editDone"
                 @click.prevent="editDone"
+                :disabled="memoLength > memoLimitNum"
             >
                 <i class="fas fa-edit"></i>
                 確定
@@ -110,6 +111,7 @@
             </div>
             <textarea
                 class="p-bookDetail__memo -textarea"
+                :class="{ '-limit': memoLength > memoLimitNum }"
                 v-if="editMode"
                 name=""
                 id=""
@@ -121,6 +123,12 @@
             <pre class="p-bookDetail__memo -pre" v-if="!editMode">{{
                 memo
             }}</pre>
+            <div
+                v-if="memoLength > memoLimitNum"
+                class="p-bookDetail__limitMessage"
+            >
+                {{ memoLimitNum }}文字を超える文字数は入力できません。
+            </div>
         </div>
     </div>
 </template>
@@ -142,7 +150,8 @@ export default {
             editMode: false,
             rating: this.book.star,
             memo: this.book.memo,
-            readDate: this.book.read_at
+            readDate: this.book.read_at,
+            memoLimitNum: 10000
         };
     },
     methods: {
@@ -196,6 +205,12 @@ export default {
                     return y + '-' + m + '-' + d;
                 }
             };
+        },
+        memoLength() {
+            if (this.memo) {
+                return this.memo.length;
+            }
+            return 0;
         }
     }
 };

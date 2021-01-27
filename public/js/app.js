@@ -77598,7 +77598,7 @@ var render = function() {
     _vm._v(" "),
     _vm.book.description !== null
       ? _c("div", { staticClass: "p-bookDetail__overviewWrap" }, [
-          _c("div", { staticClass: "c-card__headTag -overview" }, [
+          _c("div", { staticClass: "c-card__headTag -detailOverview" }, [
             _vm._v("概要")
           ]),
           _vm._v(" "),
@@ -78049,7 +78049,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-registerBooks__descWrap" }, [
-            _c("div", { staticClass: "c-card__headTag" }, [
+            _c("div", { staticClass: "c-card__headTag -registerOverview" }, [
               _vm._v("\n                    概要\n                ")
             ]),
             _vm._v(" "),

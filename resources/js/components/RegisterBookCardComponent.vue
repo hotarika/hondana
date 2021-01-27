@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="p-registerBooks__descWrap">
-                    <div class="c-card__headTag">
+                    <div class="c-card__headTag -registerOverview">
                         概要
                     </div>
                     <div class="p-registerBooks__descText">

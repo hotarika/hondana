@@ -10938,7 +10938,7 @@ pre {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
+  width: 45px;
   padding: 3px 5px;
   margin-right: 10px;
   font-size: 11px;
@@ -10949,9 +10949,13 @@ pre {
   border-radius: 3px;
 }
 
-.c-card__headTag.-overview {
+.c-card__headTag.-detailOverview {
   margin: 0;
   margin-bottom: 5px;
+}
+
+.c-card__headTag.-registerOverview {
+  margin: 5px 0;
 }
 
 .c-form__searchSection {

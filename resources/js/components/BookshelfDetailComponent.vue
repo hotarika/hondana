@@ -104,7 +104,7 @@
             class="p-bookDetail__overviewWrap"
             v-if="book.description !== null"
         >
-            <div class="c-card__headTag -overview">概要</div>
+            <div class="c-card__headTag -detailOverview">概要</div>
             <div class="p-bookDetail__overview">{{ book.description }}</div>
         </div>
 

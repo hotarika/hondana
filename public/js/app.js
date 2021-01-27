@@ -2092,6 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2100,6 +2101,11 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     book: Object,
     publicPath: String
+  },
+  data: function data() {
+    return {
+      rating: this.book.star
+    };
   },
   methods: {
     deleteBook: function deleteBook() {
@@ -77304,6 +77310,13 @@ var render = function() {
                 "show-rating": false,
                 "active-color": "#FFBA00",
                 "read-only": true
+              },
+              model: {
+                value: _vm.rating,
+                callback: function($$v) {
+                  _vm.rating = $$v
+                },
+                expression: "rating"
               }
             })
           ],

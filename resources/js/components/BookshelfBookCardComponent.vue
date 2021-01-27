@@ -46,6 +46,7 @@
                 </div>
                 <div class="p-myBooks__starWrap">
                     <star-rating
+                        v-model="rating"
                         :star-size="20"
                         :show-rating="false"
                         active-color="#FFBA00"
@@ -75,6 +76,11 @@ export default {
     props: {
         book: Object,
         publicPath: String
+    },
+    data() {
+        return {
+            rating: this.book.star
+        };
     },
     methods: {
         deleteBook() {

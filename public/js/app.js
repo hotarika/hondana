@@ -1937,7 +1937,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      graphData: []
+      graphData: [],
+      max: 12,
+      // 繰り返し回数
+      interval: -1 // 月の表示する間隔
+
     };
   },
   computed: {
@@ -1945,20 +1949,35 @@ __webpack_require__.r(__webpack_exports__);
       // チャートラベルは、先にデータを取得してChart.vueに渡しているため、子ではなく親コンポーネントであるここに記述している
       var labels = [];
       var dt = new Date(); // 今日の日付
-
-      var interval = -1; // 月の表示する間隔
-
-      var max = 12; // 繰り返し（表示）回数
       // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
 
       dt.setMonth(dt.getMonth() + 1); // 今月を含める
 
-      for (var i = 1; i <= max; i++) {
-        var m = ('0' + (dt.getMonth(dt.setMonth(dt.getMonth() + interval)) + 1)).slice(-2);
+      for (var i = 1; i <= this.max; i++) {
+        var m = dt.getMonth(dt.setMonth(dt.getMonth() + this.interval)) + 1;
+        var y = dt.getFullYear();
+
+        if (m === 1 || i === this.max) {
+          labels.unshift(y + '/' + m);
+        } else {
+          labels.unshift(m);
+        }
+      }
+
+      console.log(labels);
+      return labels;
+    },
+    refLabels: function refLabels() {
+      var labels = [];
+      var dt = new Date(); // 今日の日付
+      // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
+
+      dt.setMonth(dt.getMonth() + 1); // 今月を含める
+
+      for (var i = 1; i <= this.max; i++) {
+        var m = ('0' + (dt.getMonth(dt.setMonth(dt.getMonth() + this.interval)) + 1)).slice(-2);
         var y = dt.getFullYear();
         labels.unshift(y + '/' + m);
-        console.log(y + '/' + m);
-        console.log(dt);
       }
 
       console.log(labels);
@@ -1968,16 +1987,20 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    // // 読書数
+    // 読書数
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.publicPath + 'async/booksnum').then(function (res) {
-      var chartLabels = _this.chartLabels;
+      // const chartLabels = this.chartLabels;
+      var refLabels = _this.refLabels;
       var chartData = res.data;
       var insertData = [];
-      chartLabels.forEach(function (label, i) {
-        insertData[i] = 0;
+      console.log(res.data);
+      refLabels.forEach(function (label, i) {
+        insertData[i] = 0; // 合致しなければ0冊
+
         chartData.some(function (data) {
           if (label == data.read_at) {
             insertData[i] = data.count;
+            console.log(insertData);
             return true;
           }
         });
@@ -23452,7 +23475,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.graph-wrap[data-v-4baf79fe] {\n    margin-top: 40px;\n}\n", ""]);
+exports.push([module.i, "\n.graph-wrap[data-v-4baf79fe] {\n    margin-top: 20px;\n    background-color: white;\n    padding: 20px;\n}\n", ""]);
 
 // exports
 

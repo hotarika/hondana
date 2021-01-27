@@ -141,13 +141,13 @@
         //
     }
     &__bookInfoWrap {
-        width: 75%;
+        width: 70%;
         margin-top: 15px;
         @include mq('xs') {
-            width: 80%;
+            width: 75%;
         }
         @include mq('md') {
-            width: 75%;
+            width: 70%;
         }
     }
     &__authorWrap {

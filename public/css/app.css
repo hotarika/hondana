@@ -10935,7 +10935,10 @@ pre {
 }
 
 .c-card__headTag {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
   padding: 3px 5px;
   margin-right: 10px;
   font-size: 11px;
@@ -10944,6 +10947,11 @@ pre {
   white-space: nowrap;
   background: #ccb1b1;
   border-radius: 3px;
+}
+
+.c-card__headTag.-overview {
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 .c-form__searchSection {
@@ -11049,6 +11057,7 @@ pre {
   margin: 0;
   font-size: 17px;
   text-align: center;
+  word-break: break-all;
   background-color: #e6d4ce;
 }
 
@@ -11113,23 +11122,77 @@ pre {
 .p-bookDetail__bookAllInfoWrap {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  padding: 25px 15px;
   background-color: #fff;
   border: 1px solid #e9ecef;
 }
 
+@media screen and (min-width: 375px) {
+  .p-bookDetail__bookAllInfoWrap {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-bookDetail__bookAllInfoWrap {
+    padding: 20px 50px;
+  }
+}
+
 .p-bookDetail__publishedDate {
-  top: 3px;
-  right: 8px;
+  top: 6px;
+  right: 13px;
 }
 
 .p-bookDetail__bookImageWrap {
-  width: 70px;
+  width: 30%;
+  margin: 5px auto;
+  background-color: gray;
+}
+
+@media screen and (min-width: 375px) {
+  .p-bookDetail__bookImageWrap {
+    margin: 0;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-bookDetail__bookImageWrap {
+    width: 15%;
+  }
+}
+
+.p-bookDetail__bookImageWrap.-noImage {
+  min-height: 90px;
+}
+
+.p-bookDetail__bookImage.-noImage {
+  background-color: gray;
 }
 
 .p-bookDetail__bookInfoWrap {
   padding-top: 10px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) {
+  .p-bookDetail__bookInfoWrap {
+    margin: 0;
+  }
+}
+
+.p-bookDetail__starRating {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .p-bookDetail__starRating {
+    justify-content: flex-start;
+  }
 }
 
 .p-bookDetail__nameWrap {
@@ -11139,6 +11202,7 @@ pre {
 
 .p-bookDetail__name {
   font-size: 13px;
+  word-break: break-all;
 }
 
 .p-bookDetail__readDateWrap {
@@ -11156,7 +11220,7 @@ pre {
 }
 
 .p-bookDetail__readDate.-edit {
-  width: 112px;
+  width: 120px;
   padding: 0 3px;
   font-size: 11px;
   border: 1px solid #dee2e6;
@@ -11169,15 +11233,16 @@ pre {
 }
 
 .p-bookDetail__overviewWrap {
-  padding: 10px 25px;
+  padding: 20px 15px;
   margin-top: -1px;
+  word-break: break-all;
   background-color: #fff;
   border: 1px solid #e9ecef;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .p-bookDetail__overviewWrap {
-    padding: 10px 50px;
+    padding: 20px 50px;
   }
 }
 
@@ -11219,7 +11284,7 @@ pre {
 
 @media screen and (min-width: 768px) {
   .p-bookDetail__memo {
-    padding: 15px 20px;
+    padding: 20px 25px;
   }
 }
 
@@ -11594,19 +11659,19 @@ pre {
 }
 
 .p-myBooks__bookInfoWrap {
-  width: 75%;
+  width: 70%;
   margin-top: 15px;
 }
 
 @media screen and (min-width: 414px) {
   .p-myBooks__bookInfoWrap {
-    width: 80%;
+    width: 75%;
   }
 }
 
 @media screen and (min-width: 768px) {
   .p-myBooks__bookInfoWrap {
-    width: 75%;
+    width: 70%;
   }
 }
 

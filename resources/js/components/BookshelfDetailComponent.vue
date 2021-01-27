@@ -41,17 +41,18 @@
             </div>
             <div
                 class="c-bookImageWrap p-bookDetail__bookImageWrap"
+                :class="{ '-noImage': !book.image }"
                 @click.prevent="googlePreview(book.preview_link)"
             >
                 <img
-                    v-if="true"
+                    v-if="book.image"
                     class="c-bookImage p-bookDetail__bookImage"
                     :src="book.image"
                     alt=""
                 />
                 <img
                     v-else
-                    class="p-registerBooks__bookImage -noImage"
+                    class="c-bookImage -noImage"
                     :src="publicPath + 'image/no-image.png'"
                     alt="no"
                 />
@@ -103,7 +104,7 @@
             class="p-bookDetail__overviewWrap"
             v-if="book.description !== null"
         >
-            <div class="c-card__headTag">概要</div>
+            <div class="c-card__headTag -overview">概要</div>
             <div class="p-bookDetail__overview">{{ book.description }}</div>
         </div>
 

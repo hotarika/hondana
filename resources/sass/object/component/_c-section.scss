@@ -6,6 +6,7 @@
         margin: 0;
         font-size: 17px;
         text-align: center;
+        word-break: break-all;
         background-color: #e6d4ce;
         @include mq('md') {
             padding: 15px;

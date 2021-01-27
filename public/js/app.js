@@ -2281,6 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2464,7 +2465,7 @@ __webpack_require__.r(__webpack_exports__);
       star: 0,
       latestDate: 0,
       books: [],
-      showNum: 33
+      showNum: 12
     };
   },
   methods: {
@@ -77444,6 +77445,7 @@ var render = function() {
         "div",
         {
           staticClass: "c-bookImageWrap p-bookDetail__bookImageWrap",
+          class: { "-noImage": !_vm.book.image },
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -77452,12 +77454,15 @@ var render = function() {
           }
         },
         [
-          true
+          _vm.book.image
             ? _c("img", {
                 staticClass: "c-bookImage p-bookDetail__bookImage",
                 attrs: { src: _vm.book.image, alt: "" }
               })
-            : undefined,
+            : _c("img", {
+                staticClass: "c-bookImage -noImage",
+                attrs: { src: _vm.publicPath + "image/no-image.png", alt: "no" }
+              }),
           _vm._v(" "),
           _c("img", {
             staticClass: "p-registerBooks__googlePreviewLogo",
@@ -77555,7 +77560,9 @@ var render = function() {
     _vm._v(" "),
     _vm.book.description !== null
       ? _c("div", { staticClass: "p-bookDetail__overviewWrap" }, [
-          _c("div", { staticClass: "c-card__headTag" }, [_vm._v("概要")]),
+          _c("div", { staticClass: "c-card__headTag -overview" }, [
+            _vm._v("概要")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-bookDetail__overview" }, [
             _vm._v(_vm._s(_vm.book.description))

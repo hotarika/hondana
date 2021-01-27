@@ -29,37 +29,76 @@
     &__bookAllInfoWrap {
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        padding: 20px;
+        padding: 25px 15px;
         background-color: $white;
         border: 1px solid $gray-200;
+        @include mq('2xs') {
+            flex-direction: row;
+        }
+        @include mq('md') {
+            padding: 20px 50px;
+        }
+        @include mq('lg') {
+            // padding: 20px;
+        }
     }
     &__publishedDate {
-        top: 3px;
-        right: 8px;
+        top: 6px;
+        right: 13px;
     }
 
     // 画像
     &__bookImageWrap {
-        width: 70px;
+        width: 30%;
+        margin: 5px auto;
+        background-color: gray;
+        @include mq('2xs') {
+            margin: 0;
+            margin-right: 30px;
+        }
+        @include mq('md') {
+            width: 15%;
+        }
+        &.-noImage {
+            min-height: 90px;
+        }
     }
     &__bookImage {
-        //
+        &.-noImage {
+            background-color: gray;
+        }
     }
 
     // 書籍情報
     &__bookInfoWrap {
         padding-top: 10px;
+        margin: 0 auto;
+        @include mq('2xs') {
+            margin: 0;
+        }
+        // @include mq('md') {
+        //     width: 75%;
+        // }
     }
     &__starRating {
-        //
+        display: flex;
+        justify-content: center;
+        @include mq('md') {
+            justify-content: flex-start;
+        }
     }
     &__nameWrap {
         display: flex;
         margin-bottom: 10px;
+        @include mq('md') {
+            // display: flex;
+        }
     }
     &__name {
         font-size: 13px;
+        word-break: break-all;
     }
     &__readDateWrap {
         position: relative;
@@ -74,7 +113,7 @@
     &__readDate {
         font-size: 13px;
         &.-edit {
-            width: 112px;
+            width: 120px;
             padding: 0 3px;
             font-size: 11px;
             // font-size: 10px;
@@ -85,12 +124,16 @@
         }
     }
     &__overviewWrap {
-        padding: 10px 25px;
+        padding: 20px 15px;
         margin-top: -1px;
+        word-break: break-all;
         background-color: $white;
         border: 1px solid $gray-200;
+        @include mq('md') {
+            padding: 20px 50px;
+        }
         @include mq('lg') {
-            padding: 10px 50px;
+            // padding: 10px 50px;
         }
     }
     &__overview {
@@ -127,7 +170,7 @@
         background-color: $white;
         border: 1px solid $gray-200;
         @include mq('md') {
-            padding: 15px 20px;
+            padding: 20px 25px;
         }
         &.-textarea {
             width: 100%;

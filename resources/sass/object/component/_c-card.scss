@@ -5,7 +5,8 @@
         color: $gray-600;
     }
     &__headTag {
-        display: inline-block;
+        @include flex-center;
+        min-width: 44px;
         padding: 3px 5px;
         margin-right: 10px;
         font-size: 11px;
@@ -14,5 +15,9 @@
         white-space: nowrap;
         background: #ccb1b1;
         border-radius: 3px;
+        &.-overview {
+            margin: 0;
+            margin-bottom: 5px;
+        }
     }
 }

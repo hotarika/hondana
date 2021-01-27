@@ -89,7 +89,7 @@ export default {
             star: 0,
             latestDate: 0,
             books: [],
-            showNum: 33
+            showNum: 12
         };
     },
     methods: {

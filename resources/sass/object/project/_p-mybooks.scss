@@ -1,14 +1,3 @@
-%cardInfoTag {
-    padding: 1px 5px;
-    margin-right: 10px;
-    font-size: 11px;
-    color: $gray-700;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    background: #ccb1b1;
-    border-radius: 3px;
-}
-
 .p-myBooks {
     &__selectStar {
         width: 50%;
@@ -151,7 +140,6 @@
     &__bookImage {
         //
     }
-
     &__bookInfoWrap {
         width: 75%;
         margin-top: 15px;
@@ -166,9 +154,7 @@
         display: flex;
         margin-bottom: 8px;
     }
-    &__authorHead {
-        @extend %cardInfoTag;
-    }
+
     &__authorName {
         @include ellipsis;
         font-size: 12px;
@@ -177,9 +163,7 @@
         display: flex;
         margin-bottom: 2px;
     }
-    &__readDateHead {
-        @extend %cardInfoTag;
-    }
+
     &__readDate {
         font-size: 13px;
     }

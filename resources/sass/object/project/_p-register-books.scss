@@ -138,9 +138,6 @@
         padding-bottom: 5px;
         border-bottom: 1px solid $gray-400;
     }
-    &__authorHead {
-        @extend %cardInfoTag;
-    }
     &__authorName {
         @include ellipsis;
         font-size: 12px;
@@ -150,7 +147,6 @@
         }
     }
     &__descHead {
-        @extend %cardInfoTag;
         display: inline-block;
         margin-bottom: 3px;
     }

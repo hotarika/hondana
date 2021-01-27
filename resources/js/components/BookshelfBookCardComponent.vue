@@ -31,13 +31,13 @@
             </div>
             <div class="p-myBooks__bookInfoWrap">
                 <div class="p-myBooks__authorWrap">
-                    <div class="p-myBooks__authorHead">
+                    <div class="c-card__headTag">
                         著者
                     </div>
                     <div class="p-myBooks__authorName">{{ book.author }}</div>
                 </div>
                 <div class="p-myBooks__readDateWrap">
-                    <div class="p-myBooks__readDateHead">
+                    <div class="c-card__headTag">
                         読了日
                     </div>
                     <div class="p-myBooks__readDate">

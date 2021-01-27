@@ -63,14 +63,13 @@
             </div>
             <div class="p-bookDetail__bookInfoWrap">
                 <div class="p-bookDetail__nameWrap">
-                    <div class="p-bookDetail__nameHead">著者</div>
+                    <div class="c-card__headTag">
+                        著者
+                    </div>
                     <div class="p-bookDetail__name">{{ book.author }}</div>
                 </div>
                 <div class="p-bookDetail__readDateWrap">
-                    <div
-                        class="p-bookDetail__readDateHead"
-                        :class="{ '-edit': editMode }"
-                    >
+                    <div class="c-card__headTag" :class="{ '-edit': editMode }">
                         読了日
                     </div>
 
@@ -104,7 +103,7 @@
             class="p-bookDetail__overviewWrap"
             v-if="book.description !== null"
         >
-            <div class="p-bookDetail__overviewHead">概要</div>
+            <div class="c-card__headTag">概要</div>
             <div class="p-bookDetail__overview">{{ book.description }}</div>
         </div>
 

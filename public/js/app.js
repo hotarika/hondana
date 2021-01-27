@@ -2258,7 +2258,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -77239,7 +77238,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "p-myBooks__bookInfoWrap" }, [
         _c("div", { staticClass: "p-myBooks__authorWrap" }, [
-          _c("div", { staticClass: "p-myBooks__authorHead" }, [
+          _c("div", { staticClass: "c-card__headTag" }, [
             _vm._v("\n                    著者\n                ")
           ]),
           _vm._v(" "),
@@ -77249,7 +77248,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-myBooks__readDateWrap" }, [
-          _c("div", { staticClass: "p-myBooks__readDateHead" }, [
+          _c("div", { staticClass: "c-card__headTag" }, [
             _vm._v("\n                    読了日\n                ")
           ]),
           _vm._v(" "),
@@ -77439,8 +77438,8 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "p-bookDetail__bookInfoWrap" }, [
         _c("div", { staticClass: "p-bookDetail__nameWrap" }, [
-          _c("div", { staticClass: "p-bookDetail__nameHead" }, [
-            _vm._v("著者")
+          _c("div", { staticClass: "c-card__headTag" }, [
+            _vm._v("\n                    著者\n                ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-bookDetail__name" }, [
@@ -77452,7 +77451,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "p-bookDetail__readDateHead",
+              staticClass: "c-card__headTag",
               class: { "-edit": _vm.editMode }
             },
             [_vm._v("\n                    読了日\n                ")]
@@ -77526,9 +77525,7 @@ var render = function() {
     _vm._v(" "),
     _vm.book.description !== null
       ? _c("div", { staticClass: "p-bookDetail__overviewWrap" }, [
-          _c("div", { staticClass: "p-bookDetail__overviewHead" }, [
-            _vm._v("概要")
-          ]),
+          _c("div", { staticClass: "c-card__headTag" }, [_vm._v("概要")]),
           _vm._v(" "),
           _c("div", { staticClass: "p-bookDetail__overview" }, [
             _vm._v(_vm._s(_vm.book.description))
@@ -77960,7 +77957,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
           _c("div", { staticClass: "p-registerBooks__authorWrap" }, [
-            _c("div", { staticClass: "p-registerBooks__authorHead" }, [
+            _c("div", { staticClass: "c-card__headTag" }, [
               _vm._v("\n                    著者\n                ")
             ]),
             _vm._v(" "),
@@ -77976,7 +77973,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-registerBooks__descWrap" }, [
-            _c("div", { staticClass: "p-registerBooks__descHead" }, [
+            _c("div", { staticClass: "c-card__headTag" }, [
               _vm._v("\n                    概要\n                ")
             ]),
             _vm._v(" "),

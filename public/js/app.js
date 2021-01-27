@@ -2418,6 +2418,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2663,6 +2668,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2726,7 +2734,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -77759,6 +77766,11 @@ var render = function() {
       2
     ),
     _vm._v(" "),
+    _c("img", {
+      staticClass: "p-myBooks__googlePoweredbyLogo",
+      attrs: { src: _vm.publicPath + "image/poweredby.png", alt: "" }
+    }),
+    _vm._v(" "),
     _vm.showBooks.length >= _vm.showNum
       ? _c(
           "button",
@@ -77885,89 +77897,100 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-registerBooks__lower" }, [
-      _vm.book.volumeInfo.publishedDate
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "c-card__publishedDate p-registerBooks__publishedDate"
-            },
-            [
-              _vm._v(
-                "\n            出版日：" +
-                  _vm._s(_vm.book.volumeInfo.publishedDate) +
-                  "\n        "
-              )
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "c-bookImageWrap p-registerBooks__bookImageWrap",
-          class: { "-noImage": !_vm.book.volumeInfo.imageLinks },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.googlePreview(_vm.book.volumeInfo.previewLink)
-            }
-          }
-        },
-        [
-          _vm.book.volumeInfo.imageLinks
-            ? _c("img", {
-                staticClass: "c-bookImage p-registerBooks__bookImage",
-                attrs: {
-                  src: _vm.book.volumeInfo.imageLinks.thumbnail,
-                  alt: ""
-                }
-              })
-            : _c("img", {
-                staticClass: "c-bookImage p-registerBooks__bookImage -noImage",
-                attrs: { src: _vm.publicPath + "image/no-image.png", alt: "no" }
-              }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "p-registerBooks__googlePreviewLogo",
-            attrs: { src: _vm.publicPath + "image/gbs_preview.gif", alt: "" }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
-        _c("div", { staticClass: "p-registerBooks__authorWrap" }, [
-          _c("div", { staticClass: "p-registerBooks__authorHead" }, [
-            _vm._v("\n                    著者\n                ")
-          ]),
-          _vm._v(" "),
-          _vm.book.volumeInfo.authors
-            ? _c("div", { staticClass: "p-registerBooks__authorName" }, [
+    _c(
+      "div",
+      {
+        staticClass: "p-registerBooks__lower",
+        class: { "-noImage": !_vm.book.volumeInfo.imageLinks }
+      },
+      [
+        _vm.book.volumeInfo.publishedDate
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "c-card__publishedDate p-registerBooks__publishedDate"
+              },
+              [
                 _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.book.volumeInfo.authors[0]) +
-                    "\n                "
+                  "\n            出版日：" +
+                    _vm._s(_vm.book.volumeInfo.publishedDate) +
+                    "\n        "
                 )
-              ])
-            : _vm._e()
-        ]),
+              ]
+            )
+          : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "p-registerBooks__descWrap" }, [
-          _c("div", { staticClass: "p-registerBooks__descHead" }, [
-            _vm._v("\n                    概要\n                ")
+        _c(
+          "div",
+          {
+            staticClass: "c-bookImageWrap p-registerBooks__bookImageWrap",
+            class: { "-noImage": !_vm.book.volumeInfo.imageLinks },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.googlePreview(_vm.book.volumeInfo.previewLink)
+              }
+            }
+          },
+          [
+            _vm.book.volumeInfo.imageLinks
+              ? _c("img", {
+                  staticClass: "c-bookImage p-registerBooks__bookImage",
+                  attrs: {
+                    src: _vm.book.volumeInfo.imageLinks.thumbnail,
+                    alt: ""
+                  }
+                })
+              : _c("img", {
+                  staticClass:
+                    "c-bookImage p-registerBooks__bookImage -noImage",
+                  attrs: {
+                    src: _vm.publicPath + "image/no-image.png",
+                    alt: "no"
+                  }
+                }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "p-registerBooks__googlePreviewLogo",
+              attrs: { src: _vm.publicPath + "image/gbs_preview.gif", alt: "" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
+          _c("div", { staticClass: "p-registerBooks__authorWrap" }, [
+            _c("div", { staticClass: "p-registerBooks__authorHead" }, [
+              _vm._v("\n                    著者\n                ")
+            ]),
+            _vm._v(" "),
+            _vm.book.volumeInfo.authors
+              ? _c("div", { staticClass: "p-registerBooks__authorName" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.book.volumeInfo.authors[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-registerBooks__descText" }, [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.book.volumeInfo.description) +
-                "\n                "
-            )
+          _c("div", { staticClass: "p-registerBooks__descWrap" }, [
+            _c("div", { staticClass: "p-registerBooks__descHead" }, [
+              _vm._v("\n                    概要\n                ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-registerBooks__descText" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.book.volumeInfo.description) +
+                  "\n                "
+              )
+            ])
           ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -77993,16 +78016,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-registerBooks" }, [
-    _c("h1", { staticClass: "c-h1__head" }, [
-      _c("i", { staticClass: "fas fa-bookmark" }),
-      _vm._v("本棚に登録\n        "),
-      _c("a", { attrs: { href: "https://books.google.co.jp/" } }, [
-        _c("img", {
-          staticClass: "p-registerBooks__googlePoweredbyLogo",
-          attrs: { src: _vm.publicPath + "image/poweredby.png", alt: "" }
-        })
-      ])
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("form", { staticClass: "c-form__searchSection" }, [
       _c("div", { staticClass: "c-form__searchBoxWrap" }, [
@@ -78060,10 +78074,26 @@ var render = function() {
         })
       ],
       2
-    )
+    ),
+    _vm._v(" "),
+    _c("img", {
+      staticClass: "p-registerBooks__googlePoweredbyLogo",
+      attrs: { src: _vm.publicPath + "image/poweredby.png", alt: "" }
+    })
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "c-h1__head" }, [
+      _c("i", { staticClass: "fas fa-bookmark" }),
+      _vm._v("本棚に登録\n        "),
+      _c("a", { attrs: { href: "https://books.google.co.jp/" } })
+    ])
+  }
+]
 render._withStripped = true
 
 

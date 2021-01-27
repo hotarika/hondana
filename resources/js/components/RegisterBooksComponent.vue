@@ -2,13 +2,7 @@
     <div class="p-registerBooks">
         <h1 class="c-h1__head">
             <i class="fas fa-bookmark"></i>本棚に登録
-            <a href="https://books.google.co.jp/">
-                <img
-                    class="p-registerBooks__googlePoweredbyLogo"
-                    :src="publicPath + 'image/poweredby.png'"
-                    alt=""
-                />
-            </a>
+            <a href="https://books.google.co.jp/"> </a>
         </h1>
         <form class="c-form__searchSection">
             <div class="c-form__searchBoxWrap">
@@ -40,6 +34,11 @@
                 ></register-book-card-component>
             </template>
         </div>
+        <img
+            class="p-registerBooks__googlePoweredbyLogo"
+            :src="publicPath + 'image/poweredby.png'"
+            alt=""
+        />
     </div>
 </template>
 

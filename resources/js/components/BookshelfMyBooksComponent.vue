@@ -61,6 +61,11 @@
                 </a>
             </template>
         </div>
+        <img
+            class="p-myBooks__googlePoweredbyLogo"
+            :src="publicPath + 'image/poweredby.png'"
+            alt=""
+        />
         <button
             class="p-myBooks__showMore"
             v-if="showBooks.length >= showNum"

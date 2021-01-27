@@ -11521,11 +11521,16 @@ pre {
   text-decoration: none;
 }
 
+.p-myBooks__googlePoweredbyLogo {
+  display: block;
+  margin: -9px 0 0 auto;
+}
+
 .p-myBooks__showMore {
   border-radius: 3px;
   display: block;
   padding: 4px 20px;
-  margin: 20px auto 0;
+  margin: 0 auto;
   font-size: 14px;
   color: #fff;
   background-color: #6c5146;
@@ -11536,7 +11541,7 @@ pre {
   border-radius: 3px;
   position: relative;
   height: 100%;
-  min-height: 150px;
+  min-height: 140px;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -11716,7 +11721,7 @@ pre {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -11765,14 +11770,20 @@ pre {
 .p-registerBooks__lower {
   position: relative;
   display: flex;
-  padding: 10px 10px;
+  padding: 20px 10px 15px;
   overflow: hidden;
 }
 
 @media screen and (min-width: 992px) {
   .p-registerBooks__lower {
+    min-height: 65%;
     padding: 15px 20px;
   }
+}
+
+.p-registerBooks__lower.-noImage {
+  height: 70%;
+  min-height: 130px;
 }
 
 .p-registerBooks__publishedDate {
@@ -11781,29 +11792,31 @@ pre {
 }
 
 .p-registerBooks__bookImageWrap {
-  width: 17%;
+  width: 25%;
 }
 
 @media screen and (min-width: 992px) {
   .p-registerBooks__bookImageWrap {
+    width: 17%;
     margin-right: 20px;
   }
 }
 
-.p-registerBooks__bookImageWrap.-noImage {
-  width: 85px;
-  height: 115px;
-}
-
 .p-registerBooks__googlePreviewLogo {
   position: absolute;
-  right: -10px;
+  right: -5px;
   bottom: -6px;
   width: 60px;
 }
 
 .p-registerBooks__bookInfoWrap {
-  width: 83%;
+  width: 75%;
+}
+
+@media screen and (min-width: 992px) {
+  .p-registerBooks__bookInfoWrap {
+    width: 83%;
+  }
 }
 
 .p-registerBooks__authorWrap {
@@ -11848,10 +11861,9 @@ pre {
 }
 
 .p-registerBooks__googlePoweredbyLogo {
-  position: absolute;
-  top: -31px;
-  right: 3px;
+  display: block;
   width: 60px;
+  margin: -9px 0 0 auto;
 }
 
 .p-welcome__catchSection {

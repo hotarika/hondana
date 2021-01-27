@@ -10,7 +10,10 @@
             >
                 {{ book.volumeInfo.title }}
             </div>
-            <div :id="`js-toolTip${i}`" class="p-registerBooks__toolTip">
+            <div
+                :id="`js-toolTip${i}`"
+                class="c-card__toolTip p-registerBooks__toolTip"
+            >
                 {{ book.volumeInfo.title }}
             </div>
             <button

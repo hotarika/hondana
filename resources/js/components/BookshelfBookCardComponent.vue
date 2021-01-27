@@ -2,7 +2,19 @@
     <div class="p-myBooks__card">
         <!-- 上部 -->
         <div class="p-myBooks__upper">
-            <div class="p-myBooks__bookTitle">{{ book.title }}</div>
+            <div
+                :id="`js-toolTip${i}`"
+                class="c-card__toolTip p-myBooks__toolTip"
+            >
+                {{ book.title }}
+            </div>
+            <div
+                class="p-myBooks__bookTitle"
+                @mouseover="hoverText(i)"
+                @mouseleave="leaveText(i)"
+            >
+                {{ book.title }}
+            </div>
         </div>
         <!-- 下部 -->
         <div class="p-myBooks__lower">
@@ -75,7 +87,8 @@ export default {
     },
     props: {
         book: Object,
-        publicPath: String
+        publicPath: String,
+        i: Number
     },
     data() {
         return {
@@ -87,6 +100,19 @@ export default {
             if (confirm('削除してもよろしいですか？')) {
                 this.$emit('delete-book', this.book);
             }
+        },
+        hoverText(i) {
+            console.log(i);
+            const toolTipTag = document.getElementById(`js-toolTip${i}`);
+            toolTipTag.style.opacity = '1';
+            toolTipTag.style.visibility = 'visible';
+            toolTipTag.style.transitionDelay = '0.5s';
+        },
+        leaveText(i) {
+            const toolTipTag = document.getElementById(`js-toolTip${i}`);
+            toolTipTag.style.opacity = '0';
+            toolTipTag.style.visibility = 'hidden';
+            toolTipTag.style.transitionDelay = '0s';
         }
     },
     computed: {

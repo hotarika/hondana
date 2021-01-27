@@ -2093,6 +2093,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2100,7 +2112,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     book: Object,
-    publicPath: String
+    publicPath: String,
+    i: Number
   },
   data: function data() {
     return {
@@ -2112,6 +2125,19 @@ __webpack_require__.r(__webpack_exports__);
       if (confirm('削除してもよろしいですか？')) {
         this.$emit('delete-book', this.book);
       }
+    },
+    hoverText: function hoverText(i) {
+      console.log(i);
+      var toolTipTag = document.getElementById("js-toolTip".concat(i));
+      toolTipTag.style.opacity = '1';
+      toolTipTag.style.visibility = 'visible';
+      toolTipTag.style.transitionDelay = '0.5s';
+    },
+    leaveText: function leaveText(i) {
+      var toolTipTag = document.getElementById("js-toolTip".concat(i));
+      toolTipTag.style.opacity = '0';
+      toolTipTag.style.visibility = 'hidden';
+      toolTipTag.style.transitionDelay = '0s';
     }
   },
   computed: {
@@ -2640,6 +2666,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -77260,9 +77289,30 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-myBooks__card" }, [
     _c("div", { staticClass: "p-myBooks__upper" }, [
-      _c("div", { staticClass: "p-myBooks__bookTitle" }, [
-        _vm._v(_vm._s(_vm.book.title))
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "c-card__toolTip p-myBooks__toolTip",
+          attrs: { id: "js-toolTip" + _vm.i }
+        },
+        [_vm._v("\n            " + _vm._s(_vm.book.title) + "\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "p-myBooks__bookTitle",
+          on: {
+            mouseover: function($event) {
+              return _vm.hoverText(_vm.i)
+            },
+            mouseleave: function($event) {
+              return _vm.leaveText(_vm.i)
+            }
+          }
+        },
+        [_vm._v("\n            " + _vm._s(_vm.book.title) + "\n        ")]
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-myBooks__lower" }, [
@@ -77753,22 +77803,19 @@ var render = function() {
             staticClass: "p-myBooks__selectLatestDate",
             attrs: { name: "latest_date", id: "" },
             on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.latestDate = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.sortBooks
-              ]
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.latestDate = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
             }
           },
           [
@@ -77816,7 +77863,7 @@ var render = function() {
       "div",
       { staticClass: "p-myBooks__cards" },
       [
-        _vm._l(_vm.showBooks.slice(0, _vm.showNum), function(book) {
+        _vm._l(_vm.showBooks.slice(0, _vm.showNum), function(book, i) {
           return [
             _c(
               "a",
@@ -77827,7 +77874,7 @@ var render = function() {
               },
               [
                 _c("bookshelf-book-card-component", {
-                  attrs: { book: book, "public-path": _vm.publicPath },
+                  attrs: { book: book, "public-path": _vm.publicPath, i: i },
                   on: { "delete-book": _vm.deleteBook }
                 })
               ],
@@ -77929,7 +77976,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "p-registerBooks__toolTip",
+          staticClass: "c-card__toolTip p-registerBooks__toolTip",
           attrs: { id: "js-toolTip" + _vm.i }
         },
         [

@@ -103,6 +103,10 @@
             padding: 6px 12px;
         }
     }
+    &__toolTip {
+        bottom: 27px;
+        left: 15px;
+    }
     &__bookTitle {
         @include ellipsis;
         font-size: 13px;

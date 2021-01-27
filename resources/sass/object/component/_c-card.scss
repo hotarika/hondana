@@ -23,4 +23,15 @@
             margin: 5px 0;
         }
     }
+    &__toolTip {
+        @include border-radius;
+        position: absolute;
+        padding: 3px 8px;
+        font-size: 11px;
+        color: $white;
+        visibility: hidden;
+        background-color: rgba(#000, 0.5);
+        opacity: 0;
+        transition: all 0.2s ease-out;
+    }
 }

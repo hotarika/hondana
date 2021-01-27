@@ -24,7 +24,6 @@
                     id=""
                     class="p-myBooks__selectLatestDate"
                     v-model="latestDate"
-                    @change="sortBooks"
                 >
                     <option value="0">読了日順で選択</option>
                     <option value="1">新しい順</option>
@@ -48,7 +47,7 @@
         </div>
 
         <div class="p-myBooks__cards">
-            <template v-for="book of showBooks.slice(0, showNum)">
+            <template v-for="(book, i) of showBooks.slice(0, showNum)">
                 <a
                     :href="publicPath + 'bookshelf/' + book.id"
                     class="p-myBooks__cardLink"
@@ -58,6 +57,7 @@
                         :book="book"
                         :public-path="publicPath"
                         @delete-book="deleteBook"
+                        :i="i"
                     ></bookshelf-book-card-component>
                 </a>
             </template>

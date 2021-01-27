@@ -2465,12 +2465,13 @@ __webpack_require__.r(__webpack_exports__);
       star: 0,
       latestDate: 0,
       books: [],
-      showNum: 12
+      showNum: 12,
+      addItemsNum: 12
     };
   },
   methods: {
     showMore: function showMore() {
-      return this.showNum = this.showNum + this.showNum;
+      return this.showNum = this.showNum + this.addItemsNum;
     },
     sortBooks: function sortBooks() {
       // 並び替え

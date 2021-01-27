@@ -89,12 +89,13 @@ export default {
             star: 0,
             latestDate: 0,
             books: [],
-            showNum: 12
+            showNum: 12,
+            addItemsNum: 12
         };
     },
     methods: {
         showMore() {
-            return (this.showNum = this.showNum + this.showNum);
+            return (this.showNum = this.showNum + this.addItemsNum);
         },
         sortBooks() {
             // 並び替え

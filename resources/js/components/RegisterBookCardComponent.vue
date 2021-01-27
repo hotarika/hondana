@@ -69,7 +69,7 @@
             <div class="p-registerBooks__bookInfoWrap">
                 <div class="p-registerBooks__authorWrap">
                     <div class="c-card__headTag">
-                        著者
+                        著者名
                     </div>
                     <div
                         class="p-registerBooks__authorName"

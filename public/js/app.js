@@ -2460,6 +2460,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2479,20 +2480,6 @@ __webpack_require__.r(__webpack_exports__);
     showMore: function showMore() {
       return this.showNum = this.showNum + this.addItemsNum;
     },
-    sortBooks: function sortBooks() {
-      // 並び替え
-      if (this.latestDate == 2) {
-        this.books = this.books.slice().sort(function (a, b) {
-          if (a.read_at > b.read_at) return -1;
-          if (a.read_at < b.read_at) return 1;
-        });
-      } else {
-        this.books = this.books.slice().sort(function (a, b) {
-          if (a.read_at < b.read_at) return -1;
-          if (a.read_at > b.read_at) return 1;
-        });
-      }
-    },
     deleteBook: function deleteBook(emit) {
       var _this = this;
 
@@ -2509,11 +2496,48 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     showBooks: function showBooks() {
+      var _this2 = this;
+
       var regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
+      // const that = this;
 
-      var that = this; // フィルター
+      var filteredBooks = []; // ************************
 
-      return this.books.slice().reverse().filter(function (el) {
+      if (this.latestDate == 1 || this.latestDate == 2) {
+        // 読書中の書籍を削除
+        var removeReadingBooks = this.books.filter(function (book) {
+          return book.read_at != null;
+        });
+        filteredBooks = removeReadingBooks; // 読書中を削除したデータを代入
+
+        console.log(filteredBooks); // 並び替え
+
+        if (this.latestDate == 2) {
+          // 並び替え
+          filteredBooks = filteredBooks.slice().sort(function (a, b) {
+            if (a.read_at > b.read_at) return -1;
+            if (a.read_at < b.read_at) return 1;
+          });
+        } else {
+          filteredBooks = filteredBooks.slice().sort(function (a, b) {
+            if (a.read_at < b.read_at) return -1;
+            if (a.read_at > b.read_at) return 1;
+          });
+        }
+      } else if (this.latestDate == 3) {
+        // 読書中の書籍を選択
+        var selectReadingBooks = this.books.filter(function (book) {
+          return book.read_at === null;
+        });
+        filteredBooks = selectReadingBooks; // 読書中の書籍を選択して代入
+      } else {
+        // 読了日順が何も指定されていない場合には、そのまま全てのデータを格納
+        filteredBooks = this.books;
+      } // ************************
+      // フィルター
+
+
+      return filteredBooks.slice().reverse().filter(function (el) {
         if (el.author === null) {
           el.author = '';
         }
@@ -2522,7 +2546,7 @@ __webpack_require__.r(__webpack_exports__);
           return;
         }
 
-        if (el.star < Number(that.star)) {
+        if (el.star < Number(_this2.star)) {
           return;
         }
 
@@ -2531,12 +2555,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     // 書籍の一覧表示
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.publicPath + 'async/bookshelf').then(function (res) {
       // console.log(res);
-      _this2.books = res.data;
+      _this3.books = res.data;
     })["catch"](function (err) {
       console.log(err);
     });
@@ -77278,7 +77302,7 @@ var render = function() {
       _c("div", { staticClass: "p-myBooks__bookInfoWrap" }, [
         _c("div", { staticClass: "p-myBooks__authorWrap" }, [
           _c("div", { staticClass: "c-card__headTag" }, [
-            _vm._v("\n                    著者\n                ")
+            _vm._v("\n                    著者名\n                ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-myBooks__authorName" }, [
@@ -77488,7 +77512,7 @@ var render = function() {
       _c("div", { staticClass: "p-bookDetail__bookInfoWrap" }, [
         _c("div", { staticClass: "p-bookDetail__nameWrap" }, [
           _c("div", { staticClass: "c-card__headTag" }, [
-            _vm._v("\n                    著者\n                ")
+            _vm._v("\n                    著者名\n                ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-bookDetail__name" }, [
@@ -77752,7 +77776,8 @@ var render = function() {
             _vm._v(" "),
             _c("option", { attrs: { value: "1" } }, [_vm._v("新しい順")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")])
+            _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")]),
+            _c("option", { attrs: { value: "3" } }, [_vm._v("読書中の表示")])
           ]
         )
       ]),
@@ -77770,7 +77795,7 @@ var render = function() {
           staticClass: "c-form__searchInput",
           attrs: {
             type: "text",
-            placeholder: "書籍を絞り込む（タイトル・著者）"
+            placeholder: "書籍を絞り込む（タイトル・著者名）"
           },
           domProps: { value: _vm.search },
           on: {
@@ -78009,7 +78034,7 @@ var render = function() {
         _c("div", { staticClass: "p-registerBooks__bookInfoWrap" }, [
           _c("div", { staticClass: "p-registerBooks__authorWrap" }, [
             _c("div", { staticClass: "c-card__headTag" }, [
-              _vm._v("\n                    著者\n                ")
+              _vm._v("\n                    著者名\n                ")
             ]),
             _vm._v(" "),
             _vm.book.volumeInfo.authors

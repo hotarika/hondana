@@ -65,7 +65,7 @@
             <div class="p-bookDetail__bookInfoWrap">
                 <div class="p-bookDetail__nameWrap">
                     <div class="c-card__headTag">
-                        著者
+                        著者名
                     </div>
                     <div class="p-bookDetail__name">{{ book.author }}</div>
                 </div>

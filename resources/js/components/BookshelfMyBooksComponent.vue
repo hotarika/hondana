@@ -28,7 +28,8 @@
                 >
                     <option value="0">読了日順で選択</option>
                     <option value="1">新しい順</option>
-                    <option value="2">古い順</option>
+                    <option value="2">古い順</option
+                    ><option value="3">読書中の表示</option>
                 </select>
             </div>
 
@@ -38,7 +39,7 @@
                     class="c-form__searchInput"
                     type="text"
                     v-model="search"
-                    placeholder="書籍を絞り込む（タイトル・著者）"
+                    placeholder="書籍を絞り込む（タイトル・著者名）"
                 />
                 <button class="c-form__searchBtn" type="">
                     <i class="fas fa-search"></i>
@@ -97,20 +98,6 @@ export default {
         showMore() {
             return (this.showNum = this.showNum + this.addItemsNum);
         },
-        sortBooks() {
-            // 並び替え
-            if (this.latestDate == 2) {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at > b.read_at) return -1;
-                    if (a.read_at < b.read_at) return 1;
-                });
-            } else {
-                this.books = this.books.slice().sort((a, b) => {
-                    if (a.read_at < b.read_at) return -1;
-                    if (a.read_at > b.read_at) return 1;
-                });
-            }
-        },
         deleteBook(emit) {
             axios
                 .delete(this.publicPath + 'bookshelf/' + emit.id)
@@ -127,10 +114,46 @@ export default {
     computed: {
         showBooks() {
             const regexp = new RegExp(this.search.trim(), 'i'); // i = 大小区別しない
-            const that = this;
+            // const that = this;
+            let filteredBooks = [];
+
+            // ************************
+            if (this.latestDate == 1 || this.latestDate == 2) {
+                // 読書中の書籍を削除
+                const removeReadingBooks = this.books.filter(
+                    book => book.read_at != null
+                );
+                filteredBooks = removeReadingBooks; // 読書中を削除したデータを代入
+                console.log(filteredBooks);
+
+                // 並び替え
+                if (this.latestDate == 2) {
+                    // 並び替え
+                    filteredBooks = filteredBooks.slice().sort((a, b) => {
+                        if (a.read_at > b.read_at) return -1;
+                        if (a.read_at < b.read_at) return 1;
+                    });
+                } else {
+                    filteredBooks = filteredBooks.slice().sort((a, b) => {
+                        if (a.read_at < b.read_at) return -1;
+                        if (a.read_at > b.read_at) return 1;
+                    });
+                }
+            } else if (this.latestDate == 3) {
+                // 読書中の書籍を選択
+                const selectReadingBooks = this.books.filter(
+                    book => book.read_at === null
+                );
+                filteredBooks = selectReadingBooks; // 読書中の書籍を選択して代入
+            } else {
+                // 読了日順が何も指定されていない場合には、そのまま全てのデータを格納
+                filteredBooks = this.books;
+            }
+
+            // ************************
 
             // フィルター
-            return this.books
+            return filteredBooks
                 .slice()
                 .reverse()
                 .filter(el => {
@@ -141,7 +164,7 @@ export default {
                         return;
                     }
 
-                    if (el.star < Number(that.star)) {
+                    if (el.star < Number(this.star)) {
                         return;
                     }
 

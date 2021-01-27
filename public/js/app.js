@@ -2290,7 +2290,9 @@ __webpack_require__.r(__webpack_exports__);
         memo: this.memo
       }).then(function (res) {
         console.log(res);
-      });
+      }); // URL書き換え
+
+      history.replaceState('', '', this.book.id);
     },
     deleteBook: function deleteBook(book_id) {
       if (confirm('削除してもよろしいですか？')) {
@@ -2328,6 +2330,12 @@ __webpack_require__.r(__webpack_exports__);
 
       return 0;
     }
+  },
+  mounted: function mounted() {
+    var getParam = window.location.search;
+    var value = getParam.split('=');
+    var bool = value[1] == 'true' ? true : false;
+    if (getParam) this.editMode = bool;
   }
 });
 
@@ -77280,7 +77288,15 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-myBooks__functionIconsWrap" }, [
-      _vm._m(0),
+      _c(
+        "a",
+        {
+          attrs: {
+            href: _vm.publicPath + "bookshelf/" + _vm.book.id + "?edit=true"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-edit" })]
+      ),
       _vm._v(" "),
       _c(
         "a",
@@ -77298,16 +77314,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "" } }, [
-      _c("i", { staticClass: "fas fa-edit" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

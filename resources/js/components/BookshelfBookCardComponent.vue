@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="p-myBooks__functionIconsWrap">
-            <a href="">
+            <a :href="publicPath + 'bookshelf/' + book.id + '?edit=true'">
                 <i class="fas fa-edit"></i>
             </a>
             <a href="" @click.prevent="deleteBook">

@@ -176,6 +176,9 @@ export default {
                 .then(res => {
                     console.log(res);
                 });
+
+            // URL書き換え
+            history.replaceState('', '', this.book.id);
         },
         deleteBook(book_id) {
             if (confirm('削除してもよろしいですか？')) {
@@ -217,6 +220,12 @@ export default {
             }
             return 0;
         }
+    },
+    mounted() {
+        const getParam = window.location.search;
+        const value = getParam.split('=');
+        const bool = value[1] == 'true' ? true : false;
+        if (getParam) this.editMode = bool;
     }
 };
 </script>

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'パスワードリセット')
 
 @section('content')
 <div class="l-main">
@@ -10,7 +11,7 @@
 
                     <div class="card-body">
                         @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success" style="font-size: 14px" role="alert">
                             {{ session('status') }}
                         </div>
                         @endif
@@ -24,7 +25,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror"
+                                        class="form-control @error('email') is-invalid @enderror c-formAuth__input"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')

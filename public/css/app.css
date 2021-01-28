@@ -11051,6 +11051,10 @@ pre {
   font-size: 14px;
 }
 
+.c-formAuth__input {
+  font-size: 14px;
+}
+
 .c-formAuth__btnWrap {
   text-align: right;
 }

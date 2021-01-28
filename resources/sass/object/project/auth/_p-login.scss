@@ -1,16 +1,10 @@
 .p-login {
-    &__cardHeader {
-        text-align: center;
-        background-color: #e6d4ce;
-    }
     &__rememberWrap {
         line-height: 1.4;
     }
-    &__label {
-        font-size: 14px;
-    }
-    &__loginBtn {
-        font-size: 14px;
+    &__passRequestWrap {
+        display: flex;
+        justify-content: flex-end;
     }
     &__passRequest {
         font-size: 13px;

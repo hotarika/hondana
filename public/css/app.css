@@ -11042,6 +11042,23 @@ pre {
   color: #fff;
 }
 
+.c-formAuth__cardHeader {
+  text-align: center;
+  background-color: #e6d4ce;
+}
+
+.c-formAuth__label {
+  font-size: 14px;
+}
+
+.c-formAuth__btnWrap {
+  text-align: right;
+}
+
+.c-formAuth__btn {
+  font-size: 14px;
+}
+
 .c-bookImageWrap {
   position: relative;
   height: 100%;
@@ -12180,25 +12197,14 @@ pre {
   }
 }
 
-.p-login__cardHeader {
-  text-align: center;
-  background-color: #e6d4ce;
-}
-
 .p-login__rememberWrap {
   line-height: 1.4;
 }
 
-.p-login__label {
-  font-size: 14px;
-}
-
-.p-login__loginBtn {
-  font-size: 14px;
-}
-
 .p-login__passRequest {
+  display: block;
   font-size: 13px;
+  text-align: right;
 }
 
 .u-m0 {

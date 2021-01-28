@@ -7,7 +7,7 @@
         <div class="row justify-content-center p-login">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header p-login__cardHeader">ログイン</div>
+                    <div class="card-header c-formAuth__cardHeader">ログイン</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -15,7 +15,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right p-login__label -mail">メールアドレス</label>
+                                    class="col-md-4 col-form-label text-md-right c-formAuth__label -mail">メールアドレス</label>
 
                                 <div class="col-md-7 col-lg-6">
                                     <input id="email" type="email"
@@ -32,7 +32,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right p-login__label -pass">パスワード</label>
+                                    class="col-md-4 col-form-label text-md-right c-formAuth__label -pass">パスワード</label>
 
                                 <div class="col-md-7 col-lg-6">
                                     <input id="password" type="password"
@@ -53,7 +53,7 @@
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
 
-                                        <label class="form-check-label p-login__label -remember" for="remember">
+                                        <label class="form-check-label c-formAuth__label -remember" for="remember">
                                             自動でログイン
                                         </label>
                                     </div>
@@ -61,21 +61,23 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary p-login__loginBtn">
+                                <div class="col-md-8 offset-md-2 c-formAuth__btnWrap">
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn">
                                         ログイン
                                     </button>
 
-                                    @if (Route::has('password.request'))
-                                    <a class="btn btn-link p-login__passRequest" href="{{ route('password.request') }}">
-                                        パスワードを忘れた方はこちら
-                                    </a>
-                                    @endif
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                @if (Route::has('password.request'))
+                <div class="p-login__passRequestWrap">
+                    <a class="btn btn-link p-login__passRequest" href="{{ route('password.request') }}">
+                        パスワードを忘れた方はこちら
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
     </div>

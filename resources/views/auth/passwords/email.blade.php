@@ -5,7 +5,7 @@
 <div class="l-main">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-8">
                 <div class="card">
                     <div class="card-header c-formAuth__cardHeader">リセットパスワード</div>
 
@@ -26,7 +26,7 @@
                                 <div class="col-md-7 col-lg-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror c-formAuth__input"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">

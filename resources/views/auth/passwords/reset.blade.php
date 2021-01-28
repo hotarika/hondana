@@ -4,7 +4,7 @@
 <div class="l-main">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-8">
                 <div class="card">
                     <div class="card-header c-formAuth__cardHeader">パスワードのリセット</div>
 
@@ -40,7 +40,8 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror c-formAuth__input"
                                         name="password"
-                                        autocomplete="new-password">
+                                        autocomplete="new-password"
+                                        placeholder="6~20文字・半角英数字のみ">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">

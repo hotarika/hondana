@@ -5,7 +5,7 @@
 <main class="l-main">
     <div class="container">
         <div class="row justify-content-center p-login">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-8">
                 <div class="card">
                     <div class="card-header c-formAuth__cardHeader">ログイン</div>
 

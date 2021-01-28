@@ -1,0 +1,10 @@
+.c-flash {
+    @include flex-center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgba(175, 233, 255, 0.6);
+}

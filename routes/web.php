@@ -20,6 +20,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/bookshelf', 'BookshelfController');
     Route::get('/books-graph', 'BooksGraphController')->name('books-graph');
+
+    Route::get('/password/change', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
+    Route::post('/password/change', 'Auth\ChangePasswordController@ChangePassword')->name('password.change');
 });
 
 // Async

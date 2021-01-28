@@ -42,6 +42,9 @@
                     <li class="p-header__navList -bookRegister">
                         <a href="{{route('bookshelf.create')}}"><i class="fas fa-book"></i>本棚に登録</a>
                     </li>
+                    <li class="p-header__navList -settings">
+                        <a href="{{route('password.form')}}"><i class="fas fa-cog"></i>設定</a>
+                    </li>
                     <li class="p-header__navList -logout">
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

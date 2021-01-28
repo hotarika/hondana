@@ -8,6 +8,12 @@
         {{-- header --}}
         @include('components/header')
 
+        {{-- フラッシュメッセージ --}}
+        @if(session('flash'))
+        <div class="c-flash" role="alert">{{ session('flash') }}
+        </div>
+        @endif
+
         @yield('content')
 
         {{-- footer --}}

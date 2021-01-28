@@ -10970,6 +10970,19 @@ pre {
   transition: all 0.2s ease-out;
 }
 
+.c-flash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(175, 233, 255, 0.6);
+}
+
 .c-form__searchSection {
   border-radius: 0 0 3px 3px;
   display: flex;
@@ -11936,6 +11949,18 @@ pre {
   display: block;
   width: 60px;
   margin: -9px 0 0 auto;
+}
+
+.p-settings__list {
+  padding: 10px 15px;
+  margin-top: -1px;
+  font-size: 13px;
+  color: black;
+  white-space: nowrap;
+  list-style: none;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
 }
 
 .p-welcome__catchSection {

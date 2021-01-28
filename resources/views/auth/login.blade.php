@@ -19,7 +19,7 @@
 
                                 <div class="col-md-7 col-lg-6">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror"
+                                        class="form-control @error('email') is-invalid @enderror c-formAuth__input"
                                         name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                     @error('email')
@@ -36,7 +36,8 @@
 
                                 <div class="col-md-7 col-lg-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control @error('password') is-invalid @enderror c-formAuth__input"
+                                        name="password"
                                         autocomplete="current-password">
 
                                     @error('password')
@@ -50,7 +51,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4 p-login__rememberWrap">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                        <input class="form-check-input " type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label c-formAuth__label -remember" for="remember">

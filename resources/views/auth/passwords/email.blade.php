@@ -23,7 +23,7 @@
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-right c-formAuth__label">メールアドレス</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-7 col-lg-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror c-formAuth__input"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

@@ -17,9 +17,9 @@
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-right c-formAuth__label">名前</label>
 
-                                <div class="col-md-7">
+                                <div class="col-md-7 col-lg-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror"
+                                        class="form-control @error('name') is-invalid @enderror c-formAuth__input"
                                         name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                     @error('name')
@@ -34,9 +34,9 @@
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-right c-formAuth__label">メールアドレス</label>
 
-                                <div class="col-md-7">
+                                <div class="col-md-7 col-lg-6">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror"
+                                        class="form-control @error('email') is-invalid @enderror c-formAuth__input"
                                         name="email" value="{{ old('email') }}" autocomplete="email">
 
                                     @error('email')
@@ -51,9 +51,10 @@
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right c-formAuth__label">パスワード</label>
 
-                                <div class="col-md-7">
+                                <div class="col-md-7 col-lg-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control @error('password') is-invalid @enderror c-formAuth__input"
+                                        name="password"
                                         autocomplete="new-password">
 
                                     @error('password')
@@ -68,14 +69,14 @@
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right c-formAuth__label">パスワード再入力</label>
 
-                                <div class="col-md-7">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                <div class="col-md-7 col-lg-6">
+                                    <input id="password-confirm c-formAuth__input" type="password" class="form-control"
                                         name="password_confirmation" autocomplete="new-password">
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-7 offset-md-4 c-formAuth__btnWrap">
+                                <div class="col-md-7 col-lg-6 offset-md-4 c-formAuth__btnWrap">
                                     <button type="submit" class="btn btn-primary c-formAuth__btn">
                                         登録する
                                     </button>

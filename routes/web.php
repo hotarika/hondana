@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Auth::id() ? redirect('bookshelf') : view('welcome');
 });
 
 Auth::routes();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AsynchronousController extends Controller
 {
@@ -13,6 +14,7 @@ class AsynchronousController extends Controller
         $books = DB::table('bookshelf as s')
             ->select('s.id', 's.user_id', 's.book_id', 'b.title', 'b.author', 'b.published_date', 'b.description', 'b.image', 'b.preview_link', 's.star', 's.read_at', 's.memo')
             ->leftJoin('books as b', 's.book_id', '=', 'b.id')
+            ->where('s.user_id', Auth::id())
             ->get();
 
         return $books->toJson();
@@ -23,7 +25,8 @@ class AsynchronousController extends Controller
     {
         $books = DB::table('bookshelf as s')
             ->select(DB::raw('DATE_FORMAT(read_at, "%Y/%m") as read_at, COUNT(*) as count'))
-            ->whereNotNull('read_at',)
+            ->whereNotNull('read_at')
+            ->where('s.user_id', Auth::id())
             ->groupBy(DB::raw('DATE_FORMAT(read_at, "%Y/%m")'))
             ->get();
 

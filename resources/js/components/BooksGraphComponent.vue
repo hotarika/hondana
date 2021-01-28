@@ -37,14 +37,13 @@ export default {
             const labels = [];
             const dt = new Date(); // 今日の日付
 
-            // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
-
             dt.setMonth(dt.getMonth() + 1); // 今月を含める
 
             for (let i = 1; i <= this.max; i++) {
                 const m =
                     dt.getMonth(dt.setMonth(dt.getMonth() + this.interval)) + 1;
                 const y = dt.getFullYear();
+                console.log(dt.getMonth());
 
                 if (m === 1 || i === this.max) {
                     labels.unshift(y + '/' + m);
@@ -58,8 +57,6 @@ export default {
         refLabels() {
             const labels = [];
             const dt = new Date(); // 今日の日付
-
-            // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
 
             dt.setMonth(dt.getMonth() + 1); // 今月を含める
 

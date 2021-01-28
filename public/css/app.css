@@ -12180,6 +12180,27 @@ pre {
   }
 }
 
+.p-login__cardHeader {
+  text-align: center;
+  background-color: #e6d4ce;
+}
+
+.p-login__rememberWrap {
+  line-height: 1.4;
+}
+
+.p-login__label {
+  font-size: 14px;
+}
+
+.p-login__loginBtn {
+  font-size: 14px;
+}
+
+.p-login__passRequest {
+  font-size: 13px;
+}
+
 .u-m0 {
   margin: 0;
 }

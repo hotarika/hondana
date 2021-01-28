@@ -1949,13 +1949,13 @@ __webpack_require__.r(__webpack_exports__);
       // チャートラベルは、先にデータを取得してChart.vueに渡しているため、子ではなく親コンポーネントであるここに記述している
       var labels = [];
       var dt = new Date(); // 今日の日付
-      // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
 
       dt.setMonth(dt.getMonth() + 1); // 今月を含める
 
       for (var i = 1; i <= this.max; i++) {
         var m = dt.getMonth(dt.setMonth(dt.getMonth() + this.interval)) + 1;
         var y = dt.getFullYear();
+        console.log(dt.getMonth());
 
         if (m === 1 || i === this.max) {
           labels.unshift(y + '/' + m);
@@ -1970,7 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
     refLabels: function refLabels() {
       var labels = [];
       var dt = new Date(); // 今日の日付
-      // 今月より来月の日数が少ない場合に、グラフに次の月が表示される不具合あり
 
       dt.setMonth(dt.getMonth() + 1); // 今月を含める
 

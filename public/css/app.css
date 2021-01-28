@@ -12201,10 +12201,13 @@ pre {
   line-height: 1.4;
 }
 
+.p-login__passRequestWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .p-login__passRequest {
-  display: block;
   font-size: 13px;
-  text-align: right;
 }
 
 .u-m0 {

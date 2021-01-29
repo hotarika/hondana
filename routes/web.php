@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function () {
     // 会員情報変更
     Route::get('/edit/profile', 'Auth\EditProfileController@showEditProfileForm')->name('edit.form');
     Route::post('/edit/profile', 'Auth\EditProfileController@editProfile')->name('edit.profile');
+
+    // 退会
+    Route::delete('/withdraw', 'Auth\WithdrawController')->name('withdraw');
 });
 
 // Async

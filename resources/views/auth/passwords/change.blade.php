@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'パスワード変更')
 
 @section('content')
 <div class="l-main">
@@ -65,7 +66,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4" style="text-align:right;">
-                                    <button type="submit" class="btn btn-primary c-formAuth__btn">パスワード変更</button>
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn">変更</button>
                                 </div>
                             </div>
                         </form>

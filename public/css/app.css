@@ -12032,6 +12032,10 @@ pre {
   transition: all 0.1s ease-out;
 }
 
+.p-settings__list.current-page {
+  background: #e6d4ce;
+}
+
 .p-welcome__catchSection {
   width: 100%;
   margin-bottom: 60px;

@@ -1,6 +1,7 @@
 .p-settings {
     position: relative;
     margin-bottom: 20px;
+
     @include mq('md') {
         margin-bottom: 0;
     }
@@ -59,6 +60,9 @@
             visibility: visible;
             opacity: 1;
             transition: all 0.1s ease-out;
+        }
+        &.current-page {
+            background: #e6d4ce;
         }
     }
 }

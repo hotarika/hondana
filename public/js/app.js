@@ -91816,6 +91816,9 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/modules/sp-navigation */ "./resources/js/modules/sp-navigation.js");
 /* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/modules/sp-settings */ "./resources/js/modules/sp-settings.js");
+/* harmony import */ var _js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -92443,6 +92446,32 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/modules/sp-settings.js":
+/*!*********************************************!*\
+  !*** ./resources/js/modules/sp-settings.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// *************************************************
+// スマホ用ナビメニューの開閉
+//（Vueでは、「メニュー以外を押すと閉じる」機能が実装できないため、通常のjsで対応）
+// *************************************************
+window.addEventListener('DOMContentLoaded', function () {
+  var click = document.querySelector('.js-settings-click');
+  var items = document.getElementsByClassName('js-settings-item');
+  click.addEventListener('click', function (e) {
+    e.stopPropagation();
+    console.log('click');
+
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.toggle('is-active');
+    }
+  });
 });
 
 /***/ }),

@@ -4,19 +4,8 @@
 <div class="l-main">
     <div class="container">
         <div class="row justify-content-center">
-            <aside class="col-md-3 col-lg-2 px-md-0 p-settings">
-                <ul class="p-settings__lists px-0">
-                    <a class="p-settings__link" href="">
-                        <li class="p-settings__list -changePass">
-                            パスワード変更
-                        </li>
-                    </a>
-                    <a class="p-settings__link" href="">
-                        <li class="p-settings__list -withdrawal">退会</li>
-                    </a>
 
-                </ul>
-            </aside>
+            @include('components/settings-lists')
 
             <div class="col-md-9 col-lg-8">
                 <div class="card">

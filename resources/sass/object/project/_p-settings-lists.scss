@@ -1,0 +1,64 @@
+.p-settings {
+    position: relative;
+    margin-bottom: 20px;
+    @include mq('md') {
+        margin-bottom: 0;
+    }
+    &__listsParent {
+        @include border-radius;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 15px;
+        margin-top: -1px;
+        font-size: 13px;
+        color: black;
+        white-space: nowrap;
+        list-style: none;
+        background-color: $gray-300;
+        border: 1px solid $gray-400;
+        @include mq('md') {
+            display: none;
+        }
+    }
+    &__lists {
+        position: absolute;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        margin: 0 15px;
+        @include mq('md') {
+            margin: 0;
+        }
+    }
+    &__list {
+        @include border-radius;
+        width: 100%;
+        padding: 0 15px;
+        margin-top: -1px;
+        font-size: 13px;
+        line-height: 0;
+        color: black;
+        white-space: nowrap;
+        list-style: none;
+        visibility: hidden;
+        background-color: $gray-100;
+        border: 1px solid $gray-300;
+        opacity: 0;
+        transition: all 0.1s ease-out;
+        @include mq('md') {
+            padding: 10px 15px;
+            line-height: 1.5;
+            visibility: visible;
+            opacity: 1;
+            transition: none;
+        }
+        &.is-active {
+            padding: 10px 15px;
+            line-height: 1.5;
+            visibility: visible;
+            opacity: 1;
+            transition: all 0.1s ease-out;
+        }
+    }
+}

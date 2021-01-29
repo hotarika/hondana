@@ -67,6 +67,14 @@
             :src="publicPath + 'image/poweredby.png'"
             alt=""
         />
+
+        <a
+            class="p-myBooks__noBooksMsg"
+            :href="publicPath + 'bookshelf/create'"
+            v-if="books.length === 0"
+            >読んだ書籍を追加しましょう！（ここをクリック）</a
+        >
+
         <button
             class="p-myBooks__showMore"
             v-if="showBooks.length >= showNum"

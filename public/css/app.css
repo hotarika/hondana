@@ -11632,6 +11632,15 @@ pre {
   margin: -9px 0 0 auto;
 }
 
+.p-myBooks__noBooksMsg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 30px;
+  color: #adb5bd;
+}
+
 .p-myBooks__showMore {
   border-radius: 3px;
   display: block;
@@ -11949,6 +11958,15 @@ pre {
   display: block;
   width: 60px;
   margin: -9px 0 0 auto;
+}
+
+.p-registerBooks__noBooksMsg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 30px;
+  color: #adb5bd;
 }
 
 .p-settings {

@@ -39,6 +39,9 @@
             :src="publicPath + 'image/poweredby.png'"
             alt=""
         />
+        <div class="p-registerBooks__noBooksMsg" v-if="this.books === ''">
+            書籍を検索して、読んだ本を追加しましょう！
+        </div>
     </div>
 </template>
 

@@ -73,6 +73,12 @@
         display: block;
         margin: -9px 0 0 auto;
     }
+    &__noBooksMsg {
+        @include flex-center;
+        margin-top: 20px;
+        font-size: 30px;
+        color: $gray-500;
+    }
     &__showMore {
         @include border-radius;
         display: block;

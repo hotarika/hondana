@@ -2486,6 +2486,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2824,6 +2832,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -77890,6 +77901,17 @@ var render = function() {
       attrs: { src: _vm.publicPath + "image/poweredby.png", alt: "" }
     }),
     _vm._v(" "),
+    _vm.books.length === 0
+      ? _c(
+          "a",
+          {
+            staticClass: "p-myBooks__noBooksMsg",
+            attrs: { href: _vm.publicPath + "bookshelf/create" }
+          },
+          [_vm._v("読んだ書籍を追加しましょう！（ここをクリック）")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _vm.showBooks.length >= _vm.showNum
       ? _c(
           "button",
@@ -78198,7 +78220,13 @@ var render = function() {
     _c("img", {
       staticClass: "p-registerBooks__googlePoweredbyLogo",
       attrs: { src: _vm.publicPath + "image/poweredby.png", alt: "" }
-    })
+    }),
+    _vm._v(" "),
+    this.books === ""
+      ? _c("div", { staticClass: "p-registerBooks__noBooksMsg" }, [
+          _vm._v("\n        書籍を検索して、読んだ本を追加しましょう！\n    ")
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

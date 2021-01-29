@@ -147,4 +147,10 @@
         width: 60px;
         margin: -9px 0 0 auto;
     }
+    &__noBooksMsg {
+        @include flex-center;
+        margin-top: 20px;
+        font-size: 30px;
+        color: $gray-500;
+    }
 }

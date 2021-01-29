@@ -7,11 +7,23 @@
         {{-- top --}}
         <section class="p-welcome__catchSection">
             <div class="container">
+
                 {{-- テキストエリア --}}
                 <div class="p-welcome__catchTextWrap">
                     <h1 class="p-welcome__catchTitle">あなただけの本棚を作ってみませんか？</h1>
                     <div class="p-welcome__catchText">HONDANAは、"シンプル・簡単" に自分だけの読書記録を管理できるサービスです</div>
-                    <a class="p-welcome__registrationBtn -top" href="{{asset('/register')}}">会員登録（無料）</a>
+                    <div class="p-welcome__btnWrap">
+                        <a class="p-welcome__registrationBtn c-formAuth__welcomeBtn"
+                            href="{{asset('/register')}}">会員登録（無料）</a>
+                        <form id="child-form" method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input type="hidden" name="email" value="test@example.com" form="child-form">
+                            <input type="hidden" name="password" value="password" form="child-form">
+                            <button type="submit" class="btn btn-primary c-formAuth__welcomeBtn" form="child-form">
+                                中を見てみる
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 {{-- アイコン --}}
                 <div class="p-welcome__catchIconWrap">
@@ -57,7 +69,8 @@
 
         {{-- bottom --}}
         <section class="p-welcome__btnSection container">
-            <a class="p-welcome__registrationBtn -bottom" href="{{asset('/register')}}">会員登録（無料）</a>
+            <a class="p-welcome__registrationBtn -bottom c-formAuth__welcomeBtn"
+                href="{{asset('/register')}}">会員登録（無料）</a>
         </section>
     </div>
 </main>

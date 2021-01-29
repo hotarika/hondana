@@ -79,11 +79,20 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-7 col-lg-6 offset-md-4 c-formAuth__btnWrap">
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn"
+                                        style="margin-right:10px;" form="child-form">
+                                        中を見てみる
+                                    </button>
                                     <button type="submit" class="btn btn-primary c-formAuth__btn">
                                         登録する
                                     </button>
                                 </div>
                             </div>
+                        </form>
+                        <form id="child-form" method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input type="hidden" name="email" value="test@example.com" form="child-form">
+                            <input type="hidden" name="password" value="password" form="child-form">
                         </form>
                     </div>
                 </div>

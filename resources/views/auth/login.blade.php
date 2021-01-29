@@ -63,12 +63,20 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-2 c-formAuth__btnWrap">
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn"
+                                        form="child-form" style="margin-right: 10px">
+                                        中を見てみる
+                                    </button>
                                     <button type="submit" class="btn btn-primary c-formAuth__btn">
                                         ログイン
                                     </button>
-
                                 </div>
                             </div>
+                        </form>
+                        <form id="child-form" method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input type="hidden" name="email" value="test@example.com" form="child-form">
+                            <input type="hidden" name="password" value="password" form="child-form">
                         </form>
                     </div>
                 </div>

@@ -92486,20 +92486,31 @@ window.addEventListener('DOMContentLoaded', function () {
 /***/ (function(module, exports) {
 
 // *************************************************
-// スマホ用ナビメニューの開閉
-//（Vueでは、「メニュー以外を押すと閉じる」機能が実装できないため、通常のjsで対応）
+// スマートフォンの設定メニューをアコーディオンで実装
 // *************************************************
 window.addEventListener('DOMContentLoaded', function () {
   var click = document.querySelector('.js-settings-click');
   var items = document.getElementsByClassName('js-settings-item');
-  click.addEventListener('click', function (e) {
-    e.stopPropagation();
-    console.log('click');
 
-    for (var i = 0; i < items.length; i++) {
-      items[i].classList.toggle('is-active');
-    }
-  });
+  if (click && items) {
+    // メニューをtoggle
+    click.addEventListener('click', function (e) {
+      e.stopPropagation();
+      console.log('click');
+
+      for (var i = 0; i < items.length; i++) {
+        items[i].classList.toggle('is-active');
+      }
+    }); // メニューの外側を押して閉じる
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.js-settings-click') && !e.target.closest('.js-settings-item')) {
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.remove('is-active');
+        }
+      }
+    });
+  }
 });
 
 /***/ }),

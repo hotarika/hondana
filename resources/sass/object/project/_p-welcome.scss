@@ -57,31 +57,26 @@
         }
         @include mq('lg') {
             width: 330px;
-            margin-bottom: 55px;
+            margin-bottom: 30px;
             font-size: 16px;
+        }
+    }
+    &__btnWrap {
+        display: flex;
+        flex-direction: column;
+        @include mq('md') {
+            flex-direction: row;
+            justify-content: center;
         }
     }
     &__registrationBtn {
         @include border-radius;
-        display: block;
-        width: 100%;
-        padding: 10px 38px;
-        font-size: 15px;
+        padding: 7px 15px;
         color: $black;
-        text-align: center;
-        white-space: nowrap;
         background-color: #e8c8bb;
         @include mq('md') {
             display: inline-block;
-            width: auto;
-            padding: 8px 24px;
-            font-size: 14px;
-        }
-        @include mq('lg') {
-            padding: 12px 38px;
-        }
-        &.-top {
-            margin-bottom: 20px;
+            margin-right: 15px;
         }
     }
 
@@ -186,9 +181,11 @@
     // ボタンセクション
     // *****************************
     &__btnSection {
-        height: 120px;
         @include flex-center;
-
+        height: 120px;
+        &.container {
+            padding: 10px 20px;
+        }
         @include mq('md') {
             @include flex-center;
         }

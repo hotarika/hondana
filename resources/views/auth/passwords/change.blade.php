@@ -10,7 +10,10 @@
 
             <div class="col-md-9 col-lg-8">
                 <div class="card">
-                    <div class="card-header c-formAuth__cardHeader">パスワード変更</div>
+                    <div class="card-header c-formAuth__cardHeader">
+                        パスワード変更@if(Auth::id()===1)<br><span class="c-formAuth__noUser">（このユーザーは利用できません）</span>
+                        @endif
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('password.change') }}">
@@ -25,7 +28,8 @@
                                         class="form-control @error('current_password') is-invalid @enderror c-formAuth__input"
                                         name="current_password"
                                         autocomplete="new-password"
-                                        autofocus>
+                                        autofocus
+                                        @if(Auth::id()===1) disabled @endif>
 
                                     @error('current_password')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +48,8 @@
                                         class="form-control @error('password') is-invalid @enderror c-formAuth__input"
                                         name="password"
                                         autocomplete="new-password"
-                                        placeholder="6~20文字・半角英数字のみ">
+                                        placeholder="6~20文字・半角英数字のみ"
+                                        @if(Auth::id()===1) disabled @endif>
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -60,13 +65,15 @@
 
                                 <div class="col-md-7 col-lg-6">
                                     <input id="password-confirm" type="password" class="form-control c-formAuth__input"
-                                        name="password_confirmation" autocomplete="new-password">
+                                        name="password_confirmation" autocomplete="new-password"
+                                        @if(Auth::id()===1) disabled @endif>
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4" style="text-align:right;">
-                                    <button type="submit" class="btn btn-primary c-formAuth__btn">変更</button>
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn" @if(Auth::id()===1)
+                                        disabled @endif>変更</button>
                                 </div>
                             </div>
                         </form>

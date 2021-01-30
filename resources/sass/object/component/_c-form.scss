@@ -87,4 +87,9 @@
             margin-bottom: 0;
         }
     }
+    &__noUser {
+        font-size: 13px;
+        line-height: 0;
+        color: $gray-600;
+    }
 }

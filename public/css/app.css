@@ -11095,6 +11095,12 @@ pre {
   }
 }
 
+.c-formAuth__noUser {
+  font-size: 13px;
+  line-height: 0;
+  color: #6c757d;
+}
+
 .c-bookImageWrap {
   position: relative;
   height: 100%;

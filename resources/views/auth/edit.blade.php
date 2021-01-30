@@ -10,7 +10,8 @@
 
             <div class="col-md-9 col-lg-8">
                 <div class="card">
-                    <div class="card-header c-formAuth__cardHeader">会員情報変更</div>
+                    <div class="card-header c-formAuth__cardHeader">会員情報変更@if(Auth::id()===1)<br><span class="c-formAuth__noUser">（このユーザーは利用できません）</span>
+                    @endif</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('edit.profile') }}">
@@ -27,7 +28,8 @@
                                         autocomplete="name"
                                         autofocus
                                         placeholder="10文字以内"
-                                        value="{{ old('name') ?? $user->name}}">
+                                        value="{{ old('name') ?? $user->name}}"
+                                        @if(Auth::id()===1) disabled @endif>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +48,8 @@
                                         class="form-control @error('email') is-invalid @enderror c-formAuth__input"
                                         name="email"
                                         autocomplete="email"
-                                        value="{{ old('email') ?? $user->email  }}">
+                                        value="{{ old('email') ?? $user->email  }}"
+                                        @if(Auth::id()===1) disabled @endif>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -58,7 +61,8 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4" style="text-align:right;">
-                                    <button type="submit" class="btn btn-primary c-formAuth__btn">変更</button>
+                                    <button type="submit" class="btn btn-primary c-formAuth__btn" @if(Auth::id()===1)
+                                        disabled @endif>変更</button>
                                 </div>
                             </div>
                         </form>

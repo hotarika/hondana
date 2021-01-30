@@ -72,7 +72,7 @@
             class="p-myBooks__noBooksMsg"
             :href="publicPath + 'bookshelf/create'"
             v-if="books.length === 0"
-            >読んだ書籍を追加しましょう！（ここをクリック）</a
+            >読んだ書籍を追加しましょう！<br />（ここをクリック）</a
         >
 
         <button

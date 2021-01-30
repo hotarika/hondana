@@ -75,9 +75,15 @@
     }
     &__noBooksMsg {
         @include flex-center;
+        @include responsive-br('sm');
+        display: block;
         margin-top: 20px;
-        font-size: 30px;
+        font-size: 20px;
         color: $gray-500;
+        text-align: center;
+        @include mq('md') {
+            font-size: 25px;
+        }
     }
     &__showMore {
         @include border-radius;

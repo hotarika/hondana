@@ -77908,7 +77908,11 @@ var render = function() {
             staticClass: "p-myBooks__noBooksMsg",
             attrs: { href: _vm.publicPath + "bookshelf/create" }
           },
-          [_vm._v("読んだ書籍を追加しましょう！（ここをクリック）")]
+          [
+            _vm._v("読んだ書籍を追加しましょう！"),
+            _c("br"),
+            _vm._v("（ここをクリック）")
+          ]
         )
       : _vm._e(),
     _vm._v(" "),

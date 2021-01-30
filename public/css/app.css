@@ -11655,9 +11655,27 @@ pre {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: block;
   margin-top: 20px;
-  font-size: 30px;
+  font-size: 20px;
   color: #adb5bd;
+  text-align: center;
+}
+
+.p-myBooks__noBooksMsg > br {
+  display: block;
+}
+
+@media screen and (min-width: 576px) {
+  .p-myBooks__noBooksMsg > br {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-myBooks__noBooksMsg {
+    font-size: 25px;
+  }
 }
 
 .p-myBooks__showMore {
@@ -11984,8 +12002,14 @@ pre {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  font-size: 30px;
+  font-size: 20px;
   color: #adb5bd;
+}
+
+@media screen and (min-width: 768px) {
+  .p-registerBooks__noBooksMsg {
+    font-size: 25px;
+  }
 }
 
 .p-settings {

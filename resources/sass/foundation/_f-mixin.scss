@@ -34,12 +34,11 @@ $breakpoints: (
 }
 
 // レスポンシブで<br />を操作したい場合に使用
-@mixin responsive-br($site-size: 'xs') {
+@mixin responsive-br($site-size: 'sm') {
     & > br {
-        display: none;
-
+        display: block;
         @include mq($site-size) {
-            display: block;
+            display: none;
         }
     }
 }

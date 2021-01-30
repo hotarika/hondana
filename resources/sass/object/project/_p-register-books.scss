@@ -150,7 +150,10 @@
     &__noBooksMsg {
         @include flex-center;
         margin-top: 20px;
-        font-size: 30px;
+        font-size: 20px;
         color: $gray-500;
+        @include mq('md') {
+            font-size: 25px;
+        }
     }
 }

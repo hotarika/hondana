@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('/bookshelf', 'BookshelfController');
+    Route::resource('/bookshelf', 'BookshelfController', ['except' => ['edit']]);
     Route::get('/books-graph', 'BooksGraphController')->name('books-graph');
 
     // パスワード変更

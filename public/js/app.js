@@ -2192,7 +2192,7 @@ __webpack_require__.r(__webpack_exports__);
         if (date === null) {
           return '読書中';
         } else {
-          var readDate = new Date(date);
+          var readDate = new Date(date.replace(/-/g, '/'));
           var y = readDate.getFullYear();
           var m = readDate.getMonth() + 1;
           var d = readDate.getDate();
@@ -2219,6 +2219,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_1__);
+//
 //
 //
 //
@@ -2416,7 +2417,7 @@ __webpack_require__.r(__webpack_exports__);
         if (date === null) {
           return '読書中';
         } else {
-          var readDate = new Date(date);
+          var readDate = new Date(date.replace(/-/g, '/'));
           var y = readDate.getFullYear();
           var m = readDate.getMonth() + 1;
           var d = readDate.getDate();
@@ -77665,7 +77666,12 @@ var render = function() {
                   }
                 ],
                 staticClass: "p-bookDetail__readDate -edit",
-                attrs: { type: "date", name: "", id: "" },
+                attrs: {
+                  type: "date",
+                  name: "",
+                  id: "",
+                  placeholder: "(例) 2021/01/30"
+                },
                 domProps: { value: _vm.readDate },
                 on: {
                   input: function($event) {

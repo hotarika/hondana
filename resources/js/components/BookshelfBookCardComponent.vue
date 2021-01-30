@@ -121,7 +121,7 @@ export default {
                 if (date === null) {
                     return '読書中';
                 } else {
-                    const readDate = new Date(date);
+                    const readDate = new Date(date.replace(/-/g, '/'));
                     const y = readDate.getFullYear();
                     const m = readDate.getMonth() + 1;
                     const d = readDate.getDate();

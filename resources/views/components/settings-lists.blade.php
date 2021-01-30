@@ -18,13 +18,12 @@
             </li>
         </a>
         <a class="p-settings__link js-settings-item" href="{{route('bookshelf.index')}}">
-            <form action="{{route('withdraw',Auth::id())}}" method="post" type="submit">
-                @method('DELETE')
-                @csrf
-
-                <button class="p-settings__list -withdrawal js-settings-item"
-                    onclick="return confirm('退会したアカウントは復元することができません。\n本当に削除してもよろしいですか？')">退会</button>
-            </form>
+            <button class="p-settings__list -withdrawal js-settings-item" form="withdraw"
+                onclick="return confirm('退会したアカウントは復元することができません。\n本当に削除してもよろしいですか？')">退会</button>
         </a>
+        <form id="withdraw" action="{{route('withdraw',Auth::id())}}" method="post" type="submit" style="display: none">
+            @method('DELETE')
+            @csrf
+        </form>
     </ul>
 </aside>

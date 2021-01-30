@@ -1,5 +1,5 @@
-import '../js/modules/sp-navigation';
-import '../js/modules/sp-settings';
+import './modules/sp-navigation';
+import './modules/sp-settings';
 
 /**
  * First we will load all of this project's JavaScript dependencies which

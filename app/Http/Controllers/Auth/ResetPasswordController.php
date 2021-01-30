@@ -26,7 +26,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/bookshelf';
 
     /**
      * Get the password reset validation rules.
@@ -37,7 +37,7 @@ class ResetPasswordController extends Controller
     {
         return [
             'token' => 'required',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/'],
+            'email' => ['required', 'string', 'email', 'max:255', 'regex:/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/'],
             'password' => ['required', 'string', 'min:6', 'max:20', 'confirmed', 'regex:/^[a-zA-Z0-9]+$/'],
         ];
     }

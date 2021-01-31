@@ -12297,6 +12297,7 @@ pre {
   .p-welcome__featuresWrap {
     flex-direction: row;
     margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -12312,6 +12313,7 @@ pre {
 @media screen and (min-width: 768px) {
   .p-welcome__featureWrap {
     width: 32%;
+    margin-bottom: 0;
   }
 }
 
@@ -12335,15 +12337,21 @@ pre {
 
 .p-welcome__featureText {
   border-radius: 3px;
-  padding: 10px;
-  font-size: 13px;
+  padding: 20px;
+  font-size: 14px;
   background-color: #fff;
   border: 1px solid #f8f9fa;
 }
 
 @media screen and (min-width: 768px) {
   .p-welcome__featureText {
-    min-height: 180px;
+    min-height: 95%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .p-welcome__featureText {
+    min-height: 90%;
   }
 }
 

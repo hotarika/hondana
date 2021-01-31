@@ -91899,10 +91899,10 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/modules/sp-navigation */ "./resources/js/modules/sp-navigation.js");
-/* harmony import */ var _js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/modules/sp-settings */ "./resources/js/modules/sp-settings.js");
-/* harmony import */ var _js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/sp-navigation */ "./resources/js/modules/sp-navigation.js");
+/* harmony import */ var _modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_sp_navigation__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/sp-settings */ "./resources/js/modules/sp-settings.js");
+/* harmony import */ var _modules_sp_settings__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_sp_settings__WEBPACK_IMPORTED_MODULE_1__);
 
 
 /**

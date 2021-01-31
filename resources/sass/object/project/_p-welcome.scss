@@ -141,6 +141,7 @@
         @include mq('md') {
             flex-direction: row;
             margin-top: 40px;
+            margin-bottom: 40px;
         }
     }
     &__featureWrap {
@@ -151,6 +152,7 @@
         }
         @include mq('md') {
             width: 32%;
+            margin-bottom: 0;
         }
     }
     &__featureHead {
@@ -168,12 +170,15 @@
     }
     &__featureText {
         @include border-radius;
-        padding: 10px;
-        font-size: 13px;
+        padding: 20px;
+        font-size: 14px;
         background-color: $white;
         border: 1px solid $gray-100;
         @include mq('md') {
-            min-height: 180px;
+            min-height: 95%;
+        }
+        @include mq('lg') {
+            min-height: 90%;
         }
     }
 

@@ -46,21 +46,21 @@
                 <div class="p-welcome__featuresWrap">
 
                     <div class="p-welcome__featureWrap">
-                        <h3 class="p-welcome__featureHead"><i class="fas fa-bookmark"></i>自分だけの読書評価</h3>
+                        <h3 class="p-welcome__featureHead"><i class="fas fa-bookmark"></i>プライベートな空間の確保</h3>
                         <div class="p-welcome__featureText">
-                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            HONDANAでは、他のユーザーの読書評価を意識することなく読書管理をできるのが特徴です。なぜなら「読書の評価は自分がするもの」だからです。<br>書籍の受け取り方・評価は、その人の環境・年齢・考え方によって、大きく異なるため、それぞれ他者の読書評価を意識させないよう、個々の読書空間を保っています。
                         </div>
                     </div>
                     <div class="p-welcome__featureWrap">
                         <h3 class="p-welcome__featureHead"><i class="fas fa-bookmark"></i>読書ライフを支援</h3>
                         <div class="p-welcome__featureText">
-                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            読書記録を管理する上で壁となる原因の１つに、「管理方法がわからず続かない」というものがあります。ノートに綺麗にまとめるには、下準備で時間を取られてしまうことでしょう。<br>HONDANAでは、「書籍を検索→読書メモを追加」の簡単なステップだけで、綺麗に素早く簡単に読書記録を残すことができます。また、グラフで読書数の管理もできます。
                         </div>
                     </div>
                     <div class="p-welcome__featureWrap">
-                        <h3 class="p-welcome__featureHead"><i class="fas fa-bookmark"></i>気軽にメモをしよう</h3>
+                        <h3 class="p-welcome__featureHead"><i class="fas fa-bookmark"></i>直感的な使いやすさ</h3>
                         <div class="p-welcome__featureText">
-                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            私たちは「とにかく読書を楽しんでいただくこと」を重視してこのアプリを設計しています。読書に集中していただくため、無駄な機能を全てなくし、直感的に使えることを意識して設計しました。<br>今までメモや管理にかけていた時間を読書の時間にあてることで、もっと素敵な時間を過ごしてみませんか？
                         </div>
                     </div>
                 </div>

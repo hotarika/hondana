@@ -3,7 +3,7 @@
         <div class="p-header">
             {{-- logo --}}
             <div class="p-header__logoWrap">
-                <a @guest href="{{asset('/')}}"
+                <a @guest href="{{asset('/hondana')}}"
                     @else href="{{route('bookshelf.index')}}"
                     @endguest>
                     <img class="p-header__logoIcon" src="{{asset('icon/logo/logoIcon.svg')}}" alt="ロゴアイコン">

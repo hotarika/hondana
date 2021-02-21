@@ -1,0 +1,159 @@
+.p-registerBooks {
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__card {
+        @include border-radius;
+        width: 100%;
+        margin-bottom: 15px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+        @include mq('md') {
+            width: 49%;
+            margin-bottom: 20px;
+        }
+    }
+    // カード上部
+    &__upper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        background-color: $gray-300;
+        @include mq('lg') {
+            min-height: 20%;
+            padding: 5px 17px;
+        }
+    }
+    &__bookTitle {
+        padding: 5px 10px 5px 5px;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        @include mq('lg') {
+            @include ellipsis;
+            font-size: 15px;
+        }
+    }
+    &__toolTip {
+        bottom: 35px;
+        left: 26px;
+    }
+    &__registerButton {
+        @include border-radius;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: $white;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        background-color: $primary;
+        border: none;
+        &:focus {
+            outline: none;
+        }
+        &.is-active {
+            color: $black;
+            background-color: #ababab;
+        }
+    }
+    &__buttonDone {
+        display: none;
+        &.is-active {
+            display: inline;
+        }
+    }
+
+    // カード下部
+    &__lower {
+        position: relative;
+        display: flex;
+        padding: 20px 10px 15px;
+        overflow: hidden;
+        @include mq('lg') {
+            min-height: 65%;
+            padding: 15px 20px;
+        }
+        &.-noImage {
+            height: 70%;
+            min-height: 130px;
+        }
+    }
+    &__publishedDate {
+        top: 3px;
+        right: 8px;
+    }
+
+    // 画像
+    &__bookImageWrap {
+        width: 25%;
+        @include mq('lg') {
+            width: 17%;
+            margin-right: 20px;
+        }
+        &.-noImage {
+            // width: 85px;
+            // height: 115px;
+        }
+    }
+    &__bookImage {
+        //
+    }
+    &__googlePreviewLogo {
+        position: absolute;
+        right: -5px;
+        bottom: -6px;
+        width: 60px;
+    }
+    &__bookInfoWrap {
+        width: 75%;
+        @include mq('lg') {
+            width: 83%;
+        }
+    }
+    &__authorWrap {
+        display: flex;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $gray-400;
+    }
+    &__authorName {
+        @include ellipsis;
+        font-size: 12px;
+        letter-spacing: 0.3px;
+        @include mq('lg') {
+            font-size: 13px;
+        }
+    }
+    &__descHead {
+        display: inline-block;
+        margin-bottom: 3px;
+    }
+    &__descText {
+        display: -webkit-box;
+        overflow: hidden;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        @include mq('lg') {
+            font-size: 12px;
+            -webkit-line-clamp: 4;
+        }
+    }
+    &__googlePoweredbyLogo {
+        display: block;
+        width: 60px;
+        margin: -9px 0 0 auto;
+    }
+    &__noBooksMsg {
+        @include flex-center;
+        margin-top: 20px;
+        font-size: 20px;
+        color: $gray-500;
+        @include mq('md') {
+            font-size: 25px;
+        }
+    }
+}

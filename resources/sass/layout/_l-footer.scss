@@ -1,0 +1,20 @@
+.l-footer {
+    @include flex-center;
+    height: $footer-height;
+    background-color: $primary;
+
+    &__logoIcon {
+        width: 20px;
+        margin-right: 5px;
+        @include mq('md') {
+            width: 20px;
+            margin-right: 4px;
+        }
+    }
+    &__logo {
+        width: 100px;
+        @include mq('md') {
+            width: 110px;
+        }
+    }
+}

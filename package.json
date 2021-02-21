@@ -10,9 +10,17 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.19",
+        "axios": "^0.21.1",
         "bootstrap": "^4.0.0",
+        "browser-sync": "^2.26.13",
+        "browser-sync-webpack-plugin": "^2.3.0",
         "cross-env": "^7.0",
+        "eslint": "^7.18.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.4.1",
+        "import-glob-loader": "^1.1.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.19",
@@ -20,7 +28,19 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
-        "vue": "^2.5.17",
+        "stylelint": "^13.8.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-recess-order": "^2.3.0",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-prettier": "^1.1.2",
+        "stylelint-scss": "^3.18.0",
+        "stylelint-webpack-plugin": "^2.1.1",
+        "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "chart.js": "^2.9.4",
+        "vue-chartjs": "^3.5.1",
+        "vue-star-rating": "^1.7.0"
     }
 }

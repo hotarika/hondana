@@ -1,0 +1,12 @@
+.p-login {
+    &__rememberWrap {
+        line-height: 1.4;
+    }
+    &__passRequestWrap {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__passRequest {
+        font-size: 13px;
+    }
+}

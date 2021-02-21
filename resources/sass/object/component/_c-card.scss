@@ -1,0 +1,37 @@
+.c-card {
+    &__publishedDate {
+        position: absolute;
+        font-size: 11px;
+        color: $gray-600;
+    }
+    &__headTag {
+        @include flex-center;
+        width: 45px;
+        padding: 3px 5px;
+        margin-right: 10px;
+        font-size: 11px;
+        color: $gray-700;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        background: #ccb1b1;
+        border-radius: 3px;
+        &.-detailOverview {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        &.-registerOverview {
+            margin: 5px 0;
+        }
+    }
+    &__toolTip {
+        @include border-radius;
+        position: absolute;
+        padding: 3px 8px;
+        font-size: 11px;
+        color: $white;
+        visibility: hidden;
+        background-color: rgba(#000, 0.5);
+        opacity: 0;
+        transition: all 0.2s ease-out;
+    }
+}

@@ -1,0 +1,23 @@
+.c-h1 {
+    &__head {
+        @include border-radius('top');
+        position: relative;
+        padding: 15px 10px;
+        margin: 0;
+        font-size: 17px;
+        text-align: center;
+        word-break: break-all;
+        background-color: #e6d4ce;
+        @include mq('md') {
+            padding: 15px;
+            font-size: 22px;
+            &.-detail {
+                font-size: 17px;
+            }
+        }
+        & > i {
+            margin-right: 5px;
+            color: $primary;
+        }
+    }
+}

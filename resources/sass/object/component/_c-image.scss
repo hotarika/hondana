@@ -1,0 +1,19 @@
+.c-bookImageWrap {
+    position: relative;
+    height: 100%; // 書籍の高さに親要素を合わせる
+    margin-right: 12px;
+    cursor: pointer;
+    @include mq('lg') {
+        margin-right: 15px;
+    }
+    &.-noImage {
+        display: flex; // 画像なしの場合
+        align-items: center;
+        background-color: #ccc;
+    }
+}
+
+.c-bookImage {
+    object-fit: contain; // 画像なしの場合
+    width: 100%;
+}

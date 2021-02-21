@@ -1,0 +1,194 @@
+.p-bookDetail {
+    margin: 0 auto;
+    @include mq('lg') {
+        width: 75%;
+    }
+    @include mq('xl') {
+        width: 70%;
+    }
+    &__buttonWrap {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        @include mq('md') {
+            margin-top: -20px;
+        }
+    }
+    &__button {
+        @include border-radius;
+        padding: 3px 15px;
+        margin-right: 5px;
+        font-size: 13px;
+        color: $white;
+        background-color: $primary;
+        border: none;
+        &.-editDone {
+            background-color: #ce6e00;
+        }
+    }
+    &__bookAllInfoWrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 25px 15px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+        @include mq('2xs') {
+            flex-direction: row;
+        }
+        @include mq('md') {
+            padding: 20px 50px;
+        }
+        @include mq('lg') {
+            // padding: 20px;
+        }
+    }
+    &__publishedDate {
+        top: 6px;
+        right: 13px;
+    }
+
+    // 画像
+    &__bookImageWrap {
+        width: 30%;
+        margin: 5px auto;
+        background-color: gray;
+        @include mq('2xs') {
+            margin: 0;
+            margin-right: 30px;
+        }
+        @include mq('md') {
+            width: 15%;
+        }
+        &.-noImage {
+            min-height: 90px;
+        }
+    }
+    &__bookImage {
+        &.-noImage {
+            background-color: gray;
+        }
+    }
+
+    // 書籍情報
+    &__bookInfoWrap {
+        padding-top: 10px;
+        margin: 0 auto;
+        @include mq('2xs') {
+            margin: 0;
+        }
+        // @include mq('md') {
+        //     width: 75%;
+        // }
+    }
+    &__starRating {
+        display: flex;
+        justify-content: center;
+        @include mq('md') {
+            justify-content: flex-start;
+        }
+    }
+    &__nameWrap {
+        display: flex;
+        margin-bottom: 10px;
+        @include mq('md') {
+            // display: flex;
+        }
+    }
+    &__name {
+        font-size: 13px;
+        word-break: break-all;
+    }
+    &__readDateWrap {
+        position: relative;
+        display: flex;
+        margin-bottom: 5px;
+    }
+    &__readDateHead {
+        &.-edit {
+            line-height: 2;
+        }
+    }
+    &__readDate {
+        font-size: 13px;
+        &.-edit {
+            width: 120px;
+            padding: 0 3px;
+            font-size: 11px;
+            // font-size: 10px;
+            border: 1px solid $gray-300;
+            @include mq('md') {
+                width: 120px;
+            }
+        }
+    }
+    &__overviewWrap {
+        padding: 20px 15px;
+        margin-top: -1px;
+        word-break: break-all;
+        background-color: $white;
+        border: 1px solid $gray-200;
+        @include mq('md') {
+            padding: 20px 50px;
+        }
+        @include mq('lg') {
+            // padding: 10px 50px;
+        }
+    }
+    &__overview {
+        font-size: 13px;
+    }
+
+    // ******************************
+    // memo
+    // ******************************
+
+    &__memoWrap {
+        position: relative;
+        margin-top: 40px;
+        font-size: 12px;
+    }
+    &__memoHead {
+        margin-bottom: 5px;
+        margin-left: 5px;
+        font-size: 16px;
+        & > i {
+            margin-right: 3px;
+        }
+        & > span {
+            font-size: 13px;
+            color: $gray-600;
+        }
+    }
+    &__memo {
+        @include border-radius;
+        @include letter-settings;
+        min-height: 300px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: $white;
+        border: 1px solid $gray-200;
+        @include mq('md') {
+            padding: 20px 25px;
+        }
+        &.-textarea {
+            width: 100%;
+            border: 3px dashed #987f75;
+            &.-limit {
+                background-color: #ffdbde;
+                border: 3px dashed $red;
+            }
+        }
+        &.-pre {
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+    }
+    &__limitMessage {
+        font-size: 15px;
+        font-weight: bold;
+        color: $red;
+        text-align: right;
+    }
+}

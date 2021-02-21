@@ -44,11 +44,11 @@
     }
     &__searchBtn {
         @include border-radius('right');
+        @include flex-center;
         width: 40px;
         background-color: $primary;
         border: none;
         outline: 0;
-
         & > i {
             color: $white;
         }

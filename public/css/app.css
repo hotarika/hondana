@@ -12264,6 +12264,7 @@ pre {
   border-radius: 3px;
   display: flex;
   justify-content: center;
+  max-height: 45px;
   padding: 10px;
   margin: 0 auto 30px;
   font-size: 18px;

@@ -1,7 +1,10 @@
 .l-footer {
-    @include flex-center;
     height: $footer-height;
     background-color: $primary;
+    & > .container {
+        @include flex-center;
+        height: 100%;
+    }
 
     &__logoIcon {
         width: 20px;

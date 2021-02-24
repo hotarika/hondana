@@ -59,7 +59,6 @@
             <img class="p-header__menuOpen js-openIcon" src="{{asset('icon/bars-solid.svg')}}"
                 alt="ハンバーガーメニュー" />
             @endguest
-
         </div>
     </div>
 </header>

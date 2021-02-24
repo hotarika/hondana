@@ -64,27 +64,6 @@ class LoginFormTest extends TestCase
     // *******************************************
     /**
      * @test
-     * [異常系] メールアドレスが有効、パスワードが無効の場合
-     * */
-    public function login_user_valid_email_false()
-    {
-        factory(User::class)->create([
-            'name' => 'test',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password'),
-        ]);
-
-        $response = $this->post('login', [
-            'email' => 'test@example.com',
-            'password' => 'passworddd'
-        ]);
-
-        $error = session('errors')->first('email');
-        $this->assertEquals('メールアドレスまたはパスワードが違います。', $error);
-    }
-
-    /**
-     * @test
      * [異常系] メールアドレスが無効の場合
      * */
     public function login_user_invalid_email_false()
@@ -98,6 +77,30 @@ class LoginFormTest extends TestCase
         $response = $this->post('login', [
             'email' => 'test1111@example.com',
             'password' => 'password'
+        ]);
+
+        $error = session('errors')->first('email');
+        $this->assertEquals('メールアドレスまたはパスワードが違います。', $error);
+    }
+
+    // *******************************************
+    // パスワード
+    // *******************************************
+    /**
+     * @test
+     * [異常系] メールアドレスが有効、パスワードが無効の場合
+     * */
+    public function login_user_valid_email_false()
+    {
+        factory(User::class)->create([
+            'name' => 'test',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        $response = $this->post('login', [
+            'email' => 'test@example.com',
+            'password' => 'passworddd'
         ]);
 
         $error = session('errors')->first('email');

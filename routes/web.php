@@ -33,6 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/withdraw', 'Auth\WithdrawController')->name('withdraw');
 });
 
-// Async
+// 非同期処理
 Route::get('/async/bookshelf', 'AsynchronousController@getBookshelf');
 Route::get('/async/booksnum', 'AsynchronousController@getBooksNum');

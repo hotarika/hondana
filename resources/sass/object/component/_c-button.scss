@@ -3,18 +3,26 @@
 // **********************************
 .c-btn {
     &__appDesc {
-        @include border-radius('all', 5%);
+        @include border-radius('all', 5px);
         @include flex-center;
         position: absolute;
         right: 10px;
         width: 75px;
         height: 40px;
         font-size: 11.5px;
+        font-weight: bold;
         line-height: 13px;
         color: $white;
         text-align: center;
         text-decoration: none;
         background-color: #54c100;
+        @include mq('md') {
+            width: 200px;
+            font-size: 16px;
+            & > br {
+                display: none;
+            }
+        }
         &:hover {
             color: $white;
         }

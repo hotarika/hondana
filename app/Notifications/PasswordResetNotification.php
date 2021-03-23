@@ -14,7 +14,7 @@ class PasswordResetNotification extends ResetPassword
     use Queueable;
 
     /**
-     * Get the mail representation of the notification.
+     * パスワード再設定のメール送信
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage

@@ -125,7 +125,6 @@ export default {
             // const that = this;
             let filteredBooks = [];
 
-            // ************************
             if (this.latestDate == 1 || this.latestDate == 2) {
                 // 読書中の書籍を削除
                 const removeReadingBooks = this.books.filter(
@@ -157,8 +156,6 @@ export default {
                 // 読了日順が何も指定されていない場合には、そのまま全てのデータを格納
                 filteredBooks = this.books;
             }
-
-            // ************************
 
             // フィルター
             return filteredBooks

@@ -28,6 +28,7 @@ class ChangePasswordRequest extends FormRequest
     public function rules()
     {
         return [
+            // 6~20文字・半角英数字のみ
             'current_password' => ['required', 'string', 'min:6', 'max:20', 'regex:/^[a-zA-Z0-9]+$/'],
             'password' => ['required', 'string', 'min:6', 'max:20', 'confirmed', 'regex:/^[a-zA-Z0-9]+$/']
         ];
